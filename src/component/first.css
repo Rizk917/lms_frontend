@@ -1,0 +1,223 @@
+.header {
+    background-color: #eeefee;
+    height: 6.5vw;
+    display: flex;
+}
+
+.header h1 {
+    padding-left: 20px;
+    padding-top: 1vw;
+    color: blue;
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    background-color: white;
+    width: 20%;
+    border-right: 1px solid black;
+}
+
+.sidebar-buttons {
+    width: 100%;
+    font-size: 1.5vw;
+
+    margin: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+.sidebar-buttons a {
+    text-decoration: none;
+    color: blue;
+}
+
+.addadmins {
+    display: flex;
+    flex-direction: column;
+    background-color: #eeefee94;
+    width: 100%;
+    padding-top: 2vw;
+    height: 35vw;
+
+
+
+
+}
+
+.label-Addadmins {
+    font-size: 2vw;
+    color: black;
+
+    margin-left: 2vw;
+
+}
+
+.input-Addamis {
+    height: 2vw;
+    width: 40%;
+    margin-left: 2vw;
+    border: 1px solid blue;
+}
+
+.input-Classes {
+    height: 2vw;
+    width: 90%;
+    margin-left: 2vw;
+    border: 1px solid blue;
+}
+
+.cancel-classes {
+    width: 15%;
+    margin-top: 1vw;
+    padding: 0.5vw;
+
+    background-color: #eeefee94;
+    border: none;
+    color: #FF0000;
+    font-size: 1vw;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #FF0000;
+    text-decoration: none;
+    text-align: center;
+
+
+}
+
+.buttons-classes {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+
+}
+
+.submit-classes {
+    width: 15%;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1vw;
+    padding: 0.5vw;
+    color: white;
+    background-color: #0390CD;
+    border-radius: 5px;
+    border: none;
+    font-size: 1vw;
+    cursor: pointer;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+.ordering {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+}
+
+.logoo {
+    height: 13.5vw;
+}
+
+
+
+.classespage {
+    background-color: white;
+    padding-top: 5vw;
+    margin-left: 5%;
+}
+
+.table-classes {
+    border-spacing: 0px 10px;
+
+    width: 90%;
+
+
+}
+
+.table-classes td {
+    border: 1px solid black;
+    border-right: 2px solid #163951;
+    padding: 0.5vw;
+    border-top-right-radius: 5px;
+
+    border-bottom-right-radius: 5px;
+}
+
+.table-classes th {
+    padding-left: 5px;
+    text-align: left;
+
+    width: 30%;
+
+
+}
+
+.headetable {
+    font-size: 1.5vw;
+    color: #163951;
+
+}
+
+.table-info {
+    font-size: 1.2vw;
+    border-spacing: 0px;
+    color: #163951;
+
+}
+
+.addclass-button {
+    font-size: 1vw;
+    background-color: #0390CD;
+    float: right;
+    border: none;
+    color: white;
+    padding: 0.5vw;
+    width: 70%;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.delete-classes {
+    background-color: white;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    border-radius: 5px;
+    font-size: 1vw;
+    width: 30%;
+    margin-left: 35%;
+    padding: 0.5vw;
+
+}
+
+.edit-classes {
+    font-size: 1vw;
+    color: white;
+    border-radius: 5px;
+    background-color: #0390CD;
+    width: 30%;
+    margin-left: 3%;
+
+    padding: 0.5vw;
+
+
+
+}
+
+.addclasses-border {
+
+    border: 4px solid #D8DEE2;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 5vw;
+    margin-left: 20%;
+    margin-top: 5%;
+}
