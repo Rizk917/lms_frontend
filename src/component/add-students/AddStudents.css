@@ -1,0 +1,182 @@
+.M1-container1{
+  height: 150vh;
+}
+
+.M1-container2{
+
+  border-width: 2px;
+  border-style:solid;
+  border-color:black;
+  margin-top: 10vh;
+  margin-left: 15%;
+  margin-right: 20vh;
+  width: 70%;
+ 
+}
+
+
+.M1-center-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  border: #0390CD;
+  border: 10px;
+  margin-top: 1.5vw;
+  margin-bottom: 3vw;
+  }
+
+  
+  .M1-profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  }
+  
+  .M1-profile-pic img {
+    width: 8vw;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+
+  
+  .M1-upload-button{
+   
+      width: 10vw;
+      padding: 0.5vw;
+      font-size: 1.2rem;
+  }
+
+  .M1-profile-button{
+    margin: auto;
+  }
+  
+    
+  
+  .M1-addadmins {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: auto;
+    width: 90%;
+   
+  }
+
+  
+  
+  .M1-label-Addadmins {
+    font-size: 2em;
+    color: black;
+    margin-left: 2vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+  
+  .M1-input-Addamis {
+    height: 2.5vw;
+    margin-left: 2vw;
+    border: 1px solid #D8DEE2;
+    width: 100%;
+  }
+
+
+
+  .M1-addadmins{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .M1-input-Classes {
+    height: 2vw;
+    width: 90%;
+    margin-left: 2vw;
+    border: 1px solid blue;
+    font-size: 2vw;
+    padding: 2vw;
+  }
+
+
+  
+  
+  
+   .M1-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 2%;
+    margin-top: 2vw;
+    
+ 
+  } 
+ 
+  
+  
+  
+  
+
+
+
+
+    .M1-cancel-classes {
+      background-color: white;
+      color: #FF0000;
+      border: 2px solid #FF0000;
+      border-radius: 5px;
+      font-size: 1vw;
+      width: 20%;     
+      padding: 0.5vw;
+  
+  
+  }
+  
+  .M1-edit-classes {
+   
+      font-size: 1vw;
+      color: white;
+      border-radius: 5px;
+      background-color: #0390CD;
+      width: 20%;
+   
+      padding: 0.5vw;
+  }
+
+  
+
+
+  @media screen and (max-width: 768px) {
+    .M1-container1 {
+      height: auto;
+      margin-top: 2rem;
+    }
+  
+    .M1-container2 {
+      margin-top: 5vh;
+      margin-left: 5%;
+      margin-right: 5%;
+      width: 90%;
+      border-style:none;
+    }
+  
+    .M1-center-container {
+      width: 100%;
+      margin-top: 5vw;
+      margin-bottom: 5vw;
+    }
+  
+    .M1-profile-pic {
+      height: 10vh;
+    }
+  
+    .M1-profile-pic img {
+      width: 20vw;
+      height: auto;
+      border-radius: 50%;
+    }
+  
+    .M1-upload-button { 
+     
+      width:22vw;
+    }}
