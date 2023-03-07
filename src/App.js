@@ -11,7 +11,8 @@ import ClassesPage from "./pages/ClassesPage";
 import EditclassesPage from "./pages/EditclassesPage";
 import AddSectionPage from "./pages/AddSectionsPage";
 import EditSectionPage from "./pages/EditSectionPage";
-import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
       <Route exact path='/addstudent' element={< AddStudentsPage />}></Route>
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
+      <Route exact path='/Home' element={< Home />}></Route>
+
       
       <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
       <Route exact path='/newSection' element={< AddSectionPage />}></Route>
