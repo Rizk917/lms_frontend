@@ -1,0 +1,56 @@
+.homeOne,
+.homeTwo {
+  display: flex;
+  justify-content: space-around;
+  margin: 5%;
+}
+
+.home h1 {
+  color: #163951;
+  margin-right: 100px;
+}
+
+/* Chart CSS*/
+.chartContainer {
+  width: 600px;
+  height: 50vh;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* classProgress CSS */
+.classProgressRow {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  width: 70%;
+  border: 0.5px solid #d8dee2;
+  margin: 1%;
+  padding: 1%;
+}
+
+.classProgressOne {
+  display: flex;
+  flex-direction: column;
+}
+
+.classProgressContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d8dee2;
+  width: 40%;
+  max-height: 57vh;
+  overflow: scroll;
+}
+
+/*Pie chart total*/
+.pieChart {
+  margin: auto;
+}
+
+.pieChartContainer {
+  width: 50%;
+}
+
+/* Frequent absent students table*/

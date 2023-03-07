@@ -8,7 +8,8 @@ import AddStudentsPage from "./pages/AddStudentsPage";
 import AddClassesPage from "./pages/AddClassesPage";
 import AddSectionsPage from "./pages/AddSectionsPage";
 import ClassesPage from "./pages/ClassesPage";
-import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
       <Route exact path='/addstudent' element={< AddStudentsPage />}></Route>
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
+      <Route exact path='/Home' element={< Home />}></Route>
+
 
     </Routes>
     </div>
