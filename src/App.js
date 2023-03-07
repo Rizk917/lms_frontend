@@ -13,6 +13,9 @@ import SelectStudent from "./pages/student-pages/SelectStudentPage";
 import EditStudentsPage from "./pages/student-pages/EditStudentPage";
 import SelectAdminsPage from "./pages/admin-pages/SelectAdminPage";
 import EditAdminsPage from "./pages/admin-pages/EditAdminPage";
+import EditclassesPage from "./pages/EditclassesPage";
+import EditSectionPage from "./pages/EditSectionPage"
+import Home from "./pages/Home"
 function App() {
   return (
     <div>
@@ -30,14 +33,9 @@ function App() {
       <Route exact path='/select-student' element={< SelectStudent/>}></Route>
       <Route exact path='/select-admin' element={< SelectAdminsPage/>}></Route>
       <Route exact path='/edit-admin' element={< EditAdminsPage/>}></Route>
-
-
-
-      <Route exact path='/Home' element={< Home />}></Route>
-
-      
+      <Route exact path='/home' element={< Home/>}></Route>
       <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
-      <Route exact path='/newSection' element={< AddSectionPage />}></Route>
+      <Route exact path='/newSection' element={< AddSectionsPage />}></Route>
       <Route exact path='/EditSections' element={< EditSectionPage />}></Route>
 
       newSection   </Routes>

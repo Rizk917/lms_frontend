@@ -1,10 +1,11 @@
 import React from "react";
 import "./first.css";
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
-import AddAminPage from "../pages/admin-pages/AddAdminsPage";
+import AddAminPage from "../pages/admin-pages/AdminPage";
 import AddClassesPage from "../pages/AddClassesPage";
 import AddSectionsPage from "../pages/AddSectionsPage";
-`import AddStudentsPage from "../pages/AddStudentsPage";
+import AddStudentsPage from "../pages/student-pages/AddStudentsPage";
+import home from "../images/home_icon.png";
 import logo from "../images/logo.png"
 import classlogo from "../images/classicon.png"
 import studentlogo from "../images/studentlogo.png"
@@ -15,10 +16,6 @@ import adminlogo from "../images/adminlogo.png"
 function Sidebar() {
   return <div className="sidebar-container">
     <img className="logoo" src={logo} alt="" />
-    <p className="sidebar-buttons"><Link to="/"> Home</Link></p>
-    <p className="sidebar-buttons"><Link to='/classes'>Classes</Link></p>
-    <p className="sidebar-buttons"><Link to='/students'>Students</Link></p>
-    <p className="sidebar-buttons"><Link to='/admin'>Admins</Link></p>
 
     <div className="sidebar-buttons"><img src={home} alt="" /> <p><Link to="/">Home</Link></p></div>
     <div className="sidebar-buttons"><img src={classlogo} alt="" /> <p ><Link to='/Classespage'>CLasses</Link></p></div>
