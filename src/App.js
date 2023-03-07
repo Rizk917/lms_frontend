@@ -20,7 +20,7 @@ function App() {
       <Routes>
       
       <Route exact path='/admin' element={< Admin />}></Route>
-      <Route exact path='/classes' element={< AddClassesPage />}></Route>
+      <Route exact path='/Addclasses' element={< AddClassesPage />}></Route>
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
       <Route exact path='/add-students' element={< AddStudentsPage />}></Route>
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
@@ -33,8 +33,14 @@ function App() {
 
 
 
+      <Route exact path='/Home' element={< Home />}></Route>
 
-    </Routes>
+      
+      <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
+      <Route exact path='/newSection' element={< AddSectionPage />}></Route>
+      <Route exact path='/EditSections' element={< EditSectionPage />}></Route>
+
+      newSection   </Routes>
     </div>
   );
 }
