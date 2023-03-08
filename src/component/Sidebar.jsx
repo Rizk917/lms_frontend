@@ -1,10 +1,10 @@
 import React from "react";
 import "./first.css";
 import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
-import AddAminPage from "../pages/AddAdminsPage";
+import AddAminPage from "../pages/admin-pages/AdminPage";
 import AddClassesPage from "../pages/AddClassesPage";
 import AddSectionsPage from "../pages/AddSectionsPage";
-import AddStudentsPage from "../pages/AddStudentsPage";
+import AddStudentsPage from "../pages/student-pages/AddStudentsPage";
 import home from "../images/home_icon.png";
 import logo from "../images/logo.png"
 import classlogo from "../images/classicon.png"

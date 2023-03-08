@@ -1,13 +1,18 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./component/Header";
-import Sidebar from "./component/Sidebar";
-import AddAdmins from "./component/AddAdmins";
-import AddAminPage from "./pages/AddAdminsPage";
-import AddStudentsPage from "./pages/AddStudentsPage";
+
+import AddStudentsPage from "./pages/student-pages/AddStudentsPage";
 import AddClassesPage from "./pages/AddClassesPage";
 import AddSectionsPage from "./pages/AddSectionsPage";
 import ClassesPage from "./pages/ClassesPage";
+import Studentspage from "./pages/student-pages/StudentsPage";
+import { Route, Routes,  } from 'react-router-dom';
+import Admin from "./pages/admin-pages/AdminPage";
+import AddAdminPage from "./pages/admin-pages/AddAdminsPage";
+import SelectStudent from "./pages/student-pages/SelectStudentPage";
+import EditStudentsPage from "./pages/student-pages/EditStudentPage";
+import SelectAdminsPage from "./pages/admin-pages/SelectAdminPage";
+import EditAdminsPage from "./pages/admin-pages/EditAdminPage";
 import EditclassesPage from "./pages/EditclassesPage";
 import AddSectionPage from "./pages/AddSectionsPage";
 import EditSectionPage from "./pages/EditSectionPage";
@@ -19,10 +24,11 @@ function App() {
     <div>
 
       <Routes>
-      <Route exact path='/' element={< AddAminPage />}></Route>
+      
+      <Route exact path='/admin' element={< Admin />}></Route>
       <Route exact path='/Addclasses' element={< AddClassesPage />}></Route>
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
-      <Route exact path='/addstudent' element={< AddStudentsPage />}></Route>
+      <Route exact path='/add-students' element={< AddStudentsPage />}></Route>
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
       <Route exact path='/Home' element={< Home />}></Route>
       <Route exact path='/Attendance' element={< AttendancePage/>}></Route>
@@ -30,7 +36,7 @@ function App() {
 
       
       <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
-      <Route exact path='/newSection' element={< AddSectionPage />}></Route>
+      <Route exact path='/newSection' element={< AddSectionsPage />}></Route>
       <Route exact path='/EditSections' element={< EditSectionPage />}></Route>
 
       newSection   </Routes>

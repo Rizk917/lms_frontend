@@ -1,7 +1,7 @@
-import "../App.css";
-import Header from "../component/Header";
-import Sidebar from "../component/Sidebar";
-import Addstudent from "../component/Addstudent";
+import "../../App";
+import Header from "../../component/Header";
+import Sidebar from "../../component/Sidebar";
+import Addstudent from "../../component/add-students/AddStudents";
 
 function AddStudentsPage() {
   return (
