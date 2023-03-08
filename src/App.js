@@ -6,7 +6,6 @@ import AddClassesPage from "./pages/AddClassesPage";
 import AddSectionsPage from "./pages/AddSectionsPage";
 import ClassesPage from "./pages/ClassesPage";
 import Studentspage from "./pages/student-pages/StudentsPage";
-import { Route, Routes,  } from 'react-router-dom';
 import Admin from "./pages/admin-pages/AdminPage";
 import AddAdminPage from "./pages/admin-pages/AddAdminsPage";
 import SelectStudent from "./pages/student-pages/SelectStudentPage";
