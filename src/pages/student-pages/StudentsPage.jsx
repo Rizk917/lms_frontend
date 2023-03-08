@@ -13,8 +13,6 @@ function Studentspage() {
         <Sidebar />
         <div className="ordering">
           <Header />
-
-
           <Students />
         </div>
 
