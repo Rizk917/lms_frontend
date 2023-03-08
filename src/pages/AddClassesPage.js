@@ -1,7 +1,7 @@
 import "../App.css";
 import Header from "../component/Header";
 import Sidebar from "../component/Sidebar";
-import AddAdmins from "../component/AddAdmins";
+
 import AddClasses from "../component/AddClasses";
 function AddClassesPage() {
   return (

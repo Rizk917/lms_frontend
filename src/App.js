@@ -16,6 +16,7 @@ import EditclassesPage from "./pages/EditclassesPage";
 import AddSectionPage from "./pages/AddSectionsPage";
 import EditSectionPage from "./pages/EditSectionPage";
 import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
+import SecondSelectPage from "./pages/SecondSelectPage";
 import Home from "./pages/Home";
 import AttendancePage from "./pages/AttendancePage";
 function App() {
@@ -23,7 +24,8 @@ function App() {
     <div>
 
       <Routes>
-      
+       
+      <Route exact path='/SecondSelect' element={< SecondSelectPage />}></Route>
       <Route exact path='/admin' element={< Admin />}></Route>
       <Route exact path='/Addclasses' element={< AddClassesPage />}></Route>
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
@@ -31,6 +33,7 @@ function App() {
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
       <Route exact path='/Home' element={< Home />}></Route>
       <Route exact path='/Attendance' element={< AttendancePage/>}></Route>
+      <Route exact path='/students' element={< Studentspage/>}></Route>
 
 
       
