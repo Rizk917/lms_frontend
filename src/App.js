@@ -13,7 +13,7 @@ import AddSectionPage from "./pages/AddSectionsPage";
 import EditSectionPage from "./pages/EditSectionPage";
 import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
-
+import AttendancePage from "./pages/AttendancePage";
 function App() {
   return (
     <div>
@@ -25,6 +25,8 @@ function App() {
       <Route exact path='/addstudent' element={< AddStudentsPage />}></Route>
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
       <Route exact path='/Home' element={< Home />}></Route>
+      <Route exact path='/Attendance' element={< AttendancePage/>}></Route>
+
 
       
       <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>

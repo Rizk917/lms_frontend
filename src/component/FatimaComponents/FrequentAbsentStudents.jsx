@@ -49,7 +49,7 @@ const FrequentAbsentStudents = () => {
   }, [selectedClass]);
 
   return (
-    <div>
+    <div className="frequentAbsentStudents">
       <Select
         placeholder="Select Class"
         onChange={handleSelectChange}
@@ -68,9 +68,9 @@ const FrequentAbsentStudents = () => {
         <div className="absentStudentList">
           {absentStudents.map((student) => (
             <div className="absentStudentRow">
-              <div>{student.student_name}</div>
-              <div>{student.total_absence}</div>
-              <button className="edit-classes">Edit view</button>
+              <div className="absentStudentElement">{student.student_name}</div>
+              <div className="absentStudentElement">{student.total_absence}</div>
+              <div className="absentStudentButtonBorder"><button className="edit-classes ">View</button></div>
             </div>
           ))}
         </div>
