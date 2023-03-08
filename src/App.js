@@ -33,6 +33,7 @@ function App() {
       <Route exact path='/Classespage' element={< ClassesPage />}></Route>
       <Route exact path='/Home' element={< Home />}></Route>
       <Route exact path='/Attendance' element={< AttendancePage/>}></Route>
+      <Route exact path='/students' element={< Studentspage/>}></Route>
 
 
       
