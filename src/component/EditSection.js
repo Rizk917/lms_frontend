@@ -34,7 +34,7 @@ function EditSection() {
           <tr>
             <th className="headetable">Student First Name</th>
             <th className="headetable">Student Last Name</th>
-            <th> <Link className="addclass-button" to='/newSection'> Add new Student</Link></th>
+            <th> <Link className="addclass-button" to='/add-students'> Add new Student</Link></th>
           </tr>
         </thead>
 
@@ -44,12 +44,13 @@ function EditSection() {
             <td className="table-info">1</td>
             <td className="table-info"><button className="delete-classes">Remove</button>
             
-            <button className="edit-classes" onClick={() => edithandler()}>
+            <button className="edit-classes" >
+            <Link to='/SecondSelect'> view</Link>
+
                 
                 
                 
-                
-               view </button></td>
+                </button></td>
           </tr>
           <tr>
             <td className="table-info">Section B </td>

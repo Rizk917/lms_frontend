@@ -15,13 +15,15 @@ import SelectAdminsPage from "./pages/admin-pages/SelectAdminPage";
 import EditAdminsPage from "./pages/admin-pages/EditAdminPage";
 import EditclassesPage from "./pages/EditclassesPage";
 import EditSectionPage from "./pages/EditSectionPage"
+import SecondSelectPage from "./pages/SecondSelectPage";
 import Home from "./pages/Home"
 function App() {
   return (
     <div>
 
       <Routes>
-      
+       
+      <Route exact path='/SecondSelect' element={< SecondSelectPage />}></Route>
       <Route exact path='/admin' element={< Admin />}></Route>
       <Route exact path='/Addclasses' element={< AddClassesPage />}></Route>
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
