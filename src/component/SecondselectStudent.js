@@ -1,7 +1,39 @@
 import React from "react";
 import "../component/select-student/SelectStudent.css";
 import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 export default function SecondselectStudent() {
+
+  const { state } = useLocation();
+  const [sectionid,setsectionid] = useState(state.sectionid);
+  const [student_id,setstudent_id]=useState(state.student_id);
+  const [studentinfo,setstudentinfo]=useState(); 
+
+
+const getstudentinfo=async()=>{
+   axios.get(`http://127.0.0.1:8000/api/student/search/id/${state.student_id}`)
+  .then(response => {
+    setstudentinfo(response.data[0])
+    console.log(response.data)
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+}
+
+
+useEffect(() => {
+  getstudentinfo();
+
+  
+
+}, []);
+
+
+
   return (
    
       <div className="M2-container1">
@@ -14,37 +46,19 @@ export default function SecondselectStudent() {
         
         <button className="M2-upload-button">Upload</button>
       </div>
-
+    
       <div className="M2-addadmins">
   <label className="M2-label-Addadmins" htmlFor="">First name</label>
-  <input className="M2-input-Addamis" type="text" />
+  {studentinfo && <input className="M2-input-Addamis" type="text"  readOnly="readOnly" placeholder={studentinfo.First_Name} />}
   <label className="M2-label-Addadmins" htmlFor="">Last name</label>
-  <input className="M2-input-Addamis" type="text" />
+  {studentinfo && <input className="M2-input-Addamis" type="text" readOnly="readOnly" placeholder={studentinfo.Last_Name} />}
   <label className="M2-label-Addadmins" htmlFor="">Phone Number</label>
-  <input className="M2-input-Addamis" type="text" />
-  <label className="M2-label-Addadmins" htmlFor="">Email</label>  
-  <input className="M2-input-Addamis" type="text" />
-  <label className="M2-label-Addadmins" htmlFor="">Grade</label>
-  <select className="M2-input-Addamis" disabled>
-    <option value="">--Select grade--</option>
-    <option value="1">1st grade</option>
-    <option value="2">2nd grade</option>
-    <option value="3">3rd grade</option>
-    <option value="4">4th grade</option>
-    <option value="5">5th grade</option>
-  </select>
-  <label className="M2-label-Addadmins" htmlFor="">Section</label>
-  <select className="M2-input-Addamis" disabled>
-    <option value="">--Select section--</option>
-    <option value="A">Section A</option>
-    <option value="B">Section B</option>
-    <option value="C">Section C</option>
-    <option value="D">Section D</option>
-  </select>
-  </div>
+  {studentinfo && <input className="M2-input-Addamis" readOnly="readOnly" type="text" placeholder={studentinfo.phone_number} />}
+</div>
+
   <div className="M2-buttons">
-    <Link className="M4-cancel-classes" to='/EditSections'>Cancel</Link>
-    <button className="M2-edit-classes">Edit</button>
+    <Link className="M4-cancel-classes" to='/EditSections'state={{sectionid:state.sectionid}}>Done</Link>
+   
   </div>
 
 </div>
