@@ -17,7 +17,7 @@ function Sidebar() {
   return <div className="sidebar-container">
     <img className="logoo" src={logo} alt="" />
 
-    <div className="sidebar-buttons"><img src={home} alt="" /> <p><Link to="/">Home</Link></p></div>
+    <div className="sidebar-buttons"><img src={home} alt="" /> <p><Link to="/home">Home</Link></p></div>
     <div className="sidebar-buttons"><img src={classlogo} alt="" /> <p ><Link to='/Classespage'>CLasses</Link></p></div>
     <div className="sidebar-buttons"><img src={studentlogo} alt="" /> <p ><Link to='/Classespage'>Students</Link></p> </div >
     <div className="sidebar-buttons"><img src={Attendancelogo} alt="" /> <p ><Link to='/Classespage'>Attendance</Link></p></div >
