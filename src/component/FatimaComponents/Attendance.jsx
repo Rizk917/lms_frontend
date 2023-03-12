@@ -1,20 +1,24 @@
 import Select from "react-select";
 import { useState, useEffect } from "react";
+import { format } from "date-fns";
 import Axios from "axios";
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const AttendanceTable = () => {
-  const [selectedStudent, setSelectedStudent] = useState();
   const [selectedClass, setSelectedClass] = useState();
   const [selectedSection, setselctedSection] = useState();
+  const [selectedStudent, setSelectedStudent] = useState();
   const [startDate, setStartDate] = useState(new Date());
 
-  const [data, setData] = useState([]);
   const [classOptions, setClassOptions] = useState([]);
   const [sectionOptions, setSectionOptions] = useState([]);
   const [studentOptions, setStudentOptions] = useState([]);
+  // const [dateOPtions, setAttendanceDate] = useState([]);
+
+  const [data, setData] = useState([]);
+
 
 
   // classes selection
@@ -64,12 +68,21 @@ const AttendanceTable = () => {
 
   //The whole table
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/attendance")
+    Axios.get(
+      `http://localhost:8000/api/attendance?${
+        selectedClass ? "class_id=" + selectedClass.value : ""
+      }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${
+        selectedStudent ? "student_id=" + selectedStudent.value : ""
+      }&${startDate ? "date=" + startDate.toISOString().slice(0, 10) : ""}}`
+      
+    )
+
       .then((res) => {
         setData(res.data);
+        console.log(startDate.toISOString().slice(0, 10))
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [selectedClass, selectedSection, selectedStudent,startDate]);
 
   const handleSelectChangeStudent = (option) => {
     setSelectedStudent(option);
@@ -126,6 +139,8 @@ const AttendanceTable = () => {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             className="datePicker"
+            dateFormat="yyyy-MM-dd"
+            isClearable
           />
         </div>
       </div>
