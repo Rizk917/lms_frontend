@@ -9,6 +9,9 @@ import "react-datepicker/dist/react-datepicker.css";
 const AttendanceTable = () => {
   const [selectedClass, setSelectedClass] = useState();
   const [selectedSection, setselctedSection] = useState();
+const AttendanceTable = () => {
+  const [selectedClass, setSelectedClass] = useState();
+  const [selectedSection, setselctedSection] = useState();
   const [selectedStudent, setSelectedStudent] = useState();
   const [startDate, setStartDate] = useState(new Date());
 
@@ -90,8 +93,12 @@ const AttendanceTable = () => {
 
   const handleSelectChangeClass = (option) => {
     setSelectedClass(option);
+  const handleSelectChangeClass = (option) => {
+    setSelectedClass(option);
   };
 
+  const handleSelectChangeSection = (option) => {
+    setselctedSection(option);
   const handleSelectChangeSection = (option) => {
     setselctedSection(option);
   };
@@ -108,6 +115,9 @@ const AttendanceTable = () => {
             value={selectedClass}
             options={classOptions}
             isClearable
+            value={selectedClass}
+            options={classOptions}
+            isClearable
           />
         </div>
         <div className="filterListByAlone">
@@ -116,7 +126,10 @@ const AttendanceTable = () => {
             placeholder="Select Section"
             onChange={handleSelectChangeSection}
             value={selectedSection}
+            value={selectedSection}
             isDisabled={!selectedClass}
+            options={sectionOptions}
+            isClearable
             options={sectionOptions}
             isClearable
           />
@@ -127,7 +140,10 @@ const AttendanceTable = () => {
             placeholder="Select Student"
             onChange={handleSelectChangeStudent}
             value={selectedStudent}
+            value={selectedStudent}
             isDisabled={!selectedClass || !selectedSection}
+            options={studentOptions}
+            isClearable
             options={studentOptions}
             isClearable
           />
@@ -158,6 +174,7 @@ const AttendanceTable = () => {
             <div className="attendanceBorderWord">{item.section_name}</div>
             <div className="attendanceBorderWord">{item.student_name}</div>
             <div className="attendanceBorderWord">{item.date}</div>
+            <div className="attendanceBorderWord">{item.status}</div>
             <div className="attendanceBorderWord">{item.status}</div>
           </div>
         ))}
