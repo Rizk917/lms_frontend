@@ -1,34 +1,100 @@
 import Select from "react-select";
 import { useState, useEffect } from "react";
+import { format } from "date-fns";
+import Axios from "axios";
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const AttendanceTable = ({
-  student_labels,
-  class_labels,
-  section_labels,
-  data,
-}) => {
-  const [selectedStudent, setSelectedStudent] = useState();
+const AttendanceTable = () => {
   const [selectedClass, setSelectedClass] = useState();
-  const [selectedSection, setselctedsection] = useState();
+  const [selectedSection, setselctedSection] = useState();
+  const [selectedStudent, setSelectedStudent] = useState();
   const [startDate, setStartDate] = useState(new Date());
 
-  const handleSelectChangeStudent = ({ value }) => {
-    setSelectedStudent(value);
+  const [classOptions, setClassOptions] = useState([]);
+  const [sectionOptions, setSectionOptions] = useState([]);
+  const [studentOptions, setStudentOptions] = useState([]);
+  // const [dateOPtions, setAttendanceDate] = useState([]);
+
+  const [data, setData] = useState([]);
+
+
+
+  // classes selection
+  useEffect(() => {
+    Axios.get("http://localhost:8000/api/classes/read")
+      .then((res) => {
+        console.log(res.data);
+        setClassOptions(
+          res.data.map(({ id, Class_Name }) => ({
+            value: id,
+            label: Class_Name,
+          }))
+        );
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  // sections selection
+  useEffect(() => {
+    Axios.get("http://localhost:8000/api/section/read")
+      .then((res) => {
+        console.log(res.data);
+        setSectionOptions(
+          res.data.map(({ id, Section_Name }) => ({
+            value: id,
+            label: Section_Name,
+          }))
+        );
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  // students selection
+  useEffect(() => {
+    Axios.get("http://localhost:8000/api/student/read")
+      .then((res) => {
+        console.log(res.data);
+        setStudentOptions(
+          res.data.map(({ id, First_Name, Last_Name }) => ({
+            value: id,
+            label: First_Name + " " + Last_Name,
+          }))
+        );
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  //The whole table
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:8000/api/attendance?${
+        selectedClass ? "class_id=" + selectedClass.value : ""
+      }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${
+        selectedStudent ? "student_id=" + selectedStudent.value : ""
+      }&${startDate ? "date=" + startDate.toISOString().slice(0, 10) : ""}}`
+      
+    )
+
+      .then((res) => {
+        setData(res.data);
+        console.log(startDate.toISOString().slice(0, 10))
+      })
+      .catch((err) => console.log(err));
+  }, [selectedClass, selectedSection, selectedStudent,startDate]);
+
+  const handleSelectChangeStudent = (option) => {
+    setSelectedStudent(option);
   };
 
-  const handleSelectChangeClass = ({ key, value }) => {
-    setSelectedClass(value);
-    console.log(key);
+  const handleSelectChangeClass = (option) => {
+    setSelectedClass(option);
   };
 
-  const handleSelectChangeSection = ({ value }) => {
-    setselctedsection(value);
+  const handleSelectChangeSection = (option) => {
+    setselctedSection(option);
   };
-
-  console.log(selectedClass);
 
   return (
     <div className="attendanceTable">
@@ -39,15 +105,9 @@ const AttendanceTable = ({
           <Select
             placeholder="Select Class"
             onChange={handleSelectChangeClass}
-            value={
-              selectedClass
-                ? { value: selectedClass, label: selectedClass }
-                : undefined
-            }
-            options={class_labels.map((item) => ({
-              label: item,
-              value: item,
-            }))}
+            value={selectedClass}
+            options={classOptions}
+            isClearable
           />
         </div>
         <div className="filterListByAlone">
@@ -55,16 +115,10 @@ const AttendanceTable = ({
           <Select
             placeholder="Select Section"
             onChange={handleSelectChangeSection}
-            value={
-              selectedSection
-                ? { value: selectedSection, label: selectedSection }
-                : undefined
-            }
+            value={selectedSection}
             isDisabled={!selectedClass}
-            options={section_labels.map((item) => ({
-              label: item,
-              value: item,
-            }))}
+            options={sectionOptions}
+            isClearable
           />
         </div>
         <div className="filterListByAlone">
@@ -72,16 +126,10 @@ const AttendanceTable = ({
           <Select
             placeholder="Select Student"
             onChange={handleSelectChangeStudent}
-            value={
-              selectedStudent
-                ? { value: selectedStudent, label: selectedStudent }
-                : undefined
-            }
+            value={selectedStudent}
             isDisabled={!selectedClass || !selectedSection}
-            options={student_labels.map((item) => ({
-              label: item,
-              value: item,
-            }))}
+            options={studentOptions}
+            isClearable
           />
         </div>
         <div className="filterListByAlone">
@@ -91,6 +139,8 @@ const AttendanceTable = ({
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             className="datePicker"
+            dateFormat="yyyy-MM-dd"
+            isClearable
           />
         </div>
       </div>
@@ -108,7 +158,7 @@ const AttendanceTable = ({
             <div className="attendanceBorderWord">{item.section_name}</div>
             <div className="attendanceBorderWord">{item.student_name}</div>
             <div className="attendanceBorderWord">{item.date}</div>
-            <div className="attendanceBorderWord">{item.attendance}</div>
+            <div className="attendanceBorderWord">{item.status}</div>
           </div>
         ))}
       </div>
