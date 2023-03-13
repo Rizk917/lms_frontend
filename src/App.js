@@ -19,6 +19,9 @@ import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
 import SecondSelectPage from "./pages/SecondSelectPage";
 import Home from "./pages/Home";
 import AttendancePage from "./pages/AttendancePage";
+import LoginPage from "./component/login/login.jsx";
+import Test from "./pages/Test.jsx";
+import Newatt from "./component/Newatt";
 function App() {
   return (
     <div>
@@ -27,6 +30,9 @@ function App() {
        
       <Route exact path='/SecondSelect' element={< SecondSelectPage />}></Route>
       <Route exact path='/admin' element={< Admin />}></Route>
+      <Route exact path='/test' element={< Test />}></Route>
+      <Route exact path='/test12' element={< Newatt />}></Route>
+      <Route exact path='/' element={< LoginPage />}></Route>
       <Route exact path='/Addclasses' element={< AddClassesPage />}></Route>
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
       <Route exact path='/add-students' element={< AddStudentsPage />}></Route>
