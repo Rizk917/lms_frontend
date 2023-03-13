@@ -1,12 +1,11 @@
-
-  
-  .M3-profile-pic {
-    width: 50px;
-    height: 50px;
+.M3-profile-pic {
+    width: 3vw;
+    height: 3vw;
     border-radius: 50%;
     margin-right: 10px;
-  }
-  .M3-header {
+}
+
+.M3-header {
     background-color: #eeefee;
     height: 6.5vw;
     display: flex;
@@ -25,6 +24,13 @@
     background-color: white;
     width: 20%;
     border-right: 1px solid black;
+}
+
+.M3-classespage {
+    margin-left: 5%;
+    padding-top: 5vw;
+
+
 }
 
 .M3-sidebar-buttons {
@@ -149,19 +155,20 @@
 
 }
 
-.M3-table-info1  {
+.M3-table-info1 {
     display: flex;
     text-align: center;
-    font-size: 1.5  rem;
+    font-size: 1.5 rem;
     color: #163951;
-    
+
 }
+
 .M3-table-classes td {
     border: 1px solid black;
     border-right: 2px solid #163951;
     padding: 0.5vw;
     border-top-right-radius: 5px;
-
+    width: 30%;
     border-bottom-right-radius: 5px;
 }
 
@@ -169,17 +176,17 @@
     padding-left: 5px;
     text-align: left;
 
-    width: 30%;
+    width: 100%;
 
 
 }
 
- .tr{
+.tr {
     display: flex;
     flex-direction: row;
     margin-top: 0.5rem;
-   
-} 
+
+}
 
 .M3-headetable {
     font-size: 1.5vw;
@@ -188,16 +195,19 @@
 }
 
 .M3-table-info {
- flex-grow: 1;
+    flex-grow: 1;
     font-size: 1.2vw;
     border-spacing: 0px;
     color: #163951;
 
 }
-.M3-table-info2{
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
+
+.M3-table-info2 {
+    border: 1px solid black;
+    border-right: 2px solid #163951;
+    padding: 0.5vw;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .M3-addclass-button {
@@ -220,9 +230,8 @@
     border-radius: 5px;
     font-size: 1vw;
     width: 30%;
- 
+    margin-left: 35%;
     padding: 0.5vw;
-
 }
 
 .M3-edit-classes {
@@ -231,38 +240,25 @@
     border-radius: 5px;
     background-color: #0390CD;
     width: 30%;
-    margin-left: 1%;
-
+    margin-left: 3%;
+    text-decoration: none;
     padding: 0.5vw;
 
 
 
 }
-.M3-select-classes {
-    font-size: 1vw;
-    color: white;
-    border-radius: 5px;
-    background-color:gray   ;
-    width: 30%;
-   
-
-    padding: 0.5vw;
-    text-decoration: none;
-    
 
 
-
-}
-.M3-edit-classes  a{
-      text-decoration: none;
-      color: white;
-     
-}
-
-.M3-select-classes  a{
+.M3-edit-classes a {
     text-decoration: none;
     color: white;
-   
+
+}
+
+.M3-select-classes a {
+    text-decoration: none;
+    color: white;
+
 }
 
 .M3-addclasses-border {
@@ -279,15 +275,18 @@
 
 @media (max-width: 480px) {
     .M3-profile-pic {
-      width: 40px;
-      height: 40px;
-      margin-right: 5px;
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
     }
-    .M3-table-info1, .table-info{
-    font-size: small;
-    
-}
-.M3-classespage{
-    margin-top: 10vh;
-}
+
+    .M3-table-info1,
+    .table-info {
+        font-size: small;
+
+    }
+
+    .M3-classespage {
+        margin-top: 10vh;
+    }
 }
