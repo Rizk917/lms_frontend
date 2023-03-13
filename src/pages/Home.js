@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import Axios from "axios";
 import Barchart from "../component/FatimaComponents/Barchart";
 import ClassProgressRow from "../component/FatimaComponents/ClassProgressRow";
 import FrequentAbsentStudents from "../component/FatimaComponents/FrequentAbsentStudents";
@@ -7,26 +9,28 @@ import Sidebar from "../component/Sidebar";
 import "../CSS/Home.css";
 
 const Home = () => {
+  const [classLabel, setClassLabel] = useState();
+  const [attendanceRecords, setAttendanceRecords] = useState();
+  const [absenceRecords, setAbsenceRecords] = useState();
+
+  useEffect(() => {
+    Axios.get("http://localhost:8000/api/classes/read")
+      .then((res) => {
+        console.log(res.data);
+        setClassLabel(res.data.map(({ Class_Name }) => Class_Name));
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(classLabel);
+
   const data = [
     { name: "Attendant", value: (1000 * 100) / 2000, color: "#0390CD" },
     { name: "Absent", value: (400 * 100) / 2000, color: "#163951" },
     { name: "Late", value: (600 * 100) / 2000, color: "yellow" },
   ];
 
-  //lezem ykoun feh endpoint treddelle hal data be hal form
-  //or badde o3od e5od list el attendance w a3mellon filtering
-  // bel sql feh querry btnkatab la t3tene el % of absence and attendance
-  // y3ne bekaffene mn el back end enu y3tene el attendance
   const barChartData = {
-    labels: [
-      "Class 1",
-      "Class 2",
-      "Class 3",
-      "Class 4",
-      "Class 5",
-      "Class 6",
-      "Class 7",
-    ],
+    labels: classLabel,
     absenceRecords: [65, 59, 80, 81, 56, 55, 40],
     attendanceRecords: [28, 48, 40, 19, 86, 27, 90],
   };

@@ -140,7 +140,6 @@ const AttendanceTable = () => {
             onChange={(date) => setStartDate(date)}
             className="datePicker"
             dateFormat="yyyy-MM-dd"
-            isClearable
           />
         </div>
       </div>
