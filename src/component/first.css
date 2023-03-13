@@ -284,6 +284,9 @@
     border: 1px solid black;
     border-collapse: collapse;
 
+    overflow: auto;
+
+
 }
 
 .trr {
@@ -314,6 +317,8 @@
     width: 40%;
     margin-bottom: 2vw;
     padding: 0vw;
+
+
 }
 
 .container-sectionn {
