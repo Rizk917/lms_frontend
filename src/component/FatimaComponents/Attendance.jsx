@@ -11,7 +11,6 @@ const AttendanceTable = () => {
   const [selectedSection, setselctedSection] = useState();
   const [selectedStudent, setSelectedStudent] = useState();
   const [startDate, setStartDate] = useState(new Date());
-  
 
   const [classOptions, setClassOptions] = useState([]);
   const [sectionOptions, setSectionOptions] = useState([]);
@@ -69,22 +68,22 @@ const AttendanceTable = () => {
 
   //The whole table
   useEffect(() => {
-    if (startDate) {
-      Axios.get(
-        `http://localhost:8000/api/attendance?${
-          selectedClass ? "class_id=" + selectedClass.value : ""
-        }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${
-          selectedStudent ? "student_id=" + selectedStudent.value : ""
-        }&${startDate ? "date=" + startDate.toISOString().slice(0, 10) : ""}`
-      )
-        .then((res) => {
-          setData(res.data);
-          console.log(startDate.toISOString().slice(0, 10))
-        })
-        .catch((err) => console.log(err));
-    }
+    Axios.get(
+      `http://localhost:8000/api/attendance?${
+        selectedClass ? "class_id=" + selectedClass.value : ""
+      }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${
+        selectedStudent ? "student_id=" + selectedStudent.value : ""
+      }&${startDate ? "date=" + startDate.toISOString().slice(0, 10) : ""}}`
+      
+    )
+
+      .then((res) => {
+        setData(res.data);
+        console.log(startDate.toISOString().slice(0, 10))
+      })
+      .catch((err) => console.log(err));
   }, [selectedClass, selectedSection, selectedStudent,startDate]);
-  
+
   const handleSelectChangeStudent = (option) => {
     setSelectedStudent(option);
   };
@@ -141,6 +140,7 @@ const AttendanceTable = () => {
             onChange={(date) => setStartDate(date)}
             className="datePicker"
             dateFormat="yyyy-MM-dd"
+            
           />
         </div>
       </div>
