@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Axios from "axios";
+import axios from "axios";
 import Barchart from "../component/FatimaComponents/Barchart";
 import ClassProgressRow from "../component/FatimaComponents/ClassProgressRow";
 import FrequentAbsentStudents from "../component/FatimaComponents/FrequentAbsentStudents";
@@ -9,60 +9,34 @@ import Sidebar from "../component/Sidebar";
 import "../CSS/Home.css";
 
 const Home = () => {
-  const [classLabel, setClassLabel] = useState();
-  const [attendanceRecords, setAttendanceRecords] = useState();
-  const [absenceRecords, setAbsenceRecords] = useState();
+  const [attendanceData, setAttendanceData] = useState([]);
+  const [newattdata, setnewattdata] = useState([]);
 
-  useEffect(() => {
-    Axios.get("http://localhost:8000/api/classes/read")
+
+  const attendanceFunction = async()=>{
+     axios.get("http://localhost:8000/api/attendance/dashboard")
       .then((res) => {
         console.log(res.data);
-        setClassLabel(res.data.map(({ Class_Name }) => Class_Name));
+        setAttendanceData(res.data);
       })
       .catch((err) => console.log(err));
+  }
+
+
+  useEffect(() => {
+    attendanceFunction();
+    setnewattdata(attendanceData)
   }, []);
-  console.log(classLabel);
 
-  const data = [
-    { name: "Attendant", value: (1000 * 100) / 2000, color: "#0390CD" },
-    { name: "Absent", value: (400 * 100) / 2000, color: "#163951" },
-    { name: "Late", value: (600 * 100) / 2000, color: "yellow" },
-  ];
 
-  const barChartData = {
-    labels: classLabel,
-    absenceRecords: [65, 59, 80, 81, 56, 55, 40],
-    attendanceRecords: [28, 48, 40, 19, 86, 27, 90],
-  };
 
-  //dectionary array (associative array)
-  const classProggressData = {
-    "Class 1": [
-      { name: "Attendant", value: (1000 * 100) / 2000, color: "#0390CD" },
-      { name: "Absent", value: (400 * 100) / 2000, color: "#163951" },
-      { name: "Late", value: (600 * 100) / 2000, color: "yellow" },
-    ],
-    "Class 2": [
-      { name: "Attendant", value: (800 * 100) / 2000, color: "#0390CD" },
-      { name: "Absent", value: (500 * 100) / 2000, color: "#163951" },
-      { name: "Late", value: (500 * 100) / 2000, color: "yellow" },
-    ],
-    "Class 3": [
-      { name: "Attendant", value: (800 * 100) / 2000, color: "#0390CD" },
-      { name: "Absent", value: (500 * 100) / 2000, color: "#163951" },
-      { name: "Late", value: (500 * 100) / 2000, color: "yellow" },
-    ],
-    "Class 4": [
-      { name: "Attendant", value: (800 * 100) / 2000, color: "#0390CD" },
-      { name: "Absent", value: (500 * 100) / 2000, color: "#163951" },
-      { name: "Late", value: (500 * 100) / 2000, color: "yellow" },
-    ],
-    "Class 5": [
-      { name: "Attendant", value: (800 * 100) / 2000, color: "#0390CD" },
-      { name: "Absent", value: (500 * 100) / 2000, color: "#163951" },
-      { name: "Late", value: (500 * 100) / 2000, color: "yellow" },
-    ],
-  };
+
+
+  // const data = [
+  //   { name: "Attendant", value: (1000 * 100) / 2000, color: "#0390CD" },
+  //   { name: "Absent", value: (400 * 100) / 2000, color: "#163951" },
+  //   { name: "Late", value: (600 * 100) / 2000, color: "yellow" },
+  // ];
 
   return (
     <div className="home">
@@ -73,19 +47,19 @@ const Home = () => {
           <section className="homeOne">
             <div className="barChart">
               <h1>Attendance Bar Graph</h1>
-              <Barchart {...barChartData} />
+              <Barchart attendanceData={attendanceData} />
             </div>
             <div className="classProgressContainer">
               <h1>Class Progress</h1>
-              {Object.entries(classProggressData).map(([key, value]) => (
-                <ClassProgressRow label={key} data={value} />
+              {Object.entries(attendanceData).map(([key, value]) => (
+                <ClassProgressRow label={key} value={value} />
               ))}
             </div>
           </section>
           <section className="homeTwo">
             <div className="pieChartContainer">
               <h1>All school Attendance</h1>
-              <Piechart data={data} />
+              <Piechart />
             </div>
             <div>
               <h1>Frequently Absent Students</h1>
