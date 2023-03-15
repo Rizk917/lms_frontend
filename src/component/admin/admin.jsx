@@ -98,14 +98,15 @@ const loadadmins=async=>{
         <tr className='tr'>
           <th className="M3-headetable"> Name</th>
           <th className="M3-headetable">Id</th>
-          <th> <Link className="M3-addclass-button" to='/add-admins'> Add new Admin</Link></th>
+          <th className="M3-headetable">Email</th> 
+          <th className='M3-button'> <Link className="M3-addclass-button" to='/add-admins'> Add new Admin</Link></th>
         </tr>
         {admins.map(admin => (
           <tr key={admin.id} className='tr'>
             <td className="M3-table-info1"><img src="https://pic.onlinewebfonts.com/svg/img_510068.png" alt="" className="M3-profile-pic" />{admin.Full_name}</td>
             <td className="M3-table-info">{admin.id}</td>
+            <td className="M3-table-info">{admin.Email}</td>
             <td className="M3-table-info2">
-              <button className="M3-select-classes"><Link to='/select-admin'> Select</Link></button>
               <button className="M3-delete-classes" onClick={() => deleteAdmin(admin.id)}>Delete</button>
               <button className="M3-edit-classes" onClick={() => handleEditClick(admin)}>Edit</button>
             </td>
@@ -126,7 +127,11 @@ const loadadmins=async=>{
               <label>Email:</label>
               <input type="email" name="Email" value={updatedAdmin.Email} onChange={handleInputChange} />
               <label>Role:</label>
-              <input type="text" name="Role" value={updatedAdmin.Role} onChange={handleInputChange} />
+              <select type="text" name="Role" value={updatedAdmin.Role} onChange={handleInputChange} >
+              <option value="">--Select Role--</option>
+              <option value="Admin">Admin</option>
+              <option value="Teacher">Teacher</option>
+              </select>
               <button type="submit">Save</button>
     
               <button type="button" onClick={() => setCurrentAdmin(null)   }>Cancel</button>
