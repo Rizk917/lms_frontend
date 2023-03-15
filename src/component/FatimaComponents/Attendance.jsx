@@ -4,8 +4,11 @@ import { format } from "date-fns";
 import Axios from "axios";
 import axios from 'axios';
 import React from "react";
+import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
+import { useLocation } from "react-router-dom";
 
 const AttendanceTable = () => {
   const [selectedClass, setSelectedClass] = useState();
@@ -16,7 +19,7 @@ const AttendanceTable = () => {
   const [classOptions, setClassOptions] = useState([]);
   const [sectionOptions, setSectionOptions] = useState([]);
   const [studentOptions, setStudentOptions] = useState([]);
-  // const [dateOPtions, setAttendanceDate] = useState([]);
+
 
   ///////////////////////////////////////////////////////
   const [attendances, setAttendances] = useState([]);
@@ -39,12 +42,59 @@ const AttendanceTable = () => {
     }
   };
   
+
+
+
+
+
+  const { state } = useLocation();
+
+
+
+
+  const selection = () => {
+    if (selectedClass && selectedSection && selectedStudent) {
+      getspesficstudent(selectedStudent.value)
+
+    }
+    else {
+      allstudents()
+    }
+  }
+
+
+
+
+  useEffect(() => {
+    classesgetters();
+
+
+  }, [selectedClass, selectedSection, selectedStudent, data]);
+
+
+
+
+  const getspesficstudent = async (id) => {
+    const response = await Axios.get(`http://127.0.0.1:8000/api/students/${id}`)
+    setData(response.data.data)
+    console.log("the student appeared")
+  }
+
+
+
+
   
   ///////////////////////////////////////////////////////
 
   // classes selection
-  useEffect(() => {
-    Axios.get("http://localhost:8000/api/classes/read")
+
+
+
+
+
+  const classesgetters = async () => {
+
+    await Axios.get("http://localhost:8000/api/classes/read")
       .then((res) => {
         console.log(res.data);
         setClassOptions(
@@ -55,11 +105,17 @@ const AttendanceTable = () => {
         );
       })
       .catch((err) => console.log(err));
-  }, []);
 
-  // sections selection
-  useEffect(() => {
-    Axios.get("http://localhost:8000/api/section/read")
+  }
+
+
+
+
+
+
+  const sectiongetters = async (data) => {
+
+    await Axios.get(`http://127.0.0.1:8000/api/section/search/class/${data}`)
       .then((res) => {
         console.log(res.data);
         setSectionOptions(
@@ -70,11 +126,17 @@ const AttendanceTable = () => {
         );
       })
       .catch((err) => console.log(err));
-  }, []);
+  }
 
-  // students selection
-  useEffect(() => {
-    Axios.get("http://localhost:8000/api/student/read")
+
+
+
+
+
+
+
+  const studentreader = async (sectionid) => {
+    await Axios.get(`http://localhost:8000/api/student/search/section/${sectionid}`)
       .then((res) => {
         console.log(res.data);
         setStudentOptions(
@@ -85,6 +147,17 @@ const AttendanceTable = () => {
         );
       })
       .catch((err) => console.log(err));
+  }
+
+
+
+
+
+
+
+  useEffect(() => {
+    selection();
+
   }, []);
 
   //The whole table
@@ -106,17 +179,62 @@ const AttendanceTable = () => {
       .catch((err) => console.log(err));
   }, [selectedClass, selectedSection, selectedStudent, startDate]);
 
-  const handleSelectChangeStudent = (option) => {
-    setSelectedStudent(option);
+  const allstudents = async () => {
+    try {
+      const response = await Axios.get("http://localhost:8000/api/students");
+      setData(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+
+
+
+
+
+
+
+
+
+
+  const removestudent = async (id) => {
+    await Axios.delete(`http://127.0.0.1:8000/api/student/delete/${id}`)
+    console.log('student is deleted ')
+  }
+
+
+
+  //classssss
   const handleSelectChangeClass = (option) => {
     setSelectedClass(option);
+    console.log(option);
+    sectiongetters(option.value);
   };
 
+
+
+  //sectionnnnnnn
   const handleSelectChangeSection = (option) => {
     setselctedSection(option);
+    studentreader(option.value)
+
   };
+
+
+
+  //studentsssss
+  const handleSelectChangeStudent = (option) => {
+    setSelectedStudent(option);
+    getspesficstudent(option.value)
+  };
+
+
+
+
+
+
+
 
   return (
     <div className="attendanceTable">
@@ -143,6 +261,7 @@ const AttendanceTable = () => {
             isClearable
           />
         </div>
+
         <div className="filterListByAlone">
           <h3>Student</h3>
           <Select
@@ -170,18 +289,20 @@ const AttendanceTable = () => {
           <div className="attendanceBorderWord">Class</div>
           <div className="attendanceBorderWord">Section</div>
           <div className="attendanceBorderWord">Student Name</div>
-          <div className="attendanceBorderWord">Date</div>
-          <div className="attendanceBorderWord">Attendance</div>
+          <div className="attendanceBorderWord">BUTTONS</div>
+
           <div className="attendanceBorderWord">edit</div>
         </div>
-        {data.map((item) => (
+
+        {
+          data?.map((hourframe, index) => (
           
-          <div className="attendanceListRow attendanceBorder">
-            <div className="attendanceBorderWord">{item.class_name}</div>
-            <div className="attendanceBorderWord">{item.section_name}</div>
-            <div className="attendanceBorderWord">{item.student_name}</div>
-            <div className="attendanceBorderWord">{item.date}</div>
-            <div className="attendanceBorderWord">{item.status}</div>
+            <div className="attendanceListRow attendanceBorder">
+              <div className="attendanceBorderWord">{hourframe.Class_Name}</div>
+              <div className="attendanceBorderWord">{hourframe.Section_Name}</div>
+              <div className="attendanceBorderWord">{hourframe.First_Name}</div>
+              <div className="attendanceBorderWord">   <button onClick={() => removestudent(hourframe.id)} >delete</button>
+                <Link to='/SecondSelect' state={{ location: "/Attendance", student_id: hourframe.id }}> view</Link>  </div>
             <div className="attendanceBorderWord">
             {console.log(item)}
               {" "}
@@ -196,8 +317,12 @@ const AttendanceTable = () => {
               </select>
               <button onClick={() => handleEdit(item)}>Edit</button>
             </div>
-          </div>
-        ))}
+
+
+            </div>
+          ))}
+
+
       </div>
     </div>
   );
