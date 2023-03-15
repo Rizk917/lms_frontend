@@ -53,6 +53,10 @@
   width: 50%;
 }
 
+text.recharts-text.recharts-pie-label-text {
+  fill: gray;
+}
+
 /* Frequent absent students table*/
 .absentStudentRow {
   display: flex;
@@ -76,6 +80,13 @@
 }
 .absentStudentButtonBorder {
   border: 1px solid #d8dee2;
+}
+
+.comment{
+  margin-top: 40px;
+  line-height: 30px;
+  text-align: center;
+  color: gray;
 }
 
 /*Attendance table*/

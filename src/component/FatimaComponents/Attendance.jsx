@@ -43,7 +43,7 @@ const AttendanceTable = () => {
 
   // classes selection
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/classes/read")
+    axios.get("http://localhost:8000/api/classes/read")
       .then((res) => {
         console.log(res.data);
         setClassOptions(
@@ -58,7 +58,7 @@ const AttendanceTable = () => {
 
   // sections selection
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/section/read")
+    axios.get("http://localhost:8000/api/section/read")
       .then((res) => {
         console.log(res.data);
         setSectionOptions(
@@ -73,7 +73,7 @@ const AttendanceTable = () => {
 
   // students selection
   useEffect(() => {
-    Axios.get("http://localhost:8000/api/student/read")
+    axios.get("http://localhost:8000/api/student/read")
       .then((res) => {
         console.log(res.data);
         setStudentOptions(
@@ -88,7 +88,7 @@ const AttendanceTable = () => {
 
   //The whole table
   useEffect(() => {
-    Axios.get(
+    axios.get(
       `http://localhost:8000/api/attendance?${
         selectedClass ? "class_id=" + selectedClass.value : ""
       }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${
