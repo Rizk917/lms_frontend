@@ -22,6 +22,8 @@ import AttendancePage from "./pages/AttendancePage";
 import LoginPage from "./component/login/login.jsx";
 import Test from "./pages/Test.jsx";
 import Newatt from "./component/Newatt";
+import AddAdmins from "./component/add-admin/AddAdmins";
+import EditUser from "./component/edit-admin/EditAdmins";
 function App() {
   return (
     <div>
@@ -30,6 +32,7 @@ function App() {
        
       <Route exact path='/SecondSelect' element={< SecondSelectPage />}></Route>
       <Route exact path='/admin' element={< Admin />}></Route>
+      <Route exact path='/add-admins' element={< AddAdmins />}></Route>
       <Route exact path='/test' element={< Test />}></Route>
       <Route exact path='/test12' element={< Newatt />}></Route>
       <Route exact path='/' element={< LoginPage />}></Route>
@@ -40,7 +43,7 @@ function App() {
       <Route exact path='/Home' element={< Home />}></Route>
       <Route exact path='/Attendance' element={< AttendancePage/>}></Route>
       <Route exact path='/students' element={< Studentspage/>}></Route>
-
+      <Route exact path='/users/:id"' element={< EditUser/>}></Route>
 
       
       <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
