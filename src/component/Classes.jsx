@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 function CLasses() {
   const [classes, setclasses] = useState();
-  const [classid, setclassid] = useState();
 
   const edithandler = () => {
     console.log("hello world ");
@@ -65,7 +64,7 @@ function CLasses() {
           {classes?.map((hourframe, index) => (
             <tr>
               <td className="table-info">{hourframe.Class_Name}</td>
-              <td className="table-info">Maria Anders</td>
+              <td className="table-info">NUMBER</td>
 
 
 
@@ -75,7 +74,7 @@ function CLasses() {
 
                 <button className="edit-classes">
                   <Link to="/editClassespage" className="edit-classes" onClick={() => console.log(hourframe.id)} state={{ class_id: hourframe.id }} >
-                    Edit
+                    VIEW
                   </Link></button></td>
             </tr>))}
 

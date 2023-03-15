@@ -40,7 +40,7 @@ function Editclasses() {
   const getSections = async (clas_id) => {
     try {
       const response = await axios.get(`http://127.0.0.1:8000/api/section/search/class/${state.class_id}`)
-      console.log(response.data)
+      // console.log(response.data)
       setsections(response.data)
     }
     catch (error) {
@@ -126,7 +126,7 @@ function Editclasses() {
               <td className="table-info">
                 <button className="delete-classes" onClick={() => deletesection(hourframe.id)}>delete</button>
                 <button className="edit-classes"><Link to="/EditSections" className="edit-classes" state={{ sectionid: hourframe.id, class_id: clas_id }} >
-                  Edit
+                VIEW
                 </Link></button></td>
             </tr>
 
