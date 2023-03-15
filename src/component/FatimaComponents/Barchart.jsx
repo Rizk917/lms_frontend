@@ -8,13 +8,36 @@ import {
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
+import { useEffect, useState } from "react";
 
 //to activate the chart
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const Barchart = ({ labels, attendanceRecords, absenceRecords }) => {
+const Barchart = ({ attendanceData }) => {
+  const [classLabel, setClassLabel] = useState([]);
+  const [attendanceRecords, setAttendanceRecords] = useState([]);
+  const [absenceRecords, setAbsenceRecords] = useState([]);
+  //we are transforming the attendaceData which is an object into an array of keys and values array of arrays, [[key1,value1],[key2,value2]]
+
+useEffect(() => {
+  const newClassLabel = [];
+  const newAttendanceRecords = [];
+  const newAbsenceRecords = [];
+
+  Object.entries(attendanceData).forEach(([key, value]) => {
+    newClassLabel.push(key);
+    newAbsenceRecords.push(value.absent ?? 0);
+    newAttendanceRecords.push((value.present ?? 0) + (value.late ?? 0));
+  });
+
+  setClassLabel(newClassLabel);
+  setAbsenceRecords(newAbsenceRecords);
+  setAttendanceRecords(newAttendanceRecords);
+}, [attendanceData]);
+
+
   const data = {
-    labels,
+    labels: classLabel,
     datasets: [
       {
         label: "Attended",
@@ -42,23 +65,13 @@ const Barchart = ({ labels, attendanceRecords, absenceRecords }) => {
       position: "bottom",
     },
     scales: {
-      xAxes: [
-        {
-          gridLines: {
-            display: false, // Remove grid lines for the X axis
-          },
-        },
-      ],
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-          gridLines: {
-            display: false, // Remove grid lines for the Y axis
-          },
-        },
-      ],
+      // yAxes: [
+      //   {
+      //     ticks: {
+      //       beginAtZero: true,
+      //     },
+      //   },
+      // ],
     },
     maintainAspectRatio: false,
   };

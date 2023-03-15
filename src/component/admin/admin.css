@@ -1,11 +1,12 @@
-.M3-profile-pic {
-    width: 3vw;
-    height: 3vw;
+
+  
+  .M3-profile-pic {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
-}
-
-.M3-header {
+  }
+  .M3-header {
     background-color: #eeefee;
     height: 6.5vw;
     display: flex;

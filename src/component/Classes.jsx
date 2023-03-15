@@ -1,15 +1,57 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./first.css";
+import { useEffect, useState } from "react";
 
+import axios from "axios";
 function CLasses() {
+  const [classes, setclasses] = useState();
+  const [classid, setclassid] = useState();
 
   const edithandler = () => {
     console.log("hello world ");
 
+
   }
+
+
+
+  const deleteclasses = async (data) => {
+    try {
+      const response = await axios.delete(`http://127.0.0.1:8000/api/classes/delete/${data}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+
+
+
+  const getclasses = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/classes/read`)
+      console.log(response.data)
+      setclasses(response.data)
+    }
+    catch (error) {
+      console.error("err ", error);
+
+    }
+
+  }
+
+
+
+  useEffect(() => {
+    getclasses();
+  }, []);
+
+
   return (
     <div className="classespage">
+
       <table className="table-classes">
         <thead>
           <tr>
@@ -20,20 +62,23 @@ function CLasses() {
         </thead>
 
         <tbody>
-          <tr>
-            <td className="table-info">Alfreds Futterkiste</td>
-            <td className="table-info">Maria Anders</td>
-            <td className="table-info"><button className="delete-classes">Delete</button>
-              <button className="edit-classes">
-                <Link to="/editClassespage" className="edit-classes" onClick={edithandler}>
-                  Edit
-                </Link></button></td>
-          </tr>
-          <tr>
-            <td className="table-info">Centro comercial Moctezuma</td>
-            <td className="table-info">Francisco Chang</td>
-            <td className="table-info"><button className="delete-classes">delete</button><button className="edit-classes">Edit</button></td>
-          </tr>
+          {classes?.map((hourframe, index) => (
+            <tr>
+              <td className="table-info">{hourframe.Class_Name}</td>
+              <td className="table-info">Maria Anders</td>
+
+
+
+              <td className="table-info"><button onClick={() => deleteclasses(hourframe.id)} className="delete-classes">Delete</button>
+
+
+
+                <button className="edit-classes">
+                  <Link to="/editClassespage" className="edit-classes" onClick={() => console.log(hourframe.id)} state={{ class_id: hourframe.id }} >
+                    Edit
+                  </Link></button></td>
+            </tr>))}
+
         </tbody>
       </table>
     </div>

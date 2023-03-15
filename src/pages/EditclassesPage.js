@@ -1,8 +1,7 @@
 import "../App.css";
 import Header from "../component/Header";
 import Sidebar from "../component/Sidebar";
-import AddAdmins from "../component/AddAdmins";
-import AddClasses from "../component/AddClasses";
+
 import Editclasses from "../component/Editclasses";
 function EditclassesPage() {
   return (

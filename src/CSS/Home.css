@@ -54,3 +54,85 @@
 }
 
 /* Frequent absent students table*/
+.absentStudentRow {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+.absentStudentList {
+  margin-top: 3vh;
+}
+.absentStudentElement {
+  border: 1px solid #d8dee2;
+  padding: 10px 10px;
+  width: -webkit-fill-available;
+}
+
+.absentStudentList .edit-classes {
+  margin: 10px;
+  width: -webkit-fill-available;
+
+}
+.absentStudentButtonBorder {
+  border: 1px solid #d8dee2;
+}
+
+/*Attendance table*/
+.filterListByAlone {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.filterListBy {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.datePicker {
+  border: 0;
+  padding: 10px 10px;
+  color: gray;
+  align-self: center;
+}
+
+.react-datepicker__input-container {
+  border: 0.5px solid #d8dee2;
+  width:80%;
+
+}
+
+.attendanceTable h1,
+h3 {
+  color: #163951;
+}
+
+.attendanceTable h1 {
+  margin-left: 2%;
+}
+
+.attendanceList {
+  margin-top: 8vh;
+}
+
+.attendanceListRow,
+.attendanceListHeader {
+  display: flex;
+  justify-content: space-around;
+  color: #163951;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: start;
+}
+.attendanceListHeader {
+  font-weight: 600;
+}
+
+.attendanceBorderWord {
+  border: 1px solid #d8dee2;
+  padding: 20px 20px;
+  width: -webkit-fill-available;
+}
