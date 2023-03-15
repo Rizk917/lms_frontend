@@ -68,7 +68,7 @@ function EditSection() {
   }
 
   return (
-    <div className="editclassespage">
+    <div className="editclassespage label-Addadmins">
 
       sec
       <div className="container-sectionn">
@@ -158,7 +158,8 @@ function EditSection() {
                 <button className="delete-classes" onClick={() => removestudent(hourframe.id)}  >Remove</button>
 
                 <button className="edit-classes" >
-                  <Link to='/SecondSelect' state={{ location: "/EditSections", student_id: hourframe.id, sectionid: state.sectionid }}> view</Link>
+                  <Link to='/SecondSelect' state={{ location: "/EditSections", student_id: hourframe.id, sectionid: state.sectionid }}> </Link>
+                  VIEW
                 </button></td>
 
             </tr>
