@@ -3,13 +3,10 @@ import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import Axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
-import { useLocation } from "react-router-dom";
 
-const AttendanceTable = () => {
+const Test1 = () => {
   const [selectedClass, setSelectedClass] = useState();
   const [selectedSection, setselctedSection] = useState();
   const [selectedStudent, setSelectedStudent] = useState();
@@ -27,38 +24,7 @@ const AttendanceTable = () => {
 
 
 
-  const { state } = useLocation();
 
-
-
-
-  const selection = () => {
-    if (selectedClass && selectedSection && selectedStudent) {
-      getspesficstudent(selectedStudent.value)
-
-    }
-    else {
-      allstudents()
-    }
-  }
-
-
-
-
-  useEffect(() => {
-    classesgetters();
-
-
-  }, [selectedClass, selectedSection, selectedStudent, data]);
-
-
-
-
-  const getspesficstudent = async (id) => {
-    const response = await Axios.get(`http://127.0.0.1:8000/api/students/${id}`)
-    setData(response.data.data)
-    console.log("the student appeared")
-  }
 
 
 
@@ -66,7 +32,13 @@ const AttendanceTable = () => {
 
 
   // classes selection
+  useEffect(() => {
+    classesgetters();
 
+
+    studentreader();
+
+  }, []);
 
 
 
@@ -134,37 +106,48 @@ const AttendanceTable = () => {
 
 
 
-  useEffect(() => {
-    selection();
 
-  }, []);
+
+
+
+
+
+  //The whole table
+
+  useEffect(() => {
+    if (selectedClass && selectedSection && selectedStudent) {
+      Axios.get(
+        `http://localhost:8000/api/students?${selectedClass ? "class_id=" + selectedClass.value : ""
+        }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${selectedStudent ? "student_id=" + selectedStudent.value : ""}}`
+
+      )
+
+        .then((res) => {
+          setData(res.data);
+          console.log("fazzzzz", res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [selectedClass, selectedSection, selectedStudent, startDate]);
+
 
 
 
 
   const allstudents = async () => {
-    try {
-      const response = await Axios.get("http://localhost:8000/api/students");
-      setData(response.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-
-
-
-
-
-
-
-
-
-  const removestudent = async (id) => {
-    await Axios.delete(`http://127.0.0.1:8000/api/student/delete/${id}`)
-    console.log('student is deleted ')
+    const response = await Axios.get(`http://127.0.0.1:8000/api/students`)
+    setData(response.data)
+    console.log(response.data)
   }
+
+
+  const hala = () => {
+    allstudents();
+  }
+
+
+
+
 
 
 
@@ -189,7 +172,6 @@ const AttendanceTable = () => {
   //studentsssss
   const handleSelectChangeStudent = (option) => {
     setSelectedStudent(option);
-    getspesficstudent(option.value)
   };
 
 
@@ -198,10 +180,11 @@ const AttendanceTable = () => {
 
 
 
-
   return (
-    <div className="attendanceTable">
+    <div className="Test1">
+
       <h1>Filter List by:</h1>
+
       <div className="filterListBy">
         <div className="filterListByAlone">
           <h3>Class</h3>
@@ -237,7 +220,6 @@ const AttendanceTable = () => {
           />
         </div>
 
-
       </div>
       <div className="attendanceList">
         <div className="attendanceListHeader">
@@ -247,19 +229,19 @@ const AttendanceTable = () => {
           <div className="attendanceBorderWord">BUTTONS</div>
 
         </div>
-
-        {
-          data?.map((hourframe, index) => (
-            <div className="attendanceListRow attendanceBorder">
-              <div className="attendanceBorderWord">{hourframe.Class_Name}</div>
-              <div className="attendanceBorderWord">{hourframe.Section_Name}</div>
-              <div className="attendanceBorderWord">{hourframe.First_Name}</div>
-              <div className="attendanceBorderWord">   <button onClick={() => removestudent(hourframe.id)} >delete</button>
-                <Link to='/SecondSelect' state={{ location: "/Attendance", student_id: hourframe.id }}> view</Link>  </div>
+        {data.map((item) => (
+          <div className="attendanceListRow attendanceBorder">
+            <div className="attendanceBorderWord">{item.class_name}</div>
+            <div className="attendanceBorderWord">{item.section_name}</div>
+            <div className="attendanceBorderWord">{item.student_name}</div>
 
 
-            </div>
-          ))}
+          </div>
+        ))}
+
+
+
+
 
 
       </div>
@@ -267,4 +249,4 @@ const AttendanceTable = () => {
   );
 };
 
-export default AttendanceTable;
+export default Test1;
