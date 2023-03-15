@@ -172,6 +172,7 @@
     width: 30%;
     border-bottom-right-radius: 5px;
     font-size: 1.5rem;
+    line-break: anywhere;
 }
 
 .M3-table-classes th {

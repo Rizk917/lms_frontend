@@ -99,6 +99,7 @@ const loadadmins=async=>{
         <tr className='tr'>
           <th className="M3-headetable"> Name</th>
           <th className="M3-headetable">Id</th>
+          <th className="M3-headetable">Role</th>
           <th className="M3-headetable">Email</th> 
           <th className='M3-button'> <Link className="M3-addclass-button" to='/add-admins'> Add new Admin</Link></th>
         </tr>
@@ -106,6 +107,7 @@ const loadadmins=async=>{
           <tr key={admin.id} className='tr'>
             <td className="M3-table-info1"><img src="https://pic.onlinewebfonts.com/svg/img_510068.png" alt="" className="M3-profile-pic" />{admin.Full_name}</td>
             <td className="M3-table-info">{admin.id}</td>
+            <td className="M3-table-info">{admin.Role}</td>
             <td className="M3-table-info">{admin.Email}</td>
             <td className="M3-table-info2">
               <button className="M3-delete-classes" onClick={() => deleteAdmin(admin.id)}>Delete</button>
