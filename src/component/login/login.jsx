@@ -1,48 +1,39 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./login.css";
 
 const LoginPage = () => {
   const [error, setError] = useState("");
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email) {
+    if (!Email) {
       setError("Email is required");
-    } else if (!password) {
+    } else if (!Password) {
       setError("Password is required");
     } else {
-      fetch("http://127.0.0.1:8000/api/login", {
-        method: "POST",
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "userRegister");
+      try {
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/login",
+          { Email, Password }
+        );
+        console.log(response.data, "userRegister");
 
-          if ((data.status = 400)) {
-            setError("Incorrect credentials");
-          }
-          if ((data.status = 201)) {
-            alert("login successful");
-            window.localStorage.setItem("token", data.token);
+        if (response.status === 200) {
+          alert("Login successful");
+          window.localStorage.setItem("token", response.data.token);
+          window.localStorage.setItem("loggedIn", true);
 
-            window.location.href = "/home";
-          }
-        });
+          window.location.href = "/home";
+        }
+      } catch (error) {
+        console.log(error.response.data);
+        setError("Incorrect credentials");
+      }
     }
   };
 
@@ -57,10 +48,9 @@ const LoginPage = () => {
             <input
               className="input-login"
               type="email"
-              placeholder="Enter your email"
-              value={email}
+              placeholder="Enter your Email"
+              value={Email}
               onChange={(e) => setEmail(e.target.value)}
-
             />
           </div>
 
@@ -69,8 +59,8 @@ const LoginPage = () => {
             <input
               className="input-login"
               type="password"
-              placeholder="Enter your password"
-              value={password}
+              placeholder="Enter your Password"
+              value={Password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -81,6 +71,7 @@ const LoginPage = () => {
             </button>
           </div>
         </form>
+        {error && <div className="error">{error}</div>}
       </div>
     </div>
   );

@@ -12,7 +12,12 @@ import studentlogo from "../images/studentlogo.png"
 import Attendancelogo from "../images/Attendance.png"
 import adminlogo from "../images/adminlogo.png"
 
+const Logout = () => {
+  window.location.href = "/";
 
+  window.localStorage.clear();
+  localStorage.removeItem('token');
+};
 function Sidebar() {
   return <div className="sidebar-container">
     <img className="logoo" src={logo} alt="" />
@@ -22,6 +27,7 @@ function Sidebar() {
     <div className="sidebar-buttons"><img src={studentlogo} alt="" /> <p ><Link to='/students'>Students</Link></p> </div >
     <div className="sidebar-buttons"><img src={Attendancelogo} alt="" /> <p ><Link to='/attendance'>Attendance</Link></p></div >
     <div className="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/admin'>Admins</Link></p></div >
+    <div href="/" onClick={Logout} className="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/'>Logout</Link></p></div >
 
 
 
