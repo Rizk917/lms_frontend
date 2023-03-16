@@ -160,7 +160,8 @@
     display: flex;
     text-align: center;
     font-size: 1.5 rem;
-    color: #163951;
+    color: #163951;  
+    align-items: center;
 
 }
 
@@ -202,6 +203,9 @@
     font-size: 1.2vw;
     border-spacing: 0px;
     color: #163951;
+    display: flex;
+    align-items: center;
+  
 
 }
 

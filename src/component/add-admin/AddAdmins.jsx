@@ -72,7 +72,6 @@ const handleSubmit = async(e) =>{
           <img src="https://pic.onlinewebfonts.com/svg/img_510068.png" alt="" />
         </div>
         
-        <button className="M8-upload-button"> Upload picture</button>
       </div>
       <div className="M8-addadmins-forms">
       <div className="M8-addadmins">
@@ -92,12 +91,15 @@ const handleSubmit = async(e) =>{
     
            </select>
         <label className="M8-label-Addadmins" htmlFor="">Email</label>  
-        <input className="M8-input-Addamis" type="text" value={Email}  required onChange={(e)=>setEmail(e.target.value)}/>
+        <input className="M8-input-Addamis" type="email" value={Email}  required onChange={(e)=>setEmail(e.target.value)}/>
         <label className="M8-label-Addadmins" htmlFor="">Password</label>
         <input className="M8-input-Addamis" type="text" value={Password} required onChange={(e)=>setPassword(e.target.value)}/>
         <label className="M8-label-Addadmins" htmlFor="">Confirm Password</label>
         <input className="M8-input-Addamis" type="text" value={confirmPassword} required onChange={(e)=>setconfirmPassword(e.target.value)}/>
-
+        <div className="M8-buttons">
+        <button className="M8-cancel-classes"><Link to="/admin">Cancel</Link></button><button className="M8-edit-classes" type="submit" >Submit</button>
+         </div>
+         
         </form> 
         </div>
         
@@ -105,10 +107,7 @@ const handleSubmit = async(e) =>{
         
         
         
-        <div className="M8-buttons">
-        <button className="M8-cancel-classes"><Link to="/admin">Cancel</Link></button><button className="M8-edit-classes" onClick={handleSubmit}>Submit</button>
-         </div>
-         
+        
     </div>
     </div>
     

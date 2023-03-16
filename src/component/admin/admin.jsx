@@ -1,45 +1,6 @@
-// import React, { useState, useEffect } from 'react';
-// import { Link } from "react-router-dom";
-
-// import './admin.css';
-
-// export default function Admin() {
-//   const [admins, setAdmins] = useState([]);
-  
-//   const [adminData, setAdminData] = useState([]); 
-
-//   useEffect(() => {
-//     fetch('http://localhost:8000/api/admin/read')
-//       .then(response => response.json())
-//       .then(data => setAdmins(data))
-//       .catch(error => console.error(error));
-//   }, []);
-
-//   return (
-//     <div className="M3-classespage">
-      
-//     <table className="M3-table-classes">
-//       <tr className='tr'>
-//         <th className="M3-headetable"> Name</th>
-//         <th className="M3-headetable">Phone</th>
-//         <th> <Link className="M3-addclass-button" to='/add-admins'> Add new Admin</Link></th>
-//       </tr>
-//       {admins.map(admin => (
-//         <tr key={admin.id} className='tr'>
-//           <td className="M3-table-info1"><img src="https://pic.onlinewebfonts.com/svg/img_510068.png" alt=""className="M3-profile-pic" />{admin.Full_name}</td>
-//           <td className="M3-table-info">{admin.id}</td>
-//           <td className="M3-table-info2"><button className="M3-select-classes"><Link to='/select-admin'> Select</Link></button><button className="M3-delete-classes">Delete</button><button className="M3-edit-classes">  <Link to={{ pathname: '/edit-admin', state: { adminData: adminData } }}> Edit </Link></button></td>
-//         </tr>
-//       ))}
-//     </table>
-//   </div>
-//   );
-// }
-
 
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
 
 import './admin.css';
 
