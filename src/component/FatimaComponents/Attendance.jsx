@@ -185,7 +185,7 @@ const AttendanceTable = () => {
             {console.log(item)}
               {" "}
               
-              <select
+              <select className="new-select"
                 id={`attendance-status-${item.id}`}
                 defaultValue={item.status}
               >
@@ -193,7 +193,7 @@ const AttendanceTable = () => {
                 <option value="absent">Absent</option>
                 <option value="late">Late</option>
               </select>
-              <button onClick={() => handleEdit(item)}>Edit</button>
+              <button className="edit-classes" onClick={() => handleEdit(item)}>Edit</button>
             </div>
           </div>
         ))}

@@ -182,16 +182,17 @@ const Studentss = () => {
             <div className="attendanceBorderWord">{hourframe.First_Name}</div>
             <div className="attendanceBorderWord">
               {" "}
-              <button onClick={() => removestudent(hourframe.id)}>
+              <button className="delete-classes" onClick={() => removestudent(hourframe.id)}>
                 delete
               </button>
-              <Link
+              <button className="edit-classes">           <Link  className="edit-classes"
                 to="/SecondSelect"
                 state={{ location: "/Attendance", student_id: hourframe.id }}
               >
                 {" "}
                 view
-              </Link>{" "}
+              </Link>{" "}</button>
+   
             </div>
           </div>
         ))}
