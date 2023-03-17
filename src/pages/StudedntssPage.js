@@ -1,5 +1,5 @@
 import "../App.css";
-import AttendanceTable from "../component/FatimaComponents/Attendance";
+import "../CSS/Studentss.css";
 import Header from "../component/Header";
 import Sidebar from "../component/Sidebar";
 import Studentss from "../component/Studentss";

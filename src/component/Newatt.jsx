@@ -8,7 +8,7 @@ const TakeAttendance = ({ sectionId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/student/read?section_id=${sectionId}`)
+      .get(`http://127.0.0.1:8000/api/students?section_id=${sectionId}`)
       .then((response) => {
         setStudents(response.data);
       })

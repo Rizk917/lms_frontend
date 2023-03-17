@@ -27,7 +27,7 @@ export default function AddStudents() {
       Section_ID: sectionid,
     };
     try {
-      await axios.post(`http://127.0.0.1:8000/api/student/post`, data);
+      await axios.post(`http://127.0.0.1:8000/api/students`, data);
       console.log("the student is added");
     } catch (error) {
       console.log("error :", error);

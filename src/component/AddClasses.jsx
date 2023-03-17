@@ -22,7 +22,7 @@ function AddClasses() {
     // console.log("data ", data);
     var config = {
       method: 'post',
-      url: 'http://127.0.0.1:8000/api/classes/post',
+      url: 'http://127.0.0.1:8000/api/classes',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -30,7 +30,7 @@ function AddClasses() {
     };
     try {
       var response = await axios(config);
-      // var response = await axios.get(`http://127.0.0.1:8000/api/classes/read`);
+      // var response = await axios.get(`http://127.0.0.1:8000/api/classes`);
       console.log("res ", response)
 
       console.log("class is posted");

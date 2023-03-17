@@ -7,7 +7,7 @@
 
 //   useEffect(() => {
 //     axios
-//       .get("http://127.0.0.1:8000/api/student/read")
+//       .get("http://127.0.0.1:8000/api/students")
 //       .then((response) => {
 //         setStudents(response.data);
 //       })
@@ -143,7 +143,7 @@ const TakeAttendance = () => {
   // classes selection
 
   const classesgetters = async () => {
-    await Axios.get("http://localhost:8000/api/classes/read")
+    await Axios.get("http://localhost:8000/api/classes")
       .then((res) => {
         console.log(res.data);
         setClassOptions(
@@ -157,7 +157,7 @@ const TakeAttendance = () => {
   };
 
   const sectiongetters = async (data) => {
-    await Axios.get(`http://127.0.0.1:8000/api/section/search/class/${data}`)
+    await Axios.get(`http://127.0.0.1:8000/api/sections/class/${data}`)
       .then((res) => {
         console.log(res.data);
         setSectionOptions(
@@ -172,7 +172,7 @@ const TakeAttendance = () => {
 
   const studentreader = async (sectionid) => {
     await Axios.get(
-      `http://localhost:8000/api/student/search/section/${sectionid}`
+      `http://localhost:8000/api/students/sections/${sectionid}`
     )
       .then((res) => {
         console.log(res.data);
@@ -208,7 +208,7 @@ const TakeAttendance = () => {
   };
 
   const removestudent = async (id) => {
-    await Axios.delete(`http://127.0.0.1:8000/api/student/delete/${id}`);
+    await Axios.delete(`http://127.0.0.1:8000/api/students/${id}`);
     console.log("student is deleted ");
   };
 

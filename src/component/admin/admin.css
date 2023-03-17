@@ -171,6 +171,8 @@
     border-top-right-radius: 5px;
     width: 30%;
     border-bottom-right-radius: 5px;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .M3-table-classes th {

@@ -1,0 +1,29 @@
+.studentsFilterHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#filterListBy{
+    width: 30%;
+}
+
+#attendanceList{
+    margin-top: 2%;
+}
+
+
+
+#editView{
+display: flex;
+justify-content: center;    
+}
+
+#deleteClasses{
+    margin: 0;
+}
+
+#viewClasses{
+    margin: 0;
+}

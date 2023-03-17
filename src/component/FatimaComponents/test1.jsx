@@ -45,7 +45,7 @@ const Test1 = () => {
 
   const classesgetters = async () => {
 
-    await Axios.get("http://localhost:8000/api/classes/read")
+    await Axios.get("http://localhost:8000/api/classes")
       .then((res) => {
         console.log(res.data);
         setClassOptions(
@@ -66,7 +66,7 @@ const Test1 = () => {
 
   const sectiongetters = async (data) => {
 
-    await Axios.get(`http://127.0.0.1:8000/api/section/search/class/${data}`)
+    await Axios.get(`http://127.0.0.1:8000/api/sections/class/${data}`)
       .then((res) => {
         console.log(res.data);
         setSectionOptions(
@@ -87,7 +87,7 @@ const Test1 = () => {
 
 
   const studentreader = async (sectionid) => {
-    await Axios.get(`http://localhost:8000/api/student/search/section/${sectionid}`)
+    await Axios.get(`http://localhost:8000/api/students/sections/${sectionid}`)
       .then((res) => {
         console.log(res.data);
         setStudentOptions(

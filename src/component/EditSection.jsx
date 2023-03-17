@@ -35,7 +35,7 @@ function EditSection() {
 
   const addcourse = async (coursesname) => {
     const data = { Course_Name: coursesname, Section_ID: state.sectionid }
-    await axios.post(`http://127.0.0.1:8000/api/courses/post`, data)
+    await axios.post(`http://127.0.0.1:8000/api/courses`, data)
     console.log("adding courses is done ")
 
   }
@@ -45,12 +45,12 @@ function EditSection() {
 
   const updatesection = async () => {
     const data = { Section_Name: sectionname }
-    await axios.put(`http://127.0.0.1:8000/api/section/edit/${state.sectionid}`, data)
+    await axios.put(`http://127.0.0.1:8000/api/sections/${state.sectionid}`, data)
   }
 
   const studentsgetter = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/student/search/section/${state.sectionid}`)
+      const response = await axios.get(`http://127.0.0.1:8000/api/students/sections/${state.sectionid}`)
       console.log(response.data)
       setstudentsdata(response.data)
     }
@@ -63,7 +63,7 @@ function EditSection() {
 
 
   const removestudent = async (id) => {
-    await axios.delete(`http://127.0.0.1:8000/api/student/delete/${id}`)
+    await axios.delete(`http://127.0.0.1:8000/api/students/${id}`)
     console.log('student is deleted ')
   }
 

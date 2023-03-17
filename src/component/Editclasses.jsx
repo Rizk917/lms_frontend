@@ -11,7 +11,7 @@ function Editclasses() {
   // <button onClick={() => console.log(state.class_id)}>hana</button>
 
   const { state } = useLocation();
-  const [clas_id, setclas_id] = useState(state.class_id);
+  const class_id = state.class_id;
   const [sections, setsections] = useState();
   const [classname, setclassname] = useState();
 
@@ -29,7 +29,7 @@ function Editclasses() {
 
     try {
 
-      await axios.put(`http://127.0.0.1:8000/api/classes/edit/${clas_id}`, data)
+      await axios.put(`http://127.0.0.1:8000/api/classes/${class_id}`, data)
     }
     catch (error) {
       console.log(error)
@@ -39,7 +39,7 @@ function Editclasses() {
 
   const getSections = async (clas_id) => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/section/search/class/${state.class_id}`)
+      const response = await axios.get(`http://127.0.0.1:8000/api/sections/class/${state.class_id}`)
       // console.log(response.data)
       setsections(response.data)
     }
@@ -53,7 +53,7 @@ function Editclasses() {
   const deletesection = async (id) => {
     try {
 
-      await axios.delete(`http://127.0.0.1:8000/api/section/delete/${id}`)
+      await axios.delete(`http://127.0.0.1:8000/api/sections/${id}`)
       console.log("the sections is deleted ")
     }
     catch (error) {
@@ -64,7 +64,7 @@ function Editclasses() {
   useEffect(() => {
     getSections();
 
-  }, [clas_id]);
+  }, [class_id]);
 
 
 
@@ -110,7 +110,7 @@ function Editclasses() {
           <tr>
             <th className="headetable">Section Name</th>
             <th className="headetable">Number of Students</th>
-            <th> <Link className="addclass-button" to='/newSection' state={{ class_id: clas_id }}> Add new Section</Link></th>
+            <th> <Link className="addclass-button" to='/newSection' state={state}> Add new Section</Link></th>
           </tr>
         </thead>
 
@@ -118,14 +118,14 @@ function Editclasses() {
 
 
         <tbody>
-          {sections?.map((hourframe) => (
+          {sections?.map((item) => (
 
             <tr>
-              <td className="table-info">{hourframe.Section_Name} </td>
+              <td className="table-info">{item.Section_Name} </td>
               <td className="table-info">fixit fawaz</td>
               <td className="table-info">
-                <button className="delete-classes" onClick={() => deletesection(hourframe.id)}>delete</button>
-                <button className="edit-classes"><Link to="/EditSections" className="edit-classes" state={{ sectionid: hourframe.id, class_id: clas_id }} >
+                <button className="delete-classes" onClick={() => deletesection(item.id)}>delete</button>
+                <button className="edit-classes"><Link to="/EditSections" className="edit-classes" state={{ ...state, sectionid: item.id }} >
                 VIEW
                 </Link></button></td>
             </tr>

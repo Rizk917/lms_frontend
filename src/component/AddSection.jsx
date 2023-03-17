@@ -28,7 +28,7 @@ const [sectionname,setsectionname]=useState();
     User_ID:1}
   
   try {
- await axios.post(`http://127.0.0.1:8000/api/section/post`,data)
+ await axios.post(`http://127.0.0.1:8000/api/sections`,data)
   
   }catch(error){
     console.log("error ",error);
