@@ -17,7 +17,7 @@ function CLasses() {
 
   const deleteclasses = async (data) => {
     try {
-      const response = await axios.delete(`http://127.0.0.1:8000/api/classes/delete/${data}`)
+      const response = await axios.delete(`http://127.0.0.1:8000/api/classes/${data}`)
     } catch (error) {
       console.log(error)
     }
@@ -30,7 +30,7 @@ function CLasses() {
 
   const getclasses = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/classes/read`)
+      const response = await axios.get(`http://127.0.0.1:8000/api/classes`)
       console.log(response.data)
       setclasses(response.data)
     }
@@ -61,19 +61,19 @@ function CLasses() {
         </thead>
 
         <tbody>
-          {classes?.map((hourframe, index) => (
+          {classes?.map((item, index) => (
             <tr>
-              <td className="table-info">{hourframe.Class_Name}</td>
+              <td className="table-info">{item.Class_Name}</td>
               <td className="table-info">NUMBER</td>
 
 
 
-              <td className="table-info"><button onClick={() => deleteclasses(hourframe.id)} className="delete-classes">Delete</button>
+              <td className="table-info"><button onClick={() => deleteclasses(item.id)} className="delete-classes">Delete</button>
 
 
 
                 <button className="edit-classes">
-                  <Link to="/editClassespage" className="edit-classes" onClick={() => console.log(hourframe.id)} state={{ class_id: hourframe.id }} >
+                  <Link to="/editClassespage" className="edit-classes" onClick={() => console.log(item.id)} state={{ class_id: item.id }} >
                     VIEW
                   </Link></button></td>
             </tr>))}

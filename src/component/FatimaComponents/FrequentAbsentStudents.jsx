@@ -38,7 +38,7 @@ const FrequentAbsentStudents = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/classes/read")
+      .get("http://localhost:8000/api/classes")
       .then((res) => {
         console.log(res.data);
         setClassOptions(

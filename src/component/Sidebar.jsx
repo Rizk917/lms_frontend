@@ -25,26 +25,9 @@ function Sidebar() {
     <div className="sidebar-buttons"><img src={home} alt="" /> <p><Link to="/home">Home</Link></p></div>
     <div className="sidebar-buttons"><img src={classlogo} alt="" /> <p ><Link to='/Classespage'>CLasses</Link></p></div>
     <div className="sidebar-buttons"><img src={studentlogo} alt="" /> <p ><Link to='/students'>Students</Link></p> </div >
-    <div className="sidebar-buttons"><img src={Attendancelogo} alt="" /> <p ><Link to='/attendance'>Attendance</Link></p></div >
-    <div className="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/admin'>Admins</Link></p></div >
-    <div href="/" onClick={Logout} className="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/'>Logout</Link></p></div >
-
-
-
-
-
-    {/* <p className="sidebar-buttons"><Link to="/">Home</Link></p>
-    <p className="sidebar-buttons"><Link to='/Classespage'>CLasses</Link></p>
-    <p className="sidebar-buttons"><Link to='/classes'>Add Classes</Link></p>
-    <p className="sidebar-buttons"><Link to='/sections'>Add sections</Link></p>
-    <p className="sidebar-buttons"><Link to='/addstudent'>Add Students</Link></p>
-    <p className="sidebar-buttons"><Link to='/addstudent'>Add Students</Link></p> */}
-
-
-    {/* <p className="sidebar-buttons"><Link to='/attendance'>Attendance</Link></p>
-      <p className="sidebar-buttons"><Link to='/students'>Add students</Link></p>
-      <p className="sidebar-buttons"><Link to='/allstudents'>All students</Link></p> */}
-
+    <div className="sidebar-buttons" id="sidebar-buttons"><img src={Attendancelogo} alt="" /> <p ><Link to='/attendance'>Attendance</Link></p></div >
+    <div className="sidebar-buttons" id="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/admin'>Admins</Link></p></div >
+    <div href="/" onClick={Logout} className="sidebar-buttons" id="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/'>Logout</Link></p></div >
   </div >
 
 

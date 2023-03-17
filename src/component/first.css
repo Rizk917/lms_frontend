@@ -16,7 +16,7 @@
 .sidebar-container {
     display: flex;
     flex-direction: column;
-    margin-top: 0px;
+    margin-top: 20px;
     background-color: white;
     width: 15%;
     border-right: 1px solid #D8DEE2;
@@ -26,12 +26,17 @@
 .sidebar-buttons {
     width: 100%;
     font-size: 1.2vw;
-    margin: 0;
+    margin-top: 20px;
     height: 100px;
     display: flex;
     align-items: center;
 
     gap: 15px;
+}
+
+#sidebar-buttons img{
+    width: 2vw;
+    height: 2vw;
 }
 
 .sidebar-buttons img {
@@ -340,12 +345,33 @@
 }
 
 
+.attendance-tick p{
+    size: 15px;
+    padding-right:7px;
+    padding-left: 7px;
+    padding-top: 0;
+    padding-bottom: 0;
 
-.new-select {
+}
+.attendanceEdit{
+   display: flex;
+   justify-content: space-evenly;
 
+   
   }
+
+
+.new-select{
+    
+    color:#163951;
+   margin: auto;
+    padding-right: 50px;
+    border: 0;
+    size: 25px;
+    margin: 0;
+}
   
-  .new-select  {
+  /* .new-select  {
     background-color: #0390cd;
     color: white;
     padding: 10px;
@@ -381,4 +407,4 @@
   
   .new-select select option {
     padding: 30px;
-  }
+  } */

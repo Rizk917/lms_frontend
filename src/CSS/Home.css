@@ -145,5 +145,7 @@ h3 {
 .attendanceBorderWord {
   border: 1px solid #d8dee2;
   padding: 20px 20px;
+  text-align: center;
+  align-items: center;
   width: -webkit-fill-available;
 }
