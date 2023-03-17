@@ -112,6 +112,7 @@ export default function Admin() {
                 className="M3-edit-classes"
                 onClick={() => handleEditClick(admin)}
               >
+                
                 Edit
               </button>
             </td>
