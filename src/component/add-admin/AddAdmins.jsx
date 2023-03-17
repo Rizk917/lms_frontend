@@ -94,9 +94,9 @@ const handleSubmit = async(e) =>{
         <label className="M8-label-Addadmins" htmlFor="">Email</label>  
         <input className="M8-input-Addamis" type="text" value={Email}  required onChange={(e)=>setEmail(e.target.value)}/>
         <label className="M8-label-Addadmins" htmlFor="">Password</label>
-        <input className="M8-input-Addamis" type="text" value={Password} required onChange={(e)=>setPassword(e.target.value)}/>
+        <input className="M8-input-Addamis" type="password" value={Password} required onChange={(e)=>setPassword(e.target.value)}/>
         <label className="M8-label-Addadmins" htmlFor="">Confirm Password</label>
-        <input className="M8-input-Addamis" type="text" value={confirmPassword} required onChange={(e)=>setconfirmPassword(e.target.value)}/>
+        <input className="M8-input-Addamis" type="password" value={confirmPassword} required onChange={(e)=>setconfirmPassword(e.target.value)}/>
 
         </form> 
         </div>
@@ -106,7 +106,8 @@ const handleSubmit = async(e) =>{
         
         
         <div className="M8-buttons">
-        <button className="M8-cancel-classes"><Link to="/admin">Cancel</Link></button><button className="M8-edit-classes" onClick={handleSubmit}>Submit</button>
+        <button className="M8-cancel-classes"><Link to="/admin">Cancel</Link></button>
+        <button className="M8-edit-classes" onClick={handleSubmit}><Link to="/admin">Submit</Link></button>
          </div>
          
     </div>
