@@ -1,5 +1,5 @@
 .main-container-login{
-    background-image: url("../../images/351885.jpg");
+    /* background-image: url("../../images/351885.jpg"); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@
     padding: 2em;
     border-radius: 10px;
     text-align: center;
-    background: rgb(255,255,255,0.15);
+    background:#0272ac;
     transition: 0.3s;
 }
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import "./admin.css";
 import Sidebar from "../Sidebar";
 
@@ -62,6 +63,10 @@ export default function Admin() {
           Role: "",
         });
         loadadmins();
+        console.log(response)
+        if (response.status==200){
+          toast.success("Admin edited successfully!");
+        }
       })
       .catch((error) => console.error(error));
   };
@@ -69,11 +74,15 @@ export default function Admin() {
   const deleteAdmin = (id) => {
     axios
       .delete(`http://localhost:8000/api/user/${id}`, { headers })
-      .then(() => setAdmins(admins.filter((admin) => admin.id !== id)))
+      .then(() => {
+        setAdmins(admins.filter((admin) => admin.id !== id));
+        toast.error("Admin deleted successfully!");
+      })
       .catch((error) => console.error(error));
   };
   return (
     <div className="M3-classespage">
+         <ToastContainer />
       <table className="M3-table-classes">
         <tr className="tr">
           <th className="M3-headetable"> Name</th>

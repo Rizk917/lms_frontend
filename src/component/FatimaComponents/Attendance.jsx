@@ -5,6 +5,9 @@ import axios from "axios";
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AttendanceTable = () => {
   const [selectedClass, setSelectedClass] = useState();
@@ -36,7 +39,11 @@ const AttendanceTable = () => {
         await axios.put(`http://127.0.0.1:8000/api/attendance/${item.id}`, {
           Date: item.Date,
           Status: newStatus,
-        });
+        }
+        );
+        if (newStatus.status==200){
+          toast.success("attendance edited successfully!");
+        }
       } catch (error) {
         console.error(error);
       }
@@ -137,6 +144,8 @@ const AttendanceTable = () => {
 
   return (
     <div className="attendanceTable">
+         <ToastContainer />
+
       <h1>Filter List by:</h1>
       <div className="filterListBy">
         <div className="filterListByAlone">

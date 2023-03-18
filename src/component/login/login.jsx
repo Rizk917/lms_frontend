@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./login.css";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
   const [error, setError] = useState("");
@@ -24,7 +26,7 @@ const LoginPage = () => {
         console.log(response.data, "userRegister");
 
         if (response.status === 200) {
-          alert("Login successful");
+          toast.success("Successfully Logged in!");
           window.localStorage.setItem("token", response.data.token);
           window.localStorage.setItem("loggedIn", true);
 
@@ -37,8 +39,10 @@ const LoginPage = () => {
     }
   };
 
-  return (
+  return (<>
     <div className="main-container-login">
+  <ToastContainer/>
+      
       <div className="adminlogin-box-container">
         <form onSubmit={handleSubmit}>
           <h3 className="title-login">Log In</h3>
@@ -74,7 +78,10 @@ const LoginPage = () => {
         {error && <div className="error">{error}</div>}
       </div>
     </div>
+    </>
   );
+
+  
 };
 
 export default LoginPage;

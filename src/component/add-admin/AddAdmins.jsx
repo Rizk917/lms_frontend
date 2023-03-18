@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -13,8 +15,6 @@ import { useState } from 'react';
 
 function AddAdmins() {
 
-
-  const [classes, setClasses] = useState([]);
 
 
 
@@ -50,7 +50,12 @@ const handleSubmit = async(e) =>{
       // 'X-CSRF-TOKEN': ('meta[name="csrf-token"]').attr('content')},
       body: JSON.stringify(inputValue)
 
-      } );
+      }
+    
+      );
+      if (response.status==201){
+        toast.success("Admin added successfully!");
+      }
       console.log("response ",response)
     }
       catch(error){
@@ -65,8 +70,12 @@ const handleSubmit = async(e) =>{
   return (
     
     <div className="M8-container1">
+         <ToastContainer />
+
       <div className="M8-container2">
+
     <div className="M8-center-container">
+
       <div className="M8-profile-button" >
         <div className="M8-profile-pic">
           <img src="https://pic.onlinewebfonts.com/svg/img_510068.png" alt="" />

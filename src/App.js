@@ -20,6 +20,7 @@ import EditUser from "./component/edit-admin/EditAdmins";
 import Test1 from "./component/FatimaComponents/test1";
 import StudentssPage from "./pages/StudedntssPage";
 import Adminpage from "./pages/admin-pages/AdminPage";
+import AttendanceByDate from "./AttendanceByDate";
 function App() {
   return (
     <div>
@@ -27,6 +28,7 @@ function App() {
       <Routes>
        
       <Route exact path='/SecondSelect' element={< SecondSelectPage />}></Route>
+      <Route exact path='/attendancebydate' element={< AttendanceByDate />}></Route>
       <Route exact path='/admin' element={< Adminpage />}></Route>
       <Route exact path='/add-admins' element={< AddAdminPage />}></Route>
       <Route exact path='/test' element={< Test />}></Route>
