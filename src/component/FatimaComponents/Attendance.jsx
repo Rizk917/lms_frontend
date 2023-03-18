@@ -153,6 +153,7 @@ const AttendanceTable = () => {
           <h3>Section</h3>
           <Select
             placeholder="Select Section"
+            id="select"
             onChange={handleSelectChangeSection}
             value={selectedSection}
             isDisabled={!selectedClass}
@@ -164,6 +165,7 @@ const AttendanceTable = () => {
           <h3>Student</h3>
           <Select
             placeholder="Select Student"
+            id="select"
             onChange={handleSelectChangeStudent}
             value={selectedStudent}
             isDisabled={!selectedClass || !selectedSection}

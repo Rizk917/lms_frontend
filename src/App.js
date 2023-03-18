@@ -31,15 +31,15 @@ function App() {
       <Route exact path='/test' element={< Test />}></Route>
       <Route exact path='/test12' element={< Newatt />}></Route>
       <Route exact path='/' element={< LoginPage />}></Route>
-      <Route exact path='/Addclasses' element={< AddClassesPage />}></Route>
+      <Route exact path='/classes/new' element={< AddClassesPage />}></Route>
       <Route exact path='/sections' element={< AddSectionsPage />}></Route>
       <Route exact path='/add-students' element={< AddStudentsPage />}></Route>
-      <Route exact path='/Classespage' element={< ClassesPage />}></Route>
-      <Route exact path='/Home' element={< Home />}></Route>
-      <Route exact path='/Attendance' element={< AttendancePage/>}></Route>
+      <Route exact path='/classes' element={< ClassesPage />}></Route>
+      <Route exact path='/home' element={< Home />}></Route>
+      <Route exact path='/attendance' element={< AttendancePage/>}></Route>
       <Route exact path='/users/:id"' element={< EditUser/>}></Route>
       <Route exact path='/students' element={< StudentssPage/>}></Route>
-      <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
+      <Route exact path='/classes/edit' element={< EditclassesPage />}></Route>
       <Route exact path='/newSection' element={< AddSectionsPage />}></Route>
       <Route exact path='/EditSections' element={< EditSectionPage />}></Route>
 

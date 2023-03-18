@@ -101,6 +101,7 @@ text.recharts-text.recharts-pie-label-text {
   justify-content: space-between;
   margin-right: 2%;
   margin-left: 2%;
+  margin-bottom: 20px;
 }
 
 .datePicker {
@@ -127,6 +128,9 @@ h3 {
 
 .attendanceList {
   margin-top: 8vh;
+  padding: 10px 10px;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 .attendanceListRow,
