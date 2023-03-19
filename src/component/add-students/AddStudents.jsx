@@ -8,7 +8,7 @@ import axios from "axios";
 
 export default function AddStudents() {
   const { state } = useLocation();
-  const [sectionid, setsectionid] = useState(state.sectionid);
+  const [sectionid, setsectionid] = useState(state.section_id);
   useEffect(() => {
     console.log(`Section ID changed to ${sectionid}`);
   }, [sectionid]);
@@ -100,7 +100,7 @@ export default function AddStudents() {
             <Link
               to="/EditSections"
               className="M1-cancel-classes"
-              state={{ sectionid: state.sectionid }}
+              state={{ sectionid: state.section_id }}
             >
               Cancel
             </Link>
@@ -109,7 +109,7 @@ export default function AddStudents() {
               className="M1-edit-classes"
               onClick={() => studentAdder()}
               to="/EditSections"
-              state={{ sectionid: state.sectionid }}
+              state={{ sectionid: state.section_id }}
             >
               Submit
             </Link>

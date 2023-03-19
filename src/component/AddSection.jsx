@@ -20,9 +20,12 @@ function AddSection() {
     const data = { Section_Name: sectionname, Class_ID: clas_id, User_ID: 1 };
 
     await axios
-      .post(`http://127.0.0.1:8000/api/classes/${clas_id}/sections`, data)
+      .post(
+        `http://127.0.0.1:8000/api/classes/${state.class_id}/sections`,
+        data
+      )
       .then(() => {
-        navigate("/classes/edit");
+        navigate("/classes/edit", { state });
       })
 
       .catch((error) => {

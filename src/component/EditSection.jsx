@@ -13,7 +13,7 @@ function EditSection() {
   const [subject, setsubject] = useState();
 
   const { state } = useLocation();
-  const [sectionid, setsectionid] = useState(state.sectionid);
+  const [sectionid, setsectionid] = useState(state.section_id);
   const navigate = useNavigate();
   const [studentsdata, setstudentsdata] = useState();
   useEffect(() => {
@@ -22,7 +22,7 @@ function EditSection() {
   }, [sectionid, subject]);
 
   const addcourse = async (coursesname) => {
-    const data = { Course_Name: coursesname, Section_ID: state.sectionid };
+    const data = { Course_Name: coursesname, Section_ID: state.section_id };
     await axios.post(`http://127.0.0.1:8000/api/courses`, data);
     console.log("adding courses is done ");
   };
@@ -30,8 +30,8 @@ function EditSection() {
   const updatesection = async () => {
     const data = { Section_Name: sectionname };
     await axios
-      .put(`http://127.0.0.1:8000/api/sections/${state.sectionid}`, data)
-      .then(() => navigate("/classes/edit"))
+      .put(`http://127.0.0.1:8000/api/sections/${state.section_id}`, data)
+      .then(() => navigate("/classes/edit",{state}))
       .catch((error) => {
         console.log(error);
       });
@@ -40,7 +40,7 @@ function EditSection() {
   const studentsgetter = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/students/sections/${state.sectionid}`
+        `http://127.0.0.1:8000/api/students/sections/${state.section_id}`
       );
       console.log(response.data);
       setstudentsdata(response.data);
@@ -159,7 +159,7 @@ function EditSection() {
               <Link
                 className="addclass-button"
                 to="/add-students"
-                state={{ sectionid: state.sectionid }}
+                state={{ sectionid: state.section_id }}
               >
                 Add new Student
               </Link>
@@ -188,7 +188,7 @@ function EditSection() {
                     state={{
                       location: "/EditSections",
                       student_id: hourframe.id,
-                      sectionid: state.sectionid,
+                      sectionid: state.section_id,
                     }}
                   >
                     VIEW

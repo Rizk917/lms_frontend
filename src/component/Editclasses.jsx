@@ -13,8 +13,7 @@ function Editclasses() {
   const class_id = state.class_id;
   const [sections, setsections] = useState();
   const [classname, setclassname] = useState();
-  
-  
+
   const edithandler = () => {
     console.log("hello");
   };
@@ -44,7 +43,8 @@ function Editclasses() {
     try {
       await axios.delete(`http://127.0.0.1:8000/api/sections/${id}`);
       console.log("the sections is deleted ");
-      navigate("/classes/edit")
+      navigate("/classes/edit", { state });
+      getSections();
     } catch (error) {
       console.log(error);
     }
