@@ -117,6 +117,7 @@ const Students = () => {
               onChange={handleSelectChangeClass}
               value={selectedClass}
               options={classOptions}
+              className="select"
               isClearable
             />
           </div>
@@ -127,6 +128,7 @@ const Students = () => {
               value={selectedSection}
               isDisabled={!selectedClass}
               options={sectionOptions}
+              className="select"
               isClearable
             />
           </div>

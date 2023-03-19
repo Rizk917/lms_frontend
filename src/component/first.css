@@ -17,7 +17,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    background-color: white;
     width: 15%;
     border-right: 1px solid #D8DEE2;
 
@@ -216,7 +215,7 @@
     text-decoration: none;
 }
 
-.delete-classes {
+.delete-classes:enabled {
     background-color: white;
     color: #FF0000;
     border: 2px solid #FF0000;
@@ -227,6 +226,11 @@
     padding: 0.5vw;
 
 }
+/* .delete-classes:disabled{
+    background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3)) !important;
+    color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3))!important;
+    border-color: -internal-light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3))!important;
+} */
 
 .edit-classes {
     font-size: 1vw;
@@ -370,41 +374,3 @@
     size: 25px;
     margin: 0;
 }
-  
-  /* .new-select  {
-    background-color: #0390cd;
-    color: white;
-    padding: 10px;
-    width: 125px;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
-  }
-  
-  .new-select::before {
-    content: "\f13a";
-    font-family: FontAwesome;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20%;
-    height: 100%;
-    text-align: center;
-    font-size: 28px;
-    line-height: 45px;
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.1);
-    pointer-events: none;
-  }
-  
-  .new-select:hover::before {
-    color: rgba(255, 255, 255, 0.6);
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .new-select select option {
-    padding: 30px;
-  } */
