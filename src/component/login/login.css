@@ -5,6 +5,8 @@
     align-items: center;
     min-height: 100vh;
     background-repeat: no-repeat;
+    background:#ecf0f2d4;
+
     background-size: cover;
 }
 
@@ -15,7 +17,7 @@
     padding: 2em;
     border-radius: 10px;
     text-align: center;
-    background:#0272ac;
+    background:#0272acd4;
     transition: 0.3s;
 }
 
@@ -24,7 +26,7 @@
 }
 
 .title-login {
-    font-size: 30px;
+    font-size: 50px;
     margin-bottom: 1em;
     margin-top: 0.2em;
     color: #ddd;
@@ -42,8 +44,9 @@
   }
   
 .input-login {
-    width: 80%;
+    width: 90%;
     padding: 1em;
+    text-align: left;
     margin-bottom: 1em;
     border-radius: 5px;
     border: none;

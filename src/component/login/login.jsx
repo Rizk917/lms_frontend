@@ -27,7 +27,9 @@ const LoginPage = () => {
 
         if (response.status === 200) {
           toast.success("Successfully Logged in!");
+          console.table(response.data)
           window.localStorage.setItem("token", response.data.token);
+          window.localStorage.setItem("Role", response.data.user.Role);
           window.localStorage.setItem("loggedIn", true);
 
           window.location.href = "/home";

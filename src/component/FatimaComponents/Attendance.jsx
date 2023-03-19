@@ -26,29 +26,30 @@ const AttendanceTable = () => {
 
   const [data, setData] = useState([]);
   ///////////////////////////////////////////////////////
+
   const handleEdit = async (item) => {
     const index = attendances.findIndex((a) => a.id === item.id);
-    const newStatus = document.getElementById(
-      `attendance-status-${item.id}`
-    ).value;
+    const newStatus = document.getElementById(`attendance-status-${item.id}`).value;
+  
     if (newStatus !== item.status) {
       const newAttendance = [...attendances];
       newAttendance[index].status = newStatus;
       setAttendances(newAttendance);
+  
       try {
         await axios.put(`http://127.0.0.1:8000/api/attendance/${item.id}`, {
           Date: item.Date,
           Status: newStatus,
-        }
-        );
-        if (newStatus.status==200){
-          toast.success("attendance edited successfully!");
-        }
+        });
+  
+        toast.success("Attendance edited successfully!");
+  
       } catch (error) {
         console.error(error);
       }
     }
   };
+  
 
   ///////////////////////////////////////////////////////
 
@@ -143,9 +144,9 @@ const AttendanceTable = () => {
   };
 
   return (
+  <>
     <div className="attendanceTable">
-         <ToastContainer />
-
+<ToastContainer/>
       <h1>Filter List by:</h1>
       <div className="filterListBy">
         <div className="filterListByAlone">
@@ -274,6 +275,8 @@ const AttendanceTable = () => {
         ))}
       </div>
     </div>
+</>
+
   );
 };
 

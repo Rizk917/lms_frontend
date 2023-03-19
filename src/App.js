@@ -21,6 +21,7 @@ import Test1 from "./component/FatimaComponents/test1";
 import StudentssPage from "./pages/StudedntssPage";
 import Adminpage from "./pages/admin-pages/AdminPage";
 import AttendanceByDate from "./AttendanceByDate";
+import Error404loader from "./component/Error/Error404-loader";
 function App() {
   return (
     <div>
@@ -45,6 +46,8 @@ function App() {
       <Route exact path='/editClassespage' element={< EditclassesPage />}></Route>
       <Route exact path='/newSection' element={< AddSectionsPage />}></Route>
       <Route exact path='/EditSections' element={< EditSectionPage />}></Route>
+      <Route exact path='/*' element={< Error404loader />}></Route>
+
 
   </Routes>
     </div>
