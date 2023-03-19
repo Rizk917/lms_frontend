@@ -1,6 +1,6 @@
 import React from "react";
 import "./first.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -10,8 +10,8 @@ function AddSection() {
 
   const { state } = useLocation();
 
-  const [clas_id, setclas_id] = useState(state.class_id);
-
+  const [clas_id, setclas_id] = useState(state.clas_id);
+  const navigate = useNavigate();
   useEffect(() => {
     console.log(clas_id);
   }, [clas_id]);
@@ -19,14 +19,15 @@ function AddSection() {
   const postnewsection = async () => {
     const data = { Section_Name: sectionname, Class_ID: clas_id, User_ID: 1 };
 
-    try {
-      await axios.post(
-        `http://127.0.0.1:8000/api/classes/${clas_id}/sections`,
-        data
-      );
-    } catch (error) {
-      console.log("error ", error);
-    }
+    await axios
+      .post(`http://127.0.0.1:8000/api/classes/${clas_id}/sections`, data)
+      .then(() => {
+        navigate("/classes/edit");
+      })
+
+      .catch((error) => {
+        console.log("error ", error);
+      });
   };
 
   return (
@@ -47,19 +48,17 @@ function AddSection() {
             to="/classes/edit"
             state={{ class_id: clas_id }}
           >
-            {" "}
             Cancel
           </Link>
 
-          <Link
+          <button
             className="submit-classes"
             to="/classes/edit"
             state={{ class_id: clas_id }}
             onClick={() => postnewsection()}
           >
-            {" "}
             Submit
-          </Link>
+          </button>
         </div>
       </div>
     </div>

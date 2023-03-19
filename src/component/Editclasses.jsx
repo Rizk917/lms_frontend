@@ -44,6 +44,7 @@ function Editclasses() {
     try {
       await axios.delete(`http://127.0.0.1:8000/api/sections/${id}`);
       console.log("the sections is deleted ");
+      navigate("/classes/edit")
     } catch (error) {
       console.log(error);
     }

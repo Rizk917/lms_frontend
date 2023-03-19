@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./first.css";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -14,7 +14,7 @@ function EditSection() {
 
   const { state } = useLocation();
   const [sectionid, setsectionid] = useState(state.sectionid);
-
+  const navigate = useNavigate();
   const [studentsdata, setstudentsdata] = useState();
   useEffect(() => {
     console.log(sectionid);
@@ -29,10 +29,12 @@ function EditSection() {
 
   const updatesection = async () => {
     const data = { Section_Name: sectionname };
-    await axios.put(
-      `http://127.0.0.1:8000/api/sections/${state.sectionid}`,
-      data
-    );
+    await axios
+      .put(`http://127.0.0.1:8000/api/sections/${state.sectionid}`, data)
+      .then(() => navigate("/classes/edit"))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const studentsgetter = async () => {
@@ -48,13 +50,21 @@ function EditSection() {
   };
 
   const removestudent = async (id) => {
-    await axios.delete(`http://127.0.0.1:8000/api/students/${id}`);
-    console.log("student is deleted ");
+    await axios
+      .delete(`http://127.0.0.1:8000/api/students/${id}`)
+      .then(() => {
+        console.log("student is deleted ");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const handeleDelete = (classId) => {
-    removestudent(classId);
-    studentsgetter();
+  const handeleDelete = async (classId) => {
+    await removestudent(classId).then(() => {
+      studentsgetter();
+      window.location("/EditSections");
+    });
   };
 
   return (
@@ -79,14 +89,14 @@ function EditSection() {
               Cancel
             </Link>
 
-            <Link
+            <button
               className="submit-classes"
-              to="/classes/edit"
+              // to="/classes/edit"
               onClick={() => updatesection()}
               state={{ class_id: state.class_id }}
             >
               Submit
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -165,6 +175,7 @@ function EditSection() {
               <td className="table-info">
                 <button
                   className="delete-classes"
+                  // to="EditSections"
                   onClick={() => handeleDelete(hourframe.id)}
                   disabled={hourframe.studentsCount > 0}
                 >

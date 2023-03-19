@@ -1,24 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./first.css";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
 function CLasses() {
   const [classes, setclasses] = useState();
-
+  const navigate = useNavigate();
   const edithandler = () => {
     console.log("hello world ");
   };
 
   const deleteclasses = async (classId) => {
-    try {
-      const response = await axios.delete(
-        `http://127.0.0.1:8000/api/classes/${classId}`
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    await axios
+      .delete(`http://127.0.0.1:8000/api/classes/${classId}`)
+      .then(() => {
+        console.log("class is deleted");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const getclasses = async () => {
@@ -35,9 +36,11 @@ function CLasses() {
     getclasses();
   }, []);
 
-  const handeleDelete = (classId) => {
-    deleteclasses(classId);
-    getclasses();
+  const handeleDelete = async (classId) => {
+    await deleteclasses(classId).then(() => {
+      getclasses();
+      window.location("/classes");
+    });
   };
 
   return (

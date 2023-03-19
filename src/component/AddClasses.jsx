@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./first.css";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 function AddClasses() {
-  const [Class_Name, setClass_Name] = useState("");
+  const [Class_Name, setClass_Name] = useState();
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     console.log(event.target.value);
@@ -22,16 +23,19 @@ function AddClasses() {
       },
       data: JSON.stringify(data),
     };
-    try {
-      var response = await axios(config);
-      // var response = await axios.get(`http://127.0.0.1:8000/api/classes`);
-      console.log("res ", response);
 
-      console.log("class is posted");
-    } catch (error) {
-      console.error("err ", error);
-      // handle the error
-    }
+    var response = await axios(config)
+      .then(() => {
+        console.log("res ", response);
+        console.log("class is posted");
+        navigate("/classes");
+      })
+      // var response = await axios.get(`http://127.0.0.1:8000/api/classes`);
+
+      .catch((error) => {
+        console.error("err ", error);
+        // handle the error
+      });
   };
 
   return (
@@ -51,13 +55,13 @@ function AddClasses() {
           <Link className="cancel-classes" to="/classes">
             Cancel
           </Link>
-          <Link
+          <button
             className="submit-classes"
             to="/classes"
-            onClick={async() => await postClass()}
+            onClick={() => postClass()}
           >
             Submit
-          </Link>
+          </button>
         </div>
       </div>
     </div>
