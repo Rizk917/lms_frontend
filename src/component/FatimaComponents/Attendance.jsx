@@ -5,6 +5,9 @@ import axios from "axios";
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import JsPDF from 'jspdf';
 
 const AttendanceTable = () => {
   const [selectedClass, setSelectedClass] = useState();
@@ -23,25 +26,37 @@ const AttendanceTable = () => {
 
   const [data, setData] = useState([]);
   ///////////////////////////////////////////////////////
+  const generatePDF = () => {
+
+    const report = new JsPDF('portrait','pt','a1');
+    report.html(document.querySelector('#report')).then(() => {
+        report.save('report.pdf');
+    });}
+  ///////////////////////////////////////////////////////
+
   const handleEdit = async (item) => {
     const index = attendances.findIndex((a) => a.id === item.id);
-    const newStatus = document.getElementById(
-      `attendance-status-${item.id}`
-    ).value;
+    const newStatus = document.getElementById(`attendance-status-${item.id}`).value;
+  
     if (newStatus !== item.status) {
       const newAttendance = [...attendances];
       newAttendance[index].status = newStatus;
       setAttendances(newAttendance);
+  
       try {
         await axios.put(`http://127.0.0.1:8000/api/attendance/${item.id}`, {
           Date: item.Date,
           Status: newStatus,
         });
+  
+        toast.success("Attendance edited successfully!");
+  
       } catch (error) {
         console.error(error);
       }
     }
   };
+  
 
   ///////////////////////////////////////////////////////
 
@@ -136,7 +151,9 @@ const AttendanceTable = () => {
   };
 
   return (
-    <div className="attendanceTable">
+  <>
+    <div   className="attendanceTable">
+<ToastContainer/>
       <h1>Filter List by:</h1>
       <div className="filterListBy">
         <div className="filterListByAlone">
@@ -184,7 +201,7 @@ const AttendanceTable = () => {
           />
         </div>
       </div>
-      <div className="attendanceList">
+      <div id="report" className="attendanceList">
         <div className="attendanceListHeader">
           <div className="attendanceBorderWord">Class</div>
           <div className="attendanceBorderWord">Section</div>
@@ -266,8 +283,10 @@ const AttendanceTable = () => {
           </div>
         ))}
       </div>
+      <button onClick={generatePDF} type="button">Export PDF</button>
     </div>
+</>
+
   );
 };
-
 export default AttendanceTable;

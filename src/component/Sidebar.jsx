@@ -12,6 +12,7 @@ import studentlogo from "../images/studentlogo.png"
 import Attendancelogo from "../images/Attendance.png"
 import adminlogo from "../images/adminlogo.png"
 
+const Role=localStorage.getItem("Role");
 const Logout = () => {
   window.location.href = "/";
 
@@ -26,7 +27,10 @@ function Sidebar() {
     <div className="sidebar-buttons"><img src={classlogo} alt="" /> <p ><Link to='/classes'>CLasses</Link></p></div>
     <div className="sidebar-buttons"><img src={studentlogo} alt="" /> <p ><Link to='/students'>Students</Link></p> </div >
     <div className="sidebar-buttons" id="sidebar-buttons"><img src={Attendancelogo} alt="" /> <p ><Link to='/attendance'>Attendance</Link></p></div >
-    <div className="sidebar-buttons" id="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/admin'>Admins</Link></p></div >
+  
+  {Role==="Admin"?<div className="sidebar-buttons" id="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/admin'>Admins</Link></p></div >:null}
+    
+    
     <div href="/" onClick={Logout} className="sidebar-buttons" id="sidebar-buttons"><img src={adminlogo} alt="" /> <p ><Link to='/'>Logout</Link></p></div >
   </div >
 

@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -13,8 +15,6 @@ import { useState } from 'react';
 
 function AddAdmins() {
 
-
-  const [classes, setClasses] = useState([]);
 
 
 
@@ -50,7 +50,12 @@ const handleSubmit = async(e) =>{
       // 'X-CSRF-TOKEN': ('meta[name="csrf-token"]').attr('content')},
       body: JSON.stringify(inputValue)
 
-      } );
+      }
+    
+      );
+      if (response.status==201){
+        toast.success("Admin added successfully!");
+      }
       console.log("response ",response)
     }
       catch(error){
@@ -65,8 +70,12 @@ const handleSubmit = async(e) =>{
   return (
     
     <div className="M8-container1">
+         <ToastContainer />
+
       <div className="M8-container2">
+
     <div className="M8-center-container">
+
       <div className="M8-profile-button" >
         <div className="M8-profile-pic">
           <img src="https://pic.onlinewebfonts.com/svg/img_510068.png" alt="" />
@@ -94,9 +103,9 @@ const handleSubmit = async(e) =>{
         <label className="M8-label-Addadmins" htmlFor="">Email</label>  
         <input className="M8-input-Addamis" type="text" value={Email}  required onChange={(e)=>setEmail(e.target.value)}/>
         <label className="M8-label-Addadmins" htmlFor="">Password</label>
-        <input className="M8-input-Addamis" type="text" value={Password} required onChange={(e)=>setPassword(e.target.value)}/>
+        <input className="M8-input-Addamis" type="password" value={Password} required onChange={(e)=>setPassword(e.target.value)}/>
         <label className="M8-label-Addadmins" htmlFor="">Confirm Password</label>
-        <input className="M8-input-Addamis" type="text" value={confirmPassword} required onChange={(e)=>setconfirmPassword(e.target.value)}/>
+        <input className="M8-input-Addamis" type="password" value={confirmPassword} required onChange={(e)=>setconfirmPassword(e.target.value)}/>
 
         </form> 
         </div>
@@ -106,7 +115,8 @@ const handleSubmit = async(e) =>{
         
         
         <div className="M8-buttons">
-        <button className="M8-cancel-classes"><Link to="/admin">Cancel</Link></button><button className="M8-edit-classes" onClick={handleSubmit}>Submit</button>
+        <button className="M8-cancel-classes"><Link to="/admin">Cancel</Link></button>
+        <button className="M8-edit-classes" onClick={handleSubmit}><Link to="/admin">Submit</Link></button>
          </div>
          
     </div>
