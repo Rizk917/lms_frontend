@@ -2,7 +2,8 @@ import Select from "react-select";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -12,6 +13,7 @@ function AttendanceByDate() {
   const [selectedStudent, setSelectedStudent] = useState();
   const [studentOptions, setStudentOptions] = useState([]);
   const [attendance, setAttendance] = useState([]);
+  const navigate = useNavigate();
 
   const [classOptions, setClassOptions] = useState([]);
   const [sectionOptions, setSectionOptions] = useState([]);
@@ -121,9 +123,14 @@ function AttendanceByDate() {
   const handleSelectChangeSection = (option) => {
     setselctedSection(option);
   };
+  const goToAttbyDate =()=>{
+    navigate("/attendancepage")
+  }
 
   return (
     <div className="attendanceTable">
+      <button  onClick={goToAttbyDate}>Attendance History
+      </button>
       <div className="studentsFilterHeader">
         <h1>Filter List by:</h1>
         <div className="filterListBy" id="filterListBy">
