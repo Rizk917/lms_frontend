@@ -7,7 +7,7 @@ import axios from "axios";
 export default function SecondselectStudent() {
 
   const { state } = useLocation();
-  const [sectionid, setsectionid] = useState(state.sectionid);
+  const [sectionid, setsectionid] = useState(state.section_id);
   const [student_id, setstudent_id] = useState(state.student_id);
   const [studentinfo, setstudentinfo] = useState();
 
@@ -57,7 +57,7 @@ export default function SecondselectStudent() {
           </div>
 
           <div className="M2-buttons">
-            <Link className="M4-cancel-classes" to={state.location} state={{ sectionid: state.sectionid }}>Done</Link>
+            <Link className="M4-cancel-classes" to={state.location} state={{ sectionid: state.section_id }}>Done</Link>
 
           </div>
 
