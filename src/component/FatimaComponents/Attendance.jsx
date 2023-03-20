@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
+import JsPDF from 'jspdf';
 
 const AttendanceTable = () => {
   const [selectedClass, setSelectedClass] = useState();
@@ -25,6 +25,13 @@ const AttendanceTable = () => {
   ////////////////////////////////////////////////////
 
   const [data, setData] = useState([]);
+  ///////////////////////////////////////////////////////
+  const generatePDF = () => {
+
+    const report = new JsPDF('portrait','pt','a1');
+    report.html(document.querySelector('#report')).then(() => {
+        report.save('report.pdf');
+    });}
   ///////////////////////////////////////////////////////
 
   const handleEdit = async (item) => {
@@ -145,7 +152,7 @@ const AttendanceTable = () => {
 
   return (
   <>
-    <div className="attendanceTable">
+    <div   className="attendanceTable">
 <ToastContainer/>
       <h1>Filter List by:</h1>
       <div className="filterListBy">
@@ -194,7 +201,7 @@ const AttendanceTable = () => {
           />
         </div>
       </div>
-      <div className="attendanceList">
+      <div id="report" className="attendanceList">
         <div className="attendanceListHeader">
           <div className="attendanceBorderWord">Class</div>
           <div className="attendanceBorderWord">Section</div>
@@ -276,10 +283,10 @@ const AttendanceTable = () => {
           </div>
         ))}
       </div>
+      <button onClick={generatePDF} type="button">Export PDF</button>
     </div>
 </>
 
   );
 };
-
 export default AttendanceTable;
