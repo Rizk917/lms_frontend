@@ -10,7 +10,7 @@ function AttendancePage() {
         <Sidebar />
         <div className="ordering">
           <Header />
-          <AttendanceTable />
+          <AttendanceByDate />
         </div>
       </div>
     </div>
