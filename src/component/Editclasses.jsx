@@ -99,11 +99,12 @@ function Editclasses() {
           {sections?.map((item) => (
             <tr>
               <td className="table-info">{item.Section_Name} </td>
-              <td className="table-info">fixit fawaz</td>
+              <td className="table-info">{item.studentsCount}</td>
               <td className="table-info">
                 <button
                   className="delete-classes"
                   onClick={() => deletesection(item.id)}
+                  disabled={item.studentsCount > 0}
                 >
                   delete
                 </button>

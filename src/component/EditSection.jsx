@@ -13,7 +13,7 @@ function EditSection() {
   const [subject, setsubject] = useState();
 
   const { state } = useLocation();
-  const [sectionid, setsectionid] = useState(state.section_id);
+  const [sectionid, setsectionid] = useState(state.sectionid);
   const navigate = useNavigate();
   const [studentsdata, setstudentsdata] = useState();
   useEffect(() => {
@@ -22,7 +22,7 @@ function EditSection() {
   }, [sectionid, subject]);
 
   const addcourse = async (coursesname) => {
-    const data = { Course_Name: coursesname, Section_ID: state.section_id };
+    const data = { Course_Name: coursesname, Section_ID: state.sectionid };
     await axios.post(`http://127.0.0.1:8000/api/courses`, data);
     console.log("adding courses is done ");
   };
@@ -30,8 +30,8 @@ function EditSection() {
   const updatesection = async () => {
     const data = { Section_Name: sectionname };
     await axios
-      .put(`http://127.0.0.1:8000/api/sections/${state.section_id}`, data)
-      .then(() => navigate("/classes/edit",{state}))
+      .put(`http://127.0.0.1:8000/api/sections/${state.sectionid}`, data)
+      .then(() => navigate("/classes/edit", { state }))
       .catch((error) => {
         console.log(error);
       });
@@ -40,7 +40,7 @@ function EditSection() {
   const studentsgetter = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/students/sections/${state.section_id}`
+        `http://127.0.0.1:8000/api/students/sections/${state.sectionid}`
       );
       console.log(response.data);
       setstudentsdata(response.data);
@@ -159,7 +159,7 @@ function EditSection() {
               <Link
                 className="addclass-button"
                 to="/add-students"
-                state={{ sectionid: state.section_id }}
+                state={{ state }}
               >
                 Add new Student
               </Link>
@@ -186,11 +186,15 @@ function EditSection() {
                   <Link
                     to="/SecondSelect"
                     state={{
+                      
                       location: "/EditSections",
                       student_id: hourframe.id,
-                      sectionid: state.section_id,
-                    }}
+                      sectionid: state.sectionid,
+                    }
+                
+                  }
                   >
+                    {  console.table(state)}
                     VIEW
                   </Link>
                 </button>
