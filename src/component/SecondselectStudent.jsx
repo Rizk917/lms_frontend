@@ -57,7 +57,7 @@ export default function SecondselectStudent() {
           </div>
 
           <div className="M2-buttons">
-            <Link className="M4-cancel-classes" to={state.location} state={{ sectionid: state.section_id }}>Done</Link>
+            <Link className="M4-cancel-classes" to={state.location} state={{ sectionid: state.sectionid }}>Done</Link>
 
           </div>
 

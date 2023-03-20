@@ -10,10 +10,10 @@ function AddSection() {
 
   const { state } = useLocation();
 
-  const [clas_id, setclas_id] = useState(state.clas_id);
+  const [clas_id, setclas_id] = useState(state.class_id);
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(clas_id);
+    console.log(state);
   }, [clas_id]);
 
   const postnewsection = async () => {
@@ -49,7 +49,7 @@ function AddSection() {
           <Link
             className="cancel-classes"
             to="/classes/edit"
-            state={{ class_id: clas_id }}
+            state={state}
           >
             Cancel
           </Link>
@@ -57,7 +57,7 @@ function AddSection() {
           <button
             className="submit-classes"
             to="/classes/edit"
-            state={{ class_id: clas_id }}
+            state={state}
             onClick={() => postnewsection()}
           >
             Submit

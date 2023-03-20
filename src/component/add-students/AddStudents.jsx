@@ -2,13 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import "./AddStudents.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 export default function AddStudents() {
   const { state } = useLocation();
-  const [sectionid, setsectionid] = useState(state.section_id);
+  const navigate = useNavigate();
+  const [sectionid, setsectionid] = useState();
+
   useEffect(() => {
     console.log(`Section ID changed to ${sectionid}`);
   }, [sectionid]);
@@ -23,24 +25,30 @@ export default function AddStudents() {
   };
 
   const studentAdder = async () => {
+  console.log(state);
+  
     const formData = new FormData(); // create FormData object to send file and form data
     formData.append("First_Name", firstname);
     formData.append("Last_Name", lastname);
     formData.append("phone_number", phonenumber);
-    formData.append("Section_ID", sectionid);
+    formData.append("Section_ID", state.state.sectionid);
     if (image) {
       formData.append("image_path", image, image.name); // append image file to FormData object
     }
-    try {
-      await axios.post(`http://127.0.0.1:8000/api/students`, formData, {
+
+    await axios
+      .post(`http://127.0.0.1:8000/api/students`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // set content type header for FormData
         },
+      })
+      .then(() => {
+        console.log("the student is added");
+        navigate("/EditSections", { state:state.state });
+      })
+      .catch((error) => {
+        console.log("error :", error);
       });
-      console.log("the student is added");
-    } catch (error) {
-      console.log("error :", error);
-    }
   };
 
   return (
@@ -100,19 +108,21 @@ export default function AddStudents() {
             <Link
               to="/EditSections"
               className="M1-cancel-classes"
-              state={{ sectionid: state.section_id }}
+              state={state.state}
             >
               Cancel
             </Link>
 
-            <Link
+            <button
               className="M1-edit-classes"
+
               onClick={() => studentAdder()}
+              state={state.state}
+
               to="/EditSections"
-              state={{ sectionid: state.section_id }}
             >
               Submit
-            </Link>
+            </button>
           </div>
         </div>
       </div>
