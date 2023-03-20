@@ -1,4 +1,5 @@
 import "../App.css";
+import AttendanceByDate from "../AttendanceByDate";
 import AttendanceTable from "../component/FatimaComponents/Attendance";
 import Header from "../component/Header";
 import Sidebar from "../component/Sidebar";
