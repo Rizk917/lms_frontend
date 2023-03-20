@@ -22,14 +22,15 @@ import StudentssPage from "./pages/StudedntssPage";
 import Adminpage from "./pages/admin-pages/AdminPage";
 import AttendanceByDate from "./AttendanceByDate";
 import Error404loader from "./component/Error/Error404-loader";
+import AttendancePagehistory from "./pages/AttendancePagehistory.jsx";
 function App() {
   return (
     <div>
 
       <Routes>
-       
+      attendancepage
       <Route exact path='/SecondSelect' element={< SecondSelectPage />}></Route>
-      <Route exact path='/attendancebydate' element={< AttendanceByDate />}></Route>
+      <Route exact path='/attendancepage' element={< AttendancePagehistory />}></Route>
       <Route exact path='/admin' element={< Adminpage />}></Route>
       <Route exact path='/add-admins' element={< AddAdminPage />}></Route>
       <Route exact path='/test' element={< Test />}></Route>

@@ -4,18 +4,18 @@ import AttendanceTable from "../component/FatimaComponents/Attendance";
 import Header from "../component/Header";
 import Sidebar from "../component/Sidebar";
 
-function AttendancePage() {
+function AttendancePagehistory() {
   return (
     <div>
       <div className="flexing">
         <Sidebar />
         <div className="ordering">
           <Header />
-          <AttendanceByDate />
+          <AttendanceTable />
         </div>
       </div>
     </div>
   );
 }
 
-export default AttendancePage;
+export default AttendancePagehistory;
