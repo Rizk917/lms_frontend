@@ -56,6 +56,7 @@ function AddSection() {
 
           <button
             className="submit-classes"
+            id="special-submit"
             to="/classes/edit"
             state={state}
             onClick={() => postnewsection()}

@@ -36,7 +36,7 @@ function EditSection() {
         console.log(error);
       });
   };
-  console.log(state)
+  console.log(state);
   const studentsgetter = async () => {
     try {
       const response = await axios.get(
@@ -69,7 +69,6 @@ function EditSection() {
 
   return (
     <div className="editclassespage label-Addadmins">
-      sec
       <div className="container-sectionn">
         <div className="editsectionbesid-border">
           <label className="label-Addadmins" htmlFor="">
@@ -78,7 +77,6 @@ function EditSection() {
           <input
             className="input-Classes"
             type="text"
-
             onChange={(event) => setsectionname(event.target.value)}
           />
           <div className="buttons-classes">
@@ -92,6 +90,7 @@ function EditSection() {
 
             <button
               className="submit-classes"
+              id="special-submit"
               // to="/classes/edit"
               onClick={() => updatesection()}
               state={{ class_id: state.class_id }}
@@ -183,19 +182,18 @@ function EditSection() {
                   Remove
                 </button>
 
-                <button className="edit-classes">
+                <button className="edit-classes" >
                   <Link
                     to="/SecondSelect"
+                    className="edit-classes"
                     state={{
                       
                       location: "/EditSections",
                       student_id: hourframe.id,
                       sectionid: state.sectionid,
-                    }
-                
-                  }
+                    }}
                   >
-                    {  console.table(state)}
+                    {console.table(state)}
                     VIEW
                   </Link>
                 </button>

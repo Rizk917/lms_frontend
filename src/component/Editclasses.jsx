@@ -56,7 +56,6 @@ function Editclasses() {
 
   return (
     <div className="editclassespage">
-      edit classs
       <div className="editclass-border">
         <label className="label-Addadmins" htmlFor="">
           Class Name
@@ -75,6 +74,7 @@ function Editclasses() {
 
           <button
             className="submit-classes"
+            id="special-submit"
             to="/Classes"
             onClick={updateclassname}
           >

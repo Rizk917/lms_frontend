@@ -140,7 +140,9 @@ const Students = () => {
           <div className="attendanceBorderWord">Last Name</div>
           <div className="attendanceBorderWord">Phone Number</div>
           <div className="attendanceBorderWord">Class / Section</div>
-          <div className="attendanceBorderWord" id="attendanceBorderWord">Action</div>
+          <div className="attendanceBorderWord" id="attendanceBorderWord">
+            Action
+          </div>
         </div>
 
         {data?.map((hourframe, index) => (
@@ -162,7 +164,7 @@ const Students = () => {
                   className="edit-classes"
                   id="viewClasses"
                   to="/SecondSelect"
-                  state={{ location: "/Attendance", student_id: hourframe.id }}
+                  state={{ location: "/students", student_id: hourframe.id }}
                 >
                   view
                 </Link>

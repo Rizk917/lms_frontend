@@ -69,7 +69,7 @@
 
 .label-Addadmins {
     font-size: 2vw;
-    color: black;
+    color: #163951;
 
     margin-left: 2vw;
 
@@ -79,7 +79,7 @@
     height: 2vw;
     width: 40%;
     margin-left: 2vw;
-    border: 1px solid blue;
+    border: 1px solid #163951;
 }
 
 .input-Classes {
@@ -150,14 +150,39 @@
 .classespage {
     background-color: white;
     padding-top: 5vw;
-    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 5vw;
 }
 
 
+.M1-profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    }
+    
+    
+    .M1-upload-button-label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #163951;
+    font-weight: bold;
+    border: 1px solid #D8DEE2;
+    background-color: #D8DEE2;
+    padding: 10px;
+    cursor: pointer;
+    }
+    
+    .M1-upload-button-input {
+    display: none;
+    }
 
-
-
-
+    #labelColor{
+        color:#163951
+        
+    }
 
 
 
@@ -167,17 +192,16 @@
     border-spacing: 0px 10px;
 
     width: 90%;
-
-
+    
+    margin: auto;
 }
 
 .table-classes td {
-    border: 1px solid black;
-    border-right: 2px solid #163951;
+    border: 2px solid #d8dee2;
     padding: 0.5vw;
-    border-top-right-radius: 5px;
+    /* border-top-right-radius: 5px;
 
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px; */
 }
 
 .table-classes th {
@@ -226,11 +250,13 @@
     padding: 0.5vw;
 
 }
-/* .delete-classes:disabled{
-    background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3)) !important;
-    color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3))!important;
-    border-color: -internal-light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3))!important;
-} */
+.delete-classes:disabled{
+    border-radius: 5px;
+    font-size: 1vw;
+    width: 30%;
+    margin-left: 35%;
+    padding: 0.5vw;
+}
 
 .edit-classes {
     font-size: 1vw;
@@ -246,6 +272,12 @@
 
 
 }
+
+#special-submit{
+    padding-right: 15% ;
+}
+
+
 
 .addclasses-border {
 
@@ -267,7 +299,8 @@
     padding: 3vw;
     margin-left: 25%;
     margin-top: 0%;
-    margin-bottom: 2vw;
+    margin-bottom: 5vw;
+
 
 
 }
@@ -290,9 +323,10 @@
 
 .tablo {
     width: 100%;
-    border: 1px solid black;
+    margin: auto;
     border-collapse: collapse;
-
+    color: #163951;
+    font-weight: 400;
     overflow: auto;
 
 
@@ -301,10 +335,13 @@
 .trr {
 
     border: 2px solid #D8DEE2;
+    color: #163951;
+    margin-left: 20px;
 }
 
 .subjects {
     font-size: 1vw;
+    padding-left: 20px;
 
 }
 
@@ -325,7 +362,7 @@
 
     width: 40%;
     margin-bottom: 2vw;
-    padding: 0vw;
+    padding: 2vw;
 
 
 }
@@ -333,19 +370,18 @@
 .container-sectionn {
     display: flex;
     flex-direction: row;
-    gap: 5%;
-
+    justify-content: space-evenly;
+    margin-bottom: 40px;
 }
 
-.edit-border {
+/* .edit-border {
     border-bottom: 3px solid #D8DEE2;
     width: 90%;
-}
+} */
 
 .editclassespage {
     background-color: white;
     padding-top: 2vw;
-    margin-left: 5%;
 }
 
 

@@ -6,7 +6,7 @@
 
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: #163951;
   margin-top: 10vh;
   margin-left: 15%;
   margin-right: 20vh;
@@ -20,7 +20,7 @@
   flex-direction: column;
   width: 80%;
   margin: auto;
-  border: #0390CD;
+  border: #163951;
   border: 10px;
   margin-top: 1.5vw;
   margin-bottom: 3vw;
@@ -68,7 +68,7 @@
 
 .M1-label-Addadmins {
   font-size: 2em;
-  color: black;
+  color: #163951;
   margin-left: 2vw;
   margin-top: 1vh;
   margin-bottom: 1vh;
@@ -93,7 +93,7 @@
   height: 2vw;
   width: 90%;
   margin-left: 2vw;
-  border: 1px solid blue;
+  border: 1px solid #163951;
   font-size: 2vw;
   padding: 2vw;
 }

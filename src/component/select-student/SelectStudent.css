@@ -6,7 +6,7 @@
 
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: #163951;
   margin-top: 10vh;
   margin-left: 15%;
   margin-right: 20vh;
@@ -68,7 +68,7 @@
 
 .M2-label-Addadmins {
   font-size: 2em;
-  color: black;
+  color: #163951;
   margin-left: 2vw;
   margin-top: 1vh;
   margin-bottom: 1vh;
@@ -84,7 +84,7 @@
 }
 
 .M2-input-Addamis::placeholder {
-  color: deeppink;
+  color: gray;
   font-size: 2vw;
 
 }

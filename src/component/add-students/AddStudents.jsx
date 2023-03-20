@@ -67,7 +67,7 @@ export default function AddStudents() {
               )}
             </div>
             <label htmlFor="image_path" className="M1-upload-button-label">
-              Upload
+             Upload
             </label>
             <input
               id="image_path"
@@ -78,8 +78,8 @@ export default function AddStudents() {
             />
           </div>
 
-          <div className="M1-addadmins">
-            <label className="M1-label-Addadmins" htmlFor="">
+          <div className="M1-addadmins" >
+            <label id="labelColor" className="M1-label-Addadmins" htmlFor="">
               First name
             </label>
             <input
@@ -87,7 +87,7 @@ export default function AddStudents() {
               type="text"
               onChange={(event) => setfirstname(event.target.value)}
             />
-            <label className="M1-label-Addadmins" htmlFor="">
+            <label id="labelColor" className="M1-label-Addadmins" htmlFor="">
               Last name
             </label>
             <input
@@ -95,7 +95,7 @@ export default function AddStudents() {
               type="text"
               onChange={(event) => setlastname(event.target.value)}
             />
-            <label className="M1-label-Addadmins" htmlFor="">
+            <label id="labelColor" className="M1-label-Addadmins" htmlFor="">
               Phone Number
             </label>
             <input
