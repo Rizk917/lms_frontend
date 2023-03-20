@@ -36,7 +36,7 @@ function EditSection() {
         console.log(error);
       });
   };
-
+  console.log(state)
   const studentsgetter = async () => {
     try {
       const response = await axios.get(
@@ -78,6 +78,7 @@ function EditSection() {
           <input
             className="input-Classes"
             type="text"
+
             onChange={(event) => setsectionname(event.target.value)}
           />
           <div className="buttons-classes">

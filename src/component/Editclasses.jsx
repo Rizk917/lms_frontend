@@ -64,6 +64,7 @@ function Editclasses() {
         <input
           className="input-Classes"
           type="text"
+
           onChange={(event) => setclassname(event.target.value)}
         />
 
