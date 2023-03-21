@@ -74,20 +74,27 @@ const Students = () => {
   }, [selectedSection]);
 
   useEffect(() => {
-    axios
-      .get(
-        `http://localhost:8000/api/students?${
-          selectedClass ? "class_id=" + selectedClass.value : ""
-        }&${selectedSection ? "section_id=" + selectedSection.value : ""}`
-      )
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
+    handlestudents()
   }, [selectedClass, selectedSection, selectedStudent]);
+
+const handlestudents =()=>{
+  axios
+  .get(
+    `http://localhost:8000/api/students?${
+      selectedClass ? "class_id=" + selectedClass.value : ""
+    }&${selectedSection ? "section_id=" + selectedSection.value : ""}`
+  )
+  .then((res) => {
+    setData(res.data);
+  })
+  .catch((err) => console.log(err));
+}
+
 
   const removestudent = async (id) => {
     await axios.delete(`http://127.0.0.1:8000/api/students/${id}`);
+    handlestudents()
+    
     console.log("student is deleted ");
   };
 

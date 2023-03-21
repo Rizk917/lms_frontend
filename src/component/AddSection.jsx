@@ -5,6 +5,9 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function AddSection() {
   const [sectionname, setsectionname] = useState();
 
@@ -22,19 +25,28 @@ function AddSection() {
     await axios
       .post(
         `http://127.0.0.1:8000/api/classes/${state.class_id}/sections`,
-        data
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       )
       .then(() => {
+        toast.success("Section added successfully!");
         navigate("/classes/edit", { state });
       })
-
       .catch((error) => {
         console.log("error ", error);
       });
   };
 
   return (
+    <>
+    
+    <ToastContainer />
     <div className="addadmins">
+
       <div className="editclass-border">
         <label className="label-Addadmins" htmlFor="">
           Section Name
@@ -46,12 +58,9 @@ function AddSection() {
         />
 
         <div className="buttons-classes">
-          <Link
-            className="cancel-classes"
-            to="/classes/edit"
-            state={state}
-          >
+          <Link className="cancel-classes" to="/classes/edit" state={state}>
             Cancel
+            {}
           </Link>
 
           <button
@@ -66,6 +75,8 @@ function AddSection() {
         </div>
       </div>
     </div>
+    </>
+
   );
 }
 
