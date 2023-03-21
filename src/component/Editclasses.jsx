@@ -12,7 +12,9 @@ function Editclasses() {
   const navigate = useNavigate();
   const class_id = state.class_id;
   const [sections, setsections] = useState();
-  const [classname, setclassname] = useState();
+  console.log(state)
+  const [classname, setclassname] = useState(state.class_name);
+  
 
   const edithandler = () => {
     console.log("hello");
@@ -27,6 +29,8 @@ function Editclasses() {
         console.log(error);
       });
   };
+
+
 
   const getSections = async (clas_id) => {
     try {
@@ -52,7 +56,7 @@ function Editclasses() {
 
   useEffect(() => {
     getSections();
-  }, [class_id]);
+  }, []);
 
   return (
     <div className="editclassespage">
@@ -63,7 +67,7 @@ function Editclasses() {
         <input
           className="input-Classes"
           type="text"
-
+          value={classname}
           onChange={(event) => setclassname(event.target.value)}
         />
 
@@ -113,7 +117,7 @@ function Editclasses() {
                   <Link
                     to="/EditSections"
                     className="edit-classes"
-                    state={{ ...state, sectionid: item.id }}
+                    state={{ ...state, sectionid: item.id, section_name: item.Section_Name }}
                   >
                     VIEW
                   </Link>

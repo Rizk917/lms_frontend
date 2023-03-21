@@ -251,6 +251,8 @@
 
 }
 .delete-classes:disabled{
+    background-color: #d8dee2;
+    color: gray;
     border-radius: 5px;
     font-size: 1vw;
     width: 30%;
@@ -345,7 +347,7 @@
 
 }
 
-.addbutton {
+.addbutton:enabled {
     background-color: #0390CD;
     font-size: 1.2vw;
     float: right;
@@ -356,6 +358,19 @@
     margin-right: 5%;
 }
 
+
+
+.addbutton:disabled{
+    background-color: #d8dee2;
+    color:gray;
+    font-size: 1.2vw;
+    float: right;
+    border-radius: 5px;
+    padding: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-right: 5%;
+}
 .addcourses {
     border: 4px solid #D8DEE2;
     display: flex;

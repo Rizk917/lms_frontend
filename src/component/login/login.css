@@ -11,13 +11,13 @@
 }
 
 .adminlogin-box-container {
-    box-shadow: 0px 0px 12px #09406b;
+    box-shadow: 0px 0px 12px #163951;
     width: 500px;
     margin: 60px auto;
     padding: 2em;
     border-radius: 10px;
     text-align: center;
-    background:#0272acd4;
+    background:#163951;
     transition: 0.3s;
 }
 
@@ -75,7 +75,7 @@
     font-size: 20px;
     margin-top: 1em;
     font-weight: 400;
-    background: linear-gradient(0deg, black, #5f5fff);
+    background: linear-gradient(0deg, #0077cc, #0077cc);
     transition:  0.3s;
   }
   

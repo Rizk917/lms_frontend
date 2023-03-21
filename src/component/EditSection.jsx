@@ -9,22 +9,38 @@ function EditSection() {
     console.log("hello");
   };
 
-  const [sectionname, setsectionname] = useState();
   const [subject, setsubject] = useState();
 
   const { state } = useLocation();
+  const [sectionname, setsectionname] = useState(state.section_name);
   const [sectionid, setsectionid] = useState(state.sectionid);
   const navigate = useNavigate();
   const [studentsdata, setstudentsdata] = useState();
+  const [coursesdata, setcoursesdata] = useState([]);
   useEffect(() => {
     console.log(sectionid);
     studentsgetter();
+    getCourses();
   }, [sectionid, subject]);
 
   const addcourse = async (coursesname) => {
     const data = { Course_Name: coursesname, Section_ID: state.sectionid };
-    await axios.post(`http://127.0.0.1:8000/api/courses`, data);
+    await axios.post(`http://127.0.0.1:8000/api/courses`, data).then(() => {
+      getCourses();
+    });
     console.log("adding courses is done ");
+  };
+
+  const getCourses = async () => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/sections/${state.sectionid}/courses`
+      );
+      console.log(response.data);
+      setcoursesdata(response.data);
+    } catch (error) {
+      console.log("the error :", error);
+    }
   };
 
   const updatesection = async () => {
@@ -77,13 +93,14 @@ function EditSection() {
           <input
             className="input-Classes"
             type="text"
+            value={sectionname}
             onChange={(event) => setsectionname(event.target.value)}
           />
           <div className="buttons-classes">
             <Link
               className="cancel-classes"
               to="/classes/edit"
-              state={{ class_id: state.class_id }}
+              state={{ ...state, sectionid:undefined, section_name:undefined}}
             >
               Cancel
             </Link>
@@ -108,7 +125,13 @@ function EditSection() {
             <tr className="trr">
               <td className="equal-sides   subjects ">Math</td>
               <td className="equal-sides">
-                <button onClick={() => addcourse("math")} className="addbutton">
+                <button
+                  onClick={() => addcourse("Math")}
+                  className="addbutton"
+                  disabled={coursesdata.some(
+                    (item) => item.Course_Name == "Math"
+                  )}
+                >
                   Add
                 </button>
               </td>
@@ -119,6 +142,9 @@ function EditSection() {
                 <button
                   onClick={() => addcourse("Physics")}
                   className="addbutton"
+                  disabled={coursesdata.some(
+                    (item) => item.Course_Name == "Physics"
+                  )}
                 >
                   Add
                 </button>
@@ -130,17 +156,23 @@ function EditSection() {
                 <button
                   onClick={() => addcourse("History")}
                   className="addbutton"
+                  disabled={coursesdata.some(
+                    (item) => item.Course_Name == "History"
+                  )}
                 >
                   Add
                 </button>
               </td>
             </tr>
             <tr className="trr">
-              <td className="equal-sides subjects">Chimestry </td>
+              <td className="equal-sides subjects">Chemistry </td>
               <td className="equal-sides">
                 <button
-                  onClick={() => addcourse("Chimestry")}
+                  onClick={() => addcourse("Chemistry")}
                   className="addbutton"
+                  disabled={coursesdata.some(
+                    (item) => item.Course_Name == "Chemistry"
+                  )}
                 >
                   Add
                 </button>
@@ -182,15 +214,12 @@ function EditSection() {
                   Remove
                 </button>
 
-                <button className="edit-classes" >
+                <button className="edit-classes">
                   <Link
                     to="/SecondSelect"
                     className="edit-classes"
-                    state={{
-                      
-                      location: "/EditSections",
+                    state={{...state,
                       student_id: hourframe.id,
-                      sectionid: state.sectionid,
                     }}
                   >
                     {console.table(state)}

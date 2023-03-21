@@ -6,7 +6,7 @@
 
   border-width: 2px;
   border-style:solid;
-  border-color:black;
+  border-color: #163951;
   margin-left: 15%;
   margin-right: 20vh;
   width: 70%;
@@ -46,6 +46,7 @@
       width: 10vw;
       padding: 0.5vw;
       font-size: 1.2rem;
+      color: #163951;
   }
 
   .M8-profile-button{
@@ -67,7 +68,7 @@
   
   .M8-label-Addadmins {
     font-size: 2em;
-    color: black;
+    color: #163951;
     margin-left: 2vw;
     margin-top: 1vh;
     margin-bottom: 1vh;

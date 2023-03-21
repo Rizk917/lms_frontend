@@ -4,7 +4,6 @@ import axios from "axios";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
 import "react-datepicker/dist/react-datepicker.css";
 
 function AttendanceByDate() {
@@ -78,7 +77,7 @@ function AttendanceByDate() {
     }
     setAttendance(newAttendance);
   };
-  
+
   // students selection
   useEffect(() => {
     if (selectedSection) {
@@ -123,16 +122,18 @@ function AttendanceByDate() {
   const handleSelectChangeSection = (option) => {
     setselctedSection(option);
   };
-  const goToAttbyDate =()=>{
-    navigate("/attendancepage")
-  }
+  const goToAttbyDate = () => {
+    navigate("/attendancepage");
+  };
 
   return (
     <div className="attendanceTable">
-      <button  onClick={goToAttbyDate}>Attendance History
-      </button>
-      <div className="studentsFilterHeader">
+      <div className="studentsFilterHeaderHistory">
         <h1>Filter List by:</h1>
+        <div className="attendance-history-flex">
+        <button onClick={goToAttbyDate} className="attendanceHistory">
+          Attendance History
+        </button>
         <div className="filterListBy" id="filterListBy">
           <div id="filterListByAlone">
             <Select
@@ -153,6 +154,7 @@ function AttendanceByDate() {
               isClearable
             />
           </div>
+          </div>
         </div>
       </div>
       <div className="attendanceList" id="attendanceList">
@@ -162,58 +164,68 @@ function AttendanceByDate() {
           <div className="attendanceBorderWord">Class / Section</div>
           <div className="attendanceBorderWord">Attendance</div>
         </div>
-  
+
         {data?.map((StudentC, index) => (
           <div className="attendanceListRow attendanceBorder" key={index}>
             <div className="attendanceBorderWord">{StudentC.First_Name}</div>
             <div className="attendanceBorderWord">{StudentC.Last_Name}</div>
             <div className="attendanceBorderWord">{`${StudentC.Class_Name} / ${StudentC.Section_Name}`}</div>
             <div className="attendanceBorderWord">
-            <div>
-  <input
- 
-    type="radio"
-    id={`attendance-present-${StudentC.id}`}
-    name={`attendance-${StudentC.id}`}
-    value="present"
-    checked={attendance.find((a) => a.studentId === StudentC.id)?.attendanceType === "present"}
-    onChange={(e) => handleChange(e, StudentC.id)}
-  />
-  <label htmlFor={`attendance-present-${StudentC.id}`}>Present</label>
+              <div>
+                <input
+                  type="radio"
+                  id={`attendance-present-${StudentC.id}`}
+                  name={`attendance-${StudentC.id}`}
+                  value="present"
+                  checked={
+                    attendance.find((a) => a.studentId === StudentC.id)
+                      ?.attendanceType === "present"
+                  }
+                  onChange={(e) => handleChange(e, StudentC.id)}
+                />
+                <label htmlFor={`attendance-present-${StudentC.id}`}>
+                  Present
+                </label>
 
-  <input
-    type="radio"
-    id={`attendance-absent-${StudentC.id}`}
-    name={`attendance-${StudentC.id}`}
-    value="absent"
-    checked={attendance.find((a) => a.studentId === StudentC.id)?.attendanceType === "absent"}
-    onChange={(e) => handleChange(e, StudentC.id)}
-  />
-  <label htmlFor={`attendance-absent-${StudentC.id}`}>Absent</label>
+                <input
+                  type="radio"
+                  id={`attendance-absent-${StudentC.id}`}
+                  name={`attendance-${StudentC.id}`}
+                  value="absent"
+                  checked={
+                    attendance.find((a) => a.studentId === StudentC.id)
+                      ?.attendanceType === "absent"
+                  }
+                  onChange={(e) => handleChange(e, StudentC.id)}
+                />
+                <label htmlFor={`attendance-absent-${StudentC.id}`}>
+                  Absent
+                </label>
 
-  <input
-    type="radio"
-    id={`attendance-late-${StudentC.id}`}
-    name={`attendance-${StudentC.id}`}
-    value="late"
-    checked={attendance.find((a) => a.studentId === StudentC.id)?.attendanceType === "late"}
-    onChange={(e) => handleChange(e, StudentC.id)}
-  />
-  <label htmlFor={`attendance-late-${StudentC.id}`}>Late</label>
-</div>
-
+                <input
+                  type="radio"
+                  id={`attendance-late-${StudentC.id}`}
+                  name={`attendance-${StudentC.id}`}
+                  value="late"
+                  checked={
+                    attendance.find((a) => a.studentId === StudentC.id)
+                      ?.attendanceType === "late"
+                  }
+                  onChange={(e) => handleChange(e, StudentC.id)}
+                />
+                <label htmlFor={`attendance-late-${StudentC.id}`}>Late</label>
+              </div>
             </div>
-        
           </div>
         ))}
         <div className="attendanceListRow attendanceBorder">
           <div className="attendanceBorderWord">
-            <button onClick={handleSubmit}>Submit</button>
+            <button className="submit-class" onClick={handleSubmit}>Submit</button>
           </div>
         </div>
       </div>
     </div>
   );
-                }  
+}
 
 export default AttendanceByDate;

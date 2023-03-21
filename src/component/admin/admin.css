@@ -165,7 +165,7 @@
 }
 
 .M3-table-classes td {
-    border: 1px solid black;
+    border: 1px solid #163951;
     border-right: 2px solid #163951;
     padding: 0.5vw;
     border-top-right-radius: 5px;
@@ -206,7 +206,7 @@
 }
 
 .M3-table-info2 {
-    border: 1px solid black;
+    border: 1px solid #163951;
     border-right: 2px solid #163951;
     padding: 0.5vw;
     border-top-right-radius: 5px;
@@ -232,7 +232,7 @@
     border: 2px solid #FF0000;
     border-radius: 5px;
     font-size: 1vw;
-    width: 30%;
+    width: 32%;
     margin-left: 35%;
     padding: 0.5vw;
 }

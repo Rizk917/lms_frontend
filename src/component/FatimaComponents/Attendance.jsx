@@ -201,7 +201,7 @@ const AttendanceTable = () => {
           />
         </div>
       </div>
-      <div id="report" className="attendanceList">
+      <div id="report" className="attendanceList" >
         <div className="attendanceListHeader">
           <div className="attendanceBorderWord">Class</div>
           <div className="attendanceBorderWord">Section</div>
@@ -283,7 +283,9 @@ const AttendanceTable = () => {
           </div>
         ))}
       </div>
-      <button onClick={generatePDF} type="button">Export PDF</button>
+      <div className="Export-center" >
+      <button onClick={generatePDF} type="button" className="submit-class">Export PDF</button>
+      </div>
     </div>
 </>
 

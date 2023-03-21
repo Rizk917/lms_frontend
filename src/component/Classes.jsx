@@ -44,7 +44,7 @@ function CLasses() {
   };
 
   return (
-    <div className="classespage">
+    <div className="classespage ">
       <table className="table-classes">
         <thead>
           <tr>
@@ -78,7 +78,7 @@ function CLasses() {
                     to="/classes/edit"
                     className="edit-classes"
                     onClick={() => console.log(item.id)}
-                    state={{ class_id: item.id }}
+                    state={{ class_id: item.id, class_name: item.Class_Name }}
                   >
                     VIEW
                   </Link>
