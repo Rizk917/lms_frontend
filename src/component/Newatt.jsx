@@ -8,7 +8,7 @@ const TakeAttendance = ({ sectionId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/api/students?section_id=${sectionId}`)
+      .get(`https://lms-backend-production-587c.up.railway.app/api/students?section_id=${sectionId}`)
       .then((response) => {
         setStudents(response.data);
       })
@@ -32,7 +32,7 @@ const TakeAttendance = ({ sectionId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/attendance/post", { attendance, sectionId })
+      .post("https://lms-backend-production-587c.up.railway.app/api/attendance/post", { attendance, sectionId })
       .then((response) => {
         console.log(response.data);
         setAttendance([]);

@@ -37,7 +37,7 @@ export default function AddStudents() {
     }
 
     await axios
-      .post(`http://127.0.0.1:8000/api/students`, formData, {
+      .post(`https://lms-backend-production-587c.up.railway.app/api/students`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // set content type header for FormData
         },

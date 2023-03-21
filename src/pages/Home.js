@@ -14,7 +14,7 @@ const Home = () => {
 
 
   const attendanceFunction = async()=>{
-     axios.get("http://localhost:8000/api/attendance/dashboard")
+     axios.get("https://lms-backend-production-587c.up.railway.app/api/attendance/dashboard")
       .then((res) => {
         console.log(res.data);
         setAttendanceData(res.data);

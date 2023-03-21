@@ -28,7 +28,7 @@ function AddAdmins() {
     };
     console.log("inputvalue ", JSON.stringify(inputValue));
     try {
-      const response = await fetch("http://localhost:8000/api/register", {
+      const response = await fetch("https://lms-backend-production-587c.up.railway.app/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // 'X-CSRF-TOKEN': ('meta[name="csrf-token"]').attr('content')},

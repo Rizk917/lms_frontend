@@ -20,7 +20,7 @@ const LoginPage = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/login",
+          "https://lms-backend-production-587c.up.railway.app/api/login",
           { Email, Password }
         );
         console.log(response.data, "userRegister");

@@ -17,7 +17,7 @@ function AddClasses() {
     // console.log("data ", data);
     var config = {
       method: "post",
-      url: "http://127.0.0.1:8000/api/classes",
+      url: "https://lms-backend-production-587c.up.railway.app/api/classes",
       headers: {
         "Content-Type": "application/json",
       },
@@ -30,7 +30,7 @@ function AddClasses() {
         console.log("class is posted");
         navigate("/classes");
       })
-      // var response = await axios.get(`http://127.0.0.1:8000/api/classes`);
+      // var response = await axios.get(`https://lms-backend-production-587c.up.railway.app/api/classes`);
 
       .catch((error) => {
         console.error("err ", error);

@@ -25,7 +25,7 @@ function EditSection() {
 
   const addcourse = async (coursesname) => {
     const data = { Course_Name: coursesname, Section_ID: state.sectionid };
-    await axios.post(`http://127.0.0.1:8000/api/courses`, data).then(() => {
+    await axios.post(`https://lms-backend-production-587c.up.railway.app/api/courses`, data).then(() => {
       getCourses();
     });
     console.log("adding courses is done ");
@@ -34,7 +34,7 @@ function EditSection() {
   const getCourses = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/sections/${state.sectionid}/courses`
+        `https://lms-backend-production-587c.up.railway.app/api/sections/${state.sectionid}/courses`
       );
       console.log(response.data);
       setcoursesdata(response.data);
@@ -46,7 +46,7 @@ function EditSection() {
   const updatesection = async () => {
     const data = { Section_Name: sectionname };
     await axios
-      .put(`http://127.0.0.1:8000/api/sections/${state.sectionid}`, data)
+      .put(`https://lms-backend-production-587c.up.railway.app/api/sections/${state.sectionid}`, data)
       .then(() => navigate("/classes/edit", { state }))
       .catch((error) => {
         console.log(error);
@@ -56,7 +56,7 @@ function EditSection() {
   const studentsgetter = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/students/sections/${state.sectionid}`
+        `https://lms-backend-production-587c.up.railway.app/api/students/sections/${state.sectionid}`
       );
       console.log(response.data);
       setstudentsdata(response.data);
@@ -67,7 +67,7 @@ function EditSection() {
 
   const removestudent = async (id) => {
     await axios
-      .delete(`http://127.0.0.1:8000/api/students/${id}`)
+      .delete(`https://lms-backend-production-587c.up.railway.app/api/students/${id}`)
       .then(() => {
         console.log("student is deleted ");
       })

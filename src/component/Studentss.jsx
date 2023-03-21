@@ -20,7 +20,7 @@ const Students = () => {
   // classes selection
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/classes")
+      .get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
         setClassOptions(
           res.data.map(({ id, Class_Name }) => ({
@@ -37,7 +37,7 @@ const Students = () => {
     if (selectedClass) {
       axios
         .get(
-          `http://localhost:8000/api/classes/${selectedClass.value}/sections`
+          `https://lms-backend-production-587c.up.railway.app/api/classes/${selectedClass.value}/sections`
         )
         .then((res) => {
           setSectionOptions(
@@ -56,7 +56,7 @@ const Students = () => {
     if (selectedSection) {
       axios
         .get(
-          `http://localhost:8000/api/students?${
+          `https://lms-backend-production-587c.up.railway.app/api/students?${
             selectedSection ? "section_id=" + selectedSection.value : ""
           } `
         )
@@ -80,7 +80,7 @@ const Students = () => {
 const handlestudents =()=>{
   axios
   .get(
-    `http://localhost:8000/api/students?${
+    `https://lms-backend-production-587c.up.railway.app/api/students?${
       selectedClass ? "class_id=" + selectedClass.value : ""
     }&${selectedSection ? "section_id=" + selectedSection.value : ""}`
   )
@@ -92,7 +92,7 @@ const handlestudents =()=>{
 
 
   const removestudent = async (id) => {
-    await axios.delete(`http://127.0.0.1:8000/api/students/${id}`);
+    await axios.delete(`https://lms-backend-production-587c.up.railway.app/api/students/${id}`);
     handlestudents()
     
     console.log("student is deleted ");

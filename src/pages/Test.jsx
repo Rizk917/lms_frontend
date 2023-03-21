@@ -7,7 +7,7 @@ const TakeAttendance = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/students")
+      .get("https://lms-backend-production-587c.up.railway.app/api/students")
       .then((response) => {
         setStudents(response.data);
       })
@@ -31,7 +31,7 @@ const TakeAttendance = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/attendance", { attendance })
+      .post("https://lms-backend-production-587c.up.railway.app/api/attendance", { attendance })
       .then((response) => {
         console.log(response.data);
         setAttendance([]);

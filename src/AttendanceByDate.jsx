@@ -22,7 +22,7 @@ function AttendanceByDate() {
   // classes selection
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/classes")
+      .get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
         setClassOptions(
           res.data.map(({ id, Class_Name }) => ({
@@ -39,7 +39,7 @@ function AttendanceByDate() {
     if (selectedClass) {
       axios
         .get(
-          `http://localhost:8000/api/classes/${selectedClass.value}/sections`
+          `https://lms-backend-production-587c.up.railway.app/api/classes/${selectedClass.value}/sections`
         )
         .then((res) => {
           setSectionOptions(
@@ -57,7 +57,7 @@ function AttendanceByDate() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/attendance", { attendance })
+      .post("https://lms-backend-production-587c.up.railway.app/api/attendance", { attendance })
       .then((response) => {
         console.log(response.data);
         setAttendance([]);
@@ -83,7 +83,7 @@ function AttendanceByDate() {
     if (selectedSection) {
       axios
         .get(
-          `http://localhost:8000/api/students?${
+          `https://lms-backend-production-587c.up.railway.app/api/students?${
             selectedSection ? "section_id=" + selectedSection.value : ""
           } `
         )
@@ -103,7 +103,7 @@ function AttendanceByDate() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/students?${
+        `https://lms-backend-production-587c.up.railway.app/api/students?${
           selectedClass ? "class_id=" + selectedClass.value : ""
         }&${selectedSection ? "section_id=" + selectedSection.value : ""}`
       )

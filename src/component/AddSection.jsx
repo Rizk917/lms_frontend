@@ -24,7 +24,7 @@ function AddSection() {
 
     await axios
       .post(
-        `http://127.0.0.1:8000/api/classes/${state.class_id}/sections`,
+        `https://lms-backend-production-587c.up.railway.app/api/classes/${state.class_id}/sections`,
         JSON.stringify(data),
         {
           headers: {

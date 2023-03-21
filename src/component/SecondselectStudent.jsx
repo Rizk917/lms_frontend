@@ -13,7 +13,7 @@ export default function SecondselectStudent() {
 
 
   const getstudentinfo = async () => {
-    axios.get(`http://127.0.0.1:8000/api/students/id/${state.student_id}`)
+    axios.get(`https://lms-backend-production-587c.up.railway.app/api/students/id/${state.student_id}`)
       .then(response => {
         setstudentinfo(response.data[0])
         console.log(response.data)

@@ -7,7 +7,7 @@ const Piechart = () => {
 
   const piechartFunction = async () => {
     await axios
-      .get("http://localhost:8000/api/attendance/dashboard/piechart")
+      .get("https://lms-backend-production-587c.up.railway.app/api/attendance/dashboard/piechart")
       .then((res) => {
         console.log(res.data);
 

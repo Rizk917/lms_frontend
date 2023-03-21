@@ -9,7 +9,7 @@
 //   const [error, setError] = useState('');
 
 //   useEffect(() => {
-//     axios.get(`http://localhost:8000/api/user/${id}`)
+//     axios.get(`https://lms-backend-production-587c.up.railway.app/api/user/${id}`)
 //       .then(response => {
 //         setUser(response.data);
 //         setIsLoading(false);
@@ -29,7 +29,7 @@
 
 //   const onSubmit = e => {
 //     e.preventDefault();
-//     axios.put(`http://localhost:8000/api/user/${id}`, user)
+//     axios.put(`https://lms-backend-production-587c.up.railway.app/api/user/${id}`, user)
 //       .then(response => {
 //         alert('User updated successfully');
 //         window.location = '/admin';
@@ -103,7 +103,7 @@
 // //   });
 
 // //   useEffect(() => {
-// //     axios.get(`http://localhost:8000/admin/read/${id}`)
+// //     axios.get(`https://lms-backend-production-587c.up.railway.app/admin/read/${id}`)
 // //       .then(response => {
 // //         setAdmin(response.data);
 // //       })
@@ -112,7 +112,7 @@
 
 // //   const handleSubmit = (event) => {
 // //     event.preventDefault();
-// //     axios.put(`http://localhost:8000/admin/update/${id}`, admin)
+// //     axios.put(`https://lms-backend-production-587c.up.railway.app/admin/update/${id}`, admin)
 // //       .then(response => {
 // //         console.log(response.data);
 // //         history.push('/admin');

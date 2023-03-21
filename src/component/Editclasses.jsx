@@ -23,7 +23,7 @@ function Editclasses() {
   const updateclassname = async () => {
     const data = { Class_Name: classname };
     await axios
-      .put(`http://127.0.0.1:8000/api/classes/${class_id}`, data)
+      .put(`https://lms-backend-production-587c.up.railway.app/api/classes/${class_id}`, data)
       .then(() => navigate("/classes"))
       .catch((error) => {
         console.log(error);
@@ -35,7 +35,7 @@ function Editclasses() {
   const getSections = async (clas_id) => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/classes/${state.class_id}/sections`
+        `https://lms-backend-production-587c.up.railway.app/api/classes/${state.class_id}/sections`
       );
       setsections(response.data);
     } catch (error) {
@@ -45,7 +45,7 @@ function Editclasses() {
 
   const deletesection = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/sections/${id}`);
+      await axios.delete(`https://lms-backend-production-587c.up.railway.app/api/sections/${id}`);
       console.log("the sections is deleted ");
       navigate("/classes/edit", { state });
       getSections();

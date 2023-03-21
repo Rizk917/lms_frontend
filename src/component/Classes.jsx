@@ -13,7 +13,7 @@ function CLasses() {
 
   const deleteclasses = async (classId) => {
     await axios
-      .delete(`http://127.0.0.1:8000/api/classes/${classId}`)
+      .delete(`https://lms-backend-production-587c.up.railway.app/api/classes/${classId}`)
       .then(() => {
         console.log("class is deleted");
       })
@@ -24,7 +24,7 @@ function CLasses() {
 
   const getclasses = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/classes`);
+      const response = await axios.get(`https://lms-backend-production-587c.up.railway.app/api/classes`);
       console.log(response.data);
       setclasses(response.data);
     } catch (error) {

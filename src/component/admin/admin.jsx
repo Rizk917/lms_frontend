@@ -28,7 +28,7 @@ export default function Admin() {
 
   const loadadmins = () => {
     axios
-      .get("http://localhost:8000/api/getuser", { headers })
+      .get("https://lms-backend-production-587c.up.railway.app/api/getuser", { headers })
       .then((response) => setAdmins(response.data))
       .catch((error) => console.error(error));
   };
@@ -47,7 +47,7 @@ export default function Admin() {
     event.preventDefault();
     const { id } = currentAdmin;
     axios
-      .put(`http://localhost:8000/api/user/${id}`, updatedAdmin, { headers })
+      .put(`https://lms-backend-production-587c.up.railway.app/api/user/${id}`, updatedAdmin, { headers })
       .then((response) => {
         setAdmins(
           admins.map((admin) =>
@@ -73,7 +73,7 @@ export default function Admin() {
 
   const deleteAdmin = (id) => {
     axios
-      .delete(`http://localhost:8000/api/user/${id}`, { headers })
+      .delete(`https://lms-backend-production-587c.up.railway.app/api/user/${id}`, { headers })
       .then(() => {
         setAdmins(admins.filter((admin) => admin.id !== id));
         toast.error("Admin deleted successfully!");

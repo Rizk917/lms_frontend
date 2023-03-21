@@ -38,7 +38,7 @@ const FrequentAbsentStudents = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/classes")
+      .get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
         console.log(res.data);
         setClassOptions(
@@ -62,7 +62,7 @@ const FrequentAbsentStudents = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/attendance/dashboard/frequent?${
+        `https://lms-backend-production-587c.up.railway.app/api/attendance/dashboard/frequent?${
           selectedClass ? "class_id=" + selectedClass.value : ""
         }`
       )

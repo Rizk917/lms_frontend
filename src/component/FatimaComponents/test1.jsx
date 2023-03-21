@@ -45,7 +45,7 @@ const Test1 = () => {
 
   const classesgetters = async () => {
 
-    await Axios.get("http://localhost:8000/api/classes")
+    await Axios.get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
         console.log(res.data);
         setClassOptions(
@@ -66,7 +66,7 @@ const Test1 = () => {
 
   const sectiongetters = async (data) => {
 
-    await Axios.get(`http://127.0.0.1:8000/api/sections/class/${data}`)
+    await Axios.get(`https://lms-backend-production-587c.up.railway.app/api/sections/class/${data}`)
       .then((res) => {
         console.log(res.data);
         setSectionOptions(
@@ -87,7 +87,7 @@ const Test1 = () => {
 
 
   const studentreader = async (sectionid) => {
-    await Axios.get(`http://localhost:8000/api/students/sections/${sectionid}`)
+    await Axios.get(`https://lms-backend-production-587c.up.railway.app/api/students/sections/${sectionid}`)
       .then((res) => {
         console.log(res.data);
         setStudentOptions(
@@ -117,7 +117,7 @@ const Test1 = () => {
   useEffect(() => {
     if (selectedClass && selectedSection && selectedStudent) {
       Axios.get(
-        `http://localhost:8000/api/students?${selectedClass ? "class_id=" + selectedClass.value : ""
+        `https://lms-backend-production-587c.up.railway.app/api/students?${selectedClass ? "class_id=" + selectedClass.value : ""
         }&${selectedSection ? "section_id=" + selectedSection.value : ""}&${selectedStudent ? "student_id=" + selectedStudent.value : ""}}`
 
       )
@@ -135,7 +135,7 @@ const Test1 = () => {
 
 
   const allstudents = async () => {
-    const response = await Axios.get(`http://127.0.0.1:8000/api/students`)
+    const response = await Axios.get(`https://lms-backend-production-587c.up.railway.app/api/students`)
     setData(response.data)
     console.log(response.data)
   }
