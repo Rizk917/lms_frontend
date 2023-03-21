@@ -57,13 +57,7 @@ function Sidebar() {
           </p>
         </div>
       ) : null}
-      <div className="sidebar-buttons" id="sidebar-buttons">
-        <img src={adminlogo} alt="" />{" "}
-        <p>
-          <Link to="/admin">Admins</Link>
-        </p>
-      </div>
-
+   
       <div
         href="/"
         onClick={Logout}
