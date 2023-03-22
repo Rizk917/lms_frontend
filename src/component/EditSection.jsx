@@ -4,6 +4,8 @@ import "./first.css";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function EditSection() {
   const edithandler = () => {
     console.log("hello");
@@ -69,7 +71,7 @@ function EditSection() {
     await axios
       .delete(`https://lms-backend-production-587c.up.railway.app/api/students/${id}`)
       .then(() => {
-        console.log("student is deleted ");
+        toast.success("Student is deleted");
       })
       .catch((error) => {
         console.log(error);
@@ -84,7 +86,11 @@ function EditSection() {
   };
 
   return (
+    <>
+    <ToastContainer />
+
     <div className="editclassespage label-Addadmins">
+
       <div className="container-sectionn">
         <div className="editsectionbesid-border">
           <label className="label-Addadmins" htmlFor="">
@@ -221,7 +227,6 @@ function EditSection() {
                       student_id: hourframe.id,
                     }}
                   >
-                    {console.table(state)}
                     VIEW
                   </Link>
                 </button>
@@ -231,6 +236,7 @@ function EditSection() {
         </tbody>
       </table>
     </div>
+    </>
   );
 }
 

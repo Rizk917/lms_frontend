@@ -4,7 +4,8 @@ import "./first.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function Editclasses() {
   // <button onClick={() => console.log(state.class_id)}>hana</button>
 
@@ -22,12 +23,15 @@ function Editclasses() {
 
   const updateclassname = async () => {
     const data = { Class_Name: classname };
-    await axios
-      .put(`https://lms-backend-production-587c.up.railway.app/api/classes/${class_id}`, data)
-      .then(() => navigate("/classes"))
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const response = await axios.put(`https://lms-backend-production-587c.up.railway.app/api/classes/${class_id}`, data);
+      if (response.status === 200) {
+        toast.success("Class edited successfully!");
+        navigate("/classes");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 
@@ -48,6 +52,7 @@ function Editclasses() {
       await axios.delete(`https://lms-backend-production-587c.up.railway.app/api/sections/${id}`);
       console.log("the sections is deleted ");
       navigate(`/classes/${state.class_id}`, { state });
+      toast.success("Class deleted successfully!");
       getSections();
     } catch (error) {
       console.log(error);
@@ -59,8 +64,12 @@ function Editclasses() {
   }, []);
 
   return (
+    <>
+
+
     <div className="editclassespage">
       <div className="editclass-border">
+        
         <label className="label-Addadmins" htmlFor="">
           Class Name
         </label>
@@ -128,6 +137,7 @@ function Editclasses() {
         </tbody>
       </table>
     </div>
+    </>
   );
 }
 

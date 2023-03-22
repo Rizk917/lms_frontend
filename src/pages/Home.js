@@ -7,11 +7,22 @@ import Piechart from "../component/FatimaComponents/PiechartTotal";
 import Header from "../component/Header";
 import Sidebar from "../component/Sidebar";
 import "../CSS/Home.css";
-
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [attendanceData, setAttendanceData] = useState([]);
   const [newattdata, setnewattdata] = useState([]);
 
+  const navigate = useNavigate();
+  const Role = localStorage.getItem("Role");
+    useEffect(() => {
+      if (!localStorage.getItem('token')) {
+        navigate('/');
+      }else  if (Role === "moderator"){
+      
+        navigate('/home');
+       
+      }
+    }, []);
 
   const attendanceFunction = async()=>{
      axios.get("https://lms-backend-production-587c.up.railway.app/api/attendance/dashboard")
