@@ -2,7 +2,24 @@ import "../../App"
 import Header from "../../component/Header";
 import Sidebar from "../../component/Sidebar";
 import Admin from "../../component/admin/admin";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 function Adminpage() {
+  const navigate = useNavigate();
+  const Role = localStorage.getItem("Role");
+    useEffect(() => {
+      if (!localStorage.getItem('token')) {
+        navigate('/');
+      }else  if (Role === "moderator"){
+      
+        navigate('/home');
+       
+      }
+    }, []);
+
+
+
   return (
     <div>
 

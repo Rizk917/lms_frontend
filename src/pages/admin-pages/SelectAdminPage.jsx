@@ -2,8 +2,20 @@ import "../../App.css";
 import Header from "../../component/Header";
 import Sidebar from "../../component/Sidebar";
 import SelectAdminPage from "../../component/select-admin/SelectAdmins"
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function SelectAdminsPage() {
+  const navigate = useNavigate();
+  const Role = localStorage.getItem("Role");
+    useEffect(() => {
+      if (!localStorage.getItem('token')) {
+        navigate('/');
+      }else  if (Role === "moderator"){
+      
+        navigate('/home');
+       
+      }
+    }, []);
     return (
         <div>
 
