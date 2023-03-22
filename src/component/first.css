@@ -336,7 +336,7 @@
 
 .trr {
 
-    border: 2px solid #D8DEE2;
+    border: 1px solid #D8DEE2;
     color: #163951;
     margin-left: 20px;
 }
@@ -424,4 +424,12 @@
     border: 0;
     size: 25px;
     margin: 0;
+}
+
+.active{
+    text-decoration: underline !important;
+    font-weight: 800px;
+}
+.active:hover{
+    font-size: 20px;
 }

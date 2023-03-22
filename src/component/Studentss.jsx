@@ -170,8 +170,8 @@ const handlestudents =()=>{
                 <Link
                   className="edit-classes"
                   id="viewClasses"
-                  to="/SecondSelect"
-                  state={{ location: "/students", student_id: hourframe.id }}
+                  to={`/students/${hourframe.id}`}
+                  state={{ student_id: hourframe.id }}
                 >
                   view
                 </Link>

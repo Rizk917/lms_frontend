@@ -47,7 +47,7 @@ function Editclasses() {
     try {
       await axios.delete(`http://127.0.0.1:8000/api/sections/${id}`);
       console.log("the sections is deleted ");
-      navigate("/classes/edit", { state });
+      navigate(`/classes/${state.class_id}`, { state });
       getSections();
     } catch (error) {
       console.log(error);
@@ -93,7 +93,7 @@ function Editclasses() {
             <th className="headetable">Section Name</th>
             <th className="headetable">Number of Students</th>
             <th>
-              <Link className="addclass-button" to="/newSection" state={state}>
+              <Link className="addclass-button" to={`/classes/${state.class_id}/sections/new`} state={state}>
                 Add new Section
               </Link>
             </th>
@@ -115,7 +115,7 @@ function Editclasses() {
                 </button>
                 <button className="edit-classes">
                   <Link
-                    to="/EditSections"
+                    to={`/classes/${state.class_id}/sections/${item.id}`}
                     className="edit-classes"
                     state={{ ...state, sectionid: item.id, section_name: item.Section_Name }}
                   >

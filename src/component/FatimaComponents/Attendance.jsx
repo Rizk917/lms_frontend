@@ -208,7 +208,7 @@ const AttendanceTable = () => {
           <div className="attendanceBorderWord">Student Name</div>
           <div className="attendanceBorderWord">Date</div>
           <div className="attendanceBorderWord">Attendance</div>
-          <div className="attendanceBorderWord">edit</div>
+          <div className="attendanceBorderWord">Edit</div>
         </div>
         {data.map((item) => (
           <div className="attendanceListRow attendanceBorder">

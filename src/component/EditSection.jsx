@@ -47,7 +47,7 @@ function EditSection() {
     const data = { Section_Name: sectionname };
     await axios
       .put(`http://127.0.0.1:8000/api/sections/${state.sectionid}`, data)
-      .then(() => navigate("/classes/edit", { state }))
+      .then(() => navigate(`/classes/${state.class_id}`, { state }))
       .catch((error) => {
         console.log(error);
       });
@@ -79,7 +79,7 @@ function EditSection() {
   const handeleDelete = async (classId) => {
     await removestudent(classId).then(() => {
       studentsgetter();
-      window.location("/EditSections");
+      window.location(`/classes/${state.class_id}/sections/${state.sectionid}`);
     });
   };
 
@@ -99,7 +99,7 @@ function EditSection() {
           <div className="buttons-classes">
             <Link
               className="cancel-classes"
-              to="/classes/edit"
+              to={`/classes/${state.class_id}`}
               state={{ ...state, sectionid:undefined, section_name:undefined}}
             >
               Cancel
@@ -108,7 +108,6 @@ function EditSection() {
             <button
               className="submit-classes"
               id="special-submit"
-              // to="/classes/edit"
               onClick={() => updatesection()}
               state={{ class_id: state.class_id }}
             >
@@ -190,8 +189,8 @@ function EditSection() {
             <th>
               <Link
                 className="addclass-button"
-                to="/add-students"
-                state={{ state }}
+                to={`/classes/${state.class_id}/sections/${state.sectionid}/students/new`}
+                state={ state }
               >
                 Add new Student
               </Link>
@@ -216,7 +215,7 @@ function EditSection() {
 
                 <button className="edit-classes">
                   <Link
-                    to="/SecondSelect"
+                    to={`/classes/${state.class_id}/sections/${state.sectionid}/students/${hourframe.id}`}
                     className="edit-classes"
                     state={{...state,
                       student_id: hourframe.id,
