@@ -34,7 +34,7 @@ function AddSection() {
       )
       .then(() => {
         toast.success("Section added successfully!");
-        navigate("/classes/edit", { state });
+        navigate(`/classes/${state.class_id}`, { state });
       })
       .catch((error) => {
         console.log("error ", error);
@@ -58,7 +58,7 @@ function AddSection() {
         />
 
         <div className="buttons-classes">
-          <Link className="cancel-classes" to="/classes/edit" state={state}>
+          <Link className="cancel-classes" to={`/classes/${state.class_id}`} state={state}>
             Cancel
             {}
           </Link>
@@ -66,7 +66,6 @@ function AddSection() {
           <button
             className="submit-classes"
             id="special-submit"
-            to="/classes/edit"
             state={state}
             onClick={() => postnewsection()}
           >

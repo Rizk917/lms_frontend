@@ -31,7 +31,7 @@ export default function AddStudents() {
     formData.append("First_Name", firstname);
     formData.append("Last_Name", lastname);
     formData.append("phone_number", phonenumber);
-    formData.append("Section_ID", state.state.sectionid);
+    formData.append("Section_ID", state.sectionid);
     if (image) {
       formData.append("image_path", image, image.name); // append image file to FormData object
     }
@@ -44,7 +44,7 @@ export default function AddStudents() {
       })
       .then(() => {
         console.log("the student is added");
-        navigate("/EditSections", { state:state.state });
+        navigate(`/classes/${state.class_id}/sections/${state.sectionid}`, { state });
       })
       .catch((error) => {
         console.log("error :", error);
@@ -106,9 +106,9 @@ export default function AddStudents() {
           </div>
           <div className="M1-buttons">
             <Link
-              to="/EditSections"
+              to={`/classes/${state.class_id}/sections/${state.sectionid}`}
               className="M1-cancel-classes"
-              state={state.state}
+              state={state}
             >
               Cancel
             </Link>
@@ -117,9 +117,9 @@ export default function AddStudents() {
               className="M1-edit-classes"
 
               onClick={() => studentAdder()}
-              state={state.state}
+              state={state}
 
-              to="/EditSections"
+              to={`/classes/${state.class_id}/sections/${state.sectionid}`}
             >
               Submit
             </button>

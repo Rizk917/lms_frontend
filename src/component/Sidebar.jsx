@@ -1,10 +1,11 @@
 import React from "react";
 import "./first.css";
-import { Link, Route, Routes, BrowserRouter } from "react-router-dom";
+import {  NavLink, Route, Routes, BrowserRouter } from "react-router-dom";
 import AddAminPage from "../pages/admin-pages/AdminPage";
 import AddClassesPage from "../pages/AddClassesPage";
 import AddSectionsPage from "../pages/AddSectionsPage";
 import AddStudentsPage from "../pages/student-pages/AddStudentsPage";
+import logOut from "../images/logout.svg";
 import home from "../images/home_icon.png";
 import logo from "../images/logo.png";
 import classlogo from "../images/classicon.png";
@@ -27,46 +28,48 @@ function Sidebar() {
       <div className="sidebar-buttons">
         <img src={home} alt="" />{" "}
         <p>
-          <Link to="/home">Home</Link>
+          <NavLink to="/home" exact activeClassName='active'>Home</NavLink>
         </p>
       </div>
       <div className="sidebar-buttons">
         <img src={classlogo} alt="" />{" "}
         <p>
-          <Link to="/classes">Classes</Link>
+          <NavLink to="/classes" exact activeClassName='active'>Classes</NavLink>
         </p>
       </div>
       <div className="sidebar-buttons">
         <img src={studentlogo} alt="" />{" "}
         <p>
-          <Link to="/students">Students</Link>
-        </p>{" "}
+          <NavLink to="/students" exact activeClassName='active'>Students</NavLink>
+        </p>
       </div>
       <div className="sidebar-buttons" id="sidebar-buttons">
         <img src={Attendancelogo} alt="" />{" "}
         <p>
-          <Link to="/attendance">Attendance</Link>
+          <NavLink to="/attendances" exact activeClassName='active'>Attendance</NavLink>
         </p>
       </div>
 
       {Role === "Admin" ? (
         <div className="sidebar-buttons" id="sidebar-buttons">
-          <img src={adminlogo} alt="" />{" "}
+          <img src={adminlogo} alt="" />
           <p>
-            <Link to="/admin">Admins</Link>
+            <NavLink to="/admins"  exact activeClassName='active'>
+              Admins
+            </NavLink>
           </p>
         </div>
       ) : null}
-   
+
       <div
         href="/"
         onClick={Logout}
         className="sidebar-buttons"
         id="sidebar-buttons"
       >
-        <img src={adminlogo} alt="" />{" "}
+        <img src={logOut} alt="" />{" "}
         <p>
-          <Link to="/">Logout</Link>
+          <NavLink to="/"exact activeClassName='active'>Logout</NavLink>
         </p>
       </div>
     </div>

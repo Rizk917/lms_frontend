@@ -75,7 +75,7 @@ function CLasses() {
 
                 <button className="edit-classes">
                   <Link
-                    to="/classes/edit"
+                    to={`/classes/${item.id}`}
                     className="edit-classes"
                     onClick={() => console.log(item.id)}
                     state={{ class_id: item.id, class_name: item.Class_Name }}

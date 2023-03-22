@@ -208,7 +208,7 @@ const AttendanceTable = () => {
           <div className="attendanceBorderWord">Student Name</div>
           <div className="attendanceBorderWord">Date</div>
           <div className="attendanceBorderWord">Attendance</div>
-          <div className="attendanceBorderWord">edit</div>
+          <div className="attendanceBorderWord">Edit</div>
         </div>
         {data.map((item) => (
           <div className="attendanceListRow attendanceBorder">
@@ -275,7 +275,7 @@ const AttendanceTable = () => {
                 <option value="absent">Absent</option>
                 <option value="late">Late</option>
               </select>
-              <button className="attendance-tick" onClick={() => handleEdit(item)}>
+              <button className="attendance-tick " onClick={() => handleEdit(item)}>
                 <p>Edit</p>
               </button>
               </div>

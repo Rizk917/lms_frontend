@@ -196,15 +196,18 @@ h3 {
   display: flex;
   justify-content:center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .attendance-tick{
-  border-radius: 50%;
-  border: 1px solid #d8dee2;
+  border: 1px solid #0077cc;
+  background-color: #0077cc;
+  color: #d8dee2;
+  border-radius: 10%;
 }
 
 .new-select{
-  text-align: center;
-  background-color: #0077cc;
-  color: white;
+  background-color: #d8dee2;
+  color: #163951;
 }
+

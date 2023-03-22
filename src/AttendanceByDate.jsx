@@ -122,8 +122,8 @@ function AttendanceByDate() {
   const handleSelectChangeSection = (option) => {
     setselctedSection(option);
   };
-  const goToAttbyDate = () => {
-    navigate("/attendancepage");
+  const toHistory = () => {
+    navigate("/attendances/history");
   };
 
   return (
@@ -131,7 +131,7 @@ function AttendanceByDate() {
       <div className="studentsFilterHeaderHistory">
         <h1>Filter List by:</h1>
         <div className="attendance-history-flex">
-        <button onClick={goToAttbyDate} className="attendanceHistory">
+        <button onClick={toHistory} className="attendance-tick ">
           Attendance History
         </button>
         <div className="filterListBy" id="filterListBy">

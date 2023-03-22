@@ -131,10 +131,10 @@ function AddAdmins() {
 
           <div className="M8-buttons">
             <button className="M8-cancel-classes">
-              <Link to="/admin">Cancel</Link>
+              <Link to="/admins">Cancel</Link>
             </button>
             <button className="M8-edit-classes" onClick={handleSubmit}>
-              <Link to="/admin">Submit</Link>
+              <Link to="/admins">Submit</Link>
             </button>
           </div>
         </div>

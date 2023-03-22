@@ -34,7 +34,7 @@ function AddAdmins() {
         </div>
         </div>
         <div className="M9-buttons">
-        <button className="M9-cancel-classes"><Link to="/admin">Cancel</Link></button><button className="M9-edit-classes">Edit</button>
+        <button className="M9-cancel-classes"><Link to="/admins">Cancel</Link></button><button className="M9-edit-classes">Edit</button>
          </div>
       
     </div>
