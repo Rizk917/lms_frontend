@@ -36,7 +36,7 @@ function CLasses() {
   const handeleDelete = async (classId) => {
     await deleteclasses(classId).then(() => {
       getclasses();
-      window.location("/classes");
+      // window.location("/classes");
     });
   };
 
