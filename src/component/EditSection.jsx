@@ -75,7 +75,7 @@ function EditSection() {
   const handeleDelete = async (classId) => {
     await removestudent(classId).then(() => {
       studentsgetter();
-      window.location(`/classes/${state.class_id}/sections/${state.sectionid}`);
+      // window.location(`/classes/${state.class_id}/sections/${state.sectionid}`);
     });
   };
 
