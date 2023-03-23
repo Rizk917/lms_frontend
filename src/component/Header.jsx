@@ -8,7 +8,7 @@ function Header() {
     <>
       {Role === "Admin" ? (
         <div className="header">
-          <h1 className="heading">SuperAdmin Dashboard</h1>
+          <h1 className="heading">Admin Dashboard</h1>
         </div>
       ) : (
         <div className="header">

@@ -11,7 +11,7 @@ function EditAdminsPage() {
     useEffect(() => {
       if (!localStorage.getItem('token')) {
         navigate('/');
-      }else  if (Role === "moderator"){
+      }else  if (Role === "teacher"){
       
         navigate('/home');
        

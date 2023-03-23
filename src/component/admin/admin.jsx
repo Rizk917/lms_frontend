@@ -175,7 +175,7 @@ export default function Admin() {
                 >
                   <option value="">Select Role</option>
                   <option value="admin">Admin</option>
-                  <option value="moderator">Teacher</option>
+                  <option value="teacher">Teacher</option>
                 </select>
               </label>
               <button type="submit">Update</button>
