@@ -47,7 +47,6 @@ const Test1 = () => {
 
     await Axios.get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
-        console.log(res.data);
         setClassOptions(
           res.data.map(({ id, Class_Name }) => ({
             value: id,
@@ -124,7 +123,6 @@ const Test1 = () => {
 
         .then((res) => {
           setData(res.data);
-          console.log("fazzzzz", res.data);
         })
         .catch((err) => console.log(err));
     }
@@ -137,7 +135,6 @@ const Test1 = () => {
   const allstudents = async () => {
     const response = await Axios.get(`https://lms-backend-production-587c.up.railway.app/api/students`)
     setData(response.data)
-    console.log(response.data)
   }
 
 
@@ -154,7 +151,6 @@ const Test1 = () => {
   //classssss
   const handleSelectChangeClass = (option) => {
     setSelectedClass(option);
-    console.log(option);
     sectiongetters(option.value);
   };
 

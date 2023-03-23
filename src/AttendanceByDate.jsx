@@ -59,7 +59,6 @@ function AttendanceByDate() {
     axios
       .post("https://lms-backend-production-587c.up.railway.app/api/attendance", { attendance })
       .then((response) => {
-        console.log(response.data);
         setAttendance([]);
       })
       .catch((error) => {
@@ -88,7 +87,6 @@ function AttendanceByDate() {
           } `
         )
         .then((res) => {
-          console.log(res.data);
           setStudentOptions(
             res.data.map(({ id, First_Name, Last_Name }) => ({
               value: id,

@@ -12,7 +12,6 @@ export default function AddStudents() {
   const [sectionid, setsectionid] = useState();
 
   useEffect(() => {
-    console.log(`Section ID changed to ${sectionid}`);
   }, [sectionid]);
 
   const [firstname, setfirstname] = useState();
@@ -25,7 +24,6 @@ export default function AddStudents() {
   };
 
   const studentAdder = async () => {
-  console.log(state);
   
     const formData = new FormData(); // create FormData object to send file and form data
     formData.append("First_Name", firstname);
@@ -43,7 +41,6 @@ export default function AddStudents() {
         },
       })
       .then(() => {
-        console.log("the student is added");
         navigate(`/classes/${state.class_id}/sections/${state.sectionid}`, { state });
       })
       .catch((error) => {

@@ -8,7 +8,6 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 function EditSection() {
   const edithandler = () => {
-    console.log("hello");
   };
 
   const [subject, setsubject] = useState();
@@ -20,7 +19,6 @@ function EditSection() {
   const [studentsdata, setstudentsdata] = useState();
   const [coursesdata, setcoursesdata] = useState([]);
   useEffect(() => {
-    console.log(sectionid);
     studentsgetter();
     getCourses();
   }, [sectionid, subject]);
@@ -30,7 +28,6 @@ function EditSection() {
     await axios.post(`https://lms-backend-production-587c.up.railway.app/api/courses`, data).then(() => {
       getCourses();
     });
-    console.log("adding courses is done ");
   };
 
   const getCourses = async () => {
@@ -38,7 +35,6 @@ function EditSection() {
       const response = await axios.get(
         `https://lms-backend-production-587c.up.railway.app/api/sections/${state.sectionid}/courses`
       );
-      console.log(response.data);
       setcoursesdata(response.data);
     } catch (error) {
       console.log("the error :", error);
@@ -54,13 +50,11 @@ function EditSection() {
         console.log(error);
       });
   };
-  console.log(state);
   const studentsgetter = async () => {
     try {
       const response = await axios.get(
         `https://lms-backend-production-587c.up.railway.app/api/students/sections/${state.sectionid}`
       );
-      console.log(response.data);
       setstudentsdata(response.data);
     } catch (error) {
       console.log("the error :", error);

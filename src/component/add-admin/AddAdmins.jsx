@@ -26,7 +26,6 @@ function AddAdmins() {
       Password: Password,
       Password_confirmation: confirmPassword,
     };
-    console.log("inputvalue ", JSON.stringify(inputValue));
     try {
       const response = await fetch("https://lms-backend-production-587c.up.railway.app/api/register", {
         method: "POST",
@@ -37,7 +36,6 @@ function AddAdmins() {
       if (response.status == 201) {
         toast.success("Admin added successfully!");
       }
-      console.log("response ", response);
     } catch (error) {
       console.log("error ", error);
     }

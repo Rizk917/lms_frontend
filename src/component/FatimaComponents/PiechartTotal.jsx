@@ -9,7 +9,6 @@ const Piechart = () => {
     await axios
       .get("https://lms-backend-production-587c.up.railway.app/api/attendance/dashboard/piechart")
       .then((res) => {
-        console.log(res.data);
 
         setBigPieChartData(res.data);
       })
@@ -53,7 +52,6 @@ const Piechart = () => {
                 }
               />
 
-              {console.log(entry.label)}
             </>
           ))}
         </Pie>

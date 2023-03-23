@@ -8,14 +8,12 @@ function CLasses() {
   const [classes, setclasses] = useState();
   const navigate = useNavigate();
   const edithandler = () => {
-    console.log("hello world ");
   };
 
   const deleteclasses = async (classId) => {
     await axios
       .delete(`https://lms-backend-production-587c.up.railway.app/api/classes/${classId}`)
       .then(() => {
-        console.log("class is deleted");
       })
       .catch((error) => {
         console.log(error);
@@ -25,7 +23,6 @@ function CLasses() {
   const getclasses = async () => {
     try {
       const response = await axios.get(`https://lms-backend-production-587c.up.railway.app/api/classes`);
-      console.log(response.data);
       setclasses(response.data);
     } catch (error) {
       console.error("err ", error);
@@ -77,7 +74,7 @@ function CLasses() {
                   <Link
                     to={`/classes/${item.id}`}
                     className="edit-classes"
-                    onClick={() => console.log(item.id)}
+                 
                     state={{ class_id: item.id, class_name: item.Class_Name }}
                   >
                     VIEW

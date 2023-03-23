@@ -34,7 +34,6 @@ const TakeAttendance = ({ sectionId }) => {
     axios
       .post("https://lms-backend-production-587c.up.railway.app/api/attendance/post", { attendance, sectionId })
       .then((response) => {
-        console.log(response.data);
         setAttendance([]);
       })
       .catch((error) => {

@@ -63,7 +63,6 @@ export default function Admin() {
           Role: "",
         });
         loadadmins();
-        console.log(response)
         if (response.status==200){
           toast.success("Admin edited successfully!");
         }

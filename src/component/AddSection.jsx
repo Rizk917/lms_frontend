@@ -16,7 +16,6 @@ function AddSection() {
   const [clas_id, setclas_id] = useState(state.class_id);
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(state);
   }, [clas_id]);
 
   const postnewsection = async () => {

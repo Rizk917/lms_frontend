@@ -33,7 +33,6 @@ const TakeAttendance = () => {
     axios
       .post("https://lms-backend-production-587c.up.railway.app/api/attendance", { attendance })
       .then((response) => {
-        console.log(response.data);
         setAttendance([]);
       })
       .catch((error) => {

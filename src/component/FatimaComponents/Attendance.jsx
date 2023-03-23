@@ -65,7 +65,6 @@ const AttendanceTable = () => {
     axios
       .get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
-        console.log(res.data);
         setClassOptions(
           res.data.map(({ id, Class_Name }) => ({
             value: id,
@@ -84,7 +83,6 @@ const AttendanceTable = () => {
           `https://lms-backend-production-587c.up.railway.app/api/classes/${selectedClass.value}/sections`
         )
         .then((res) => {
-          console.log(res.data);
           setSectionOptions(
             res.data.map(({ id, Section_Name }) => ({
               value: id,
@@ -106,7 +104,6 @@ const AttendanceTable = () => {
           } `
         )
         .then((res) => {
-          console.log(res.data);
           setStudentOptions(
             res.data.map(({ id, First_Name, Last_Name }) => ({
               value: id,
@@ -133,7 +130,6 @@ const AttendanceTable = () => {
         setData(res.data);
         setAttendances(res.data);
 
-        console.log(startDate.toISOString().slice(0, 10));
       })
       .catch((err) => console.log(err));
   }, [selectedClass, selectedSection, selectedStudent, startDate]);
@@ -218,7 +214,6 @@ const AttendanceTable = () => {
             <div className="attendanceBorderWord">{item.date}</div>
             <div className="attendanceBorderWord">{item.status}</div>
             <div className="attendanceBorderWord">
-              {console.log(item)}
               {/* <div id={`attendance-status-${item.id}`}
                 defaultValue={item.status}>
                 <div className="form-check form-check-inline">

@@ -61,7 +61,6 @@ const Students = () => {
           } `
         )
         .then((res) => {
-          console.log(res.data);
           setStudentOptions(
             res.data.map(({ id, First_Name, Last_Name }) => ({
               value: id,
@@ -95,7 +94,6 @@ const handlestudents =()=>{
     await axios.delete(`https://lms-backend-production-587c.up.railway.app/api/students/${id}`);
     handlestudents()
     
-    console.log("student is deleted ");
   };
 
   //classssss

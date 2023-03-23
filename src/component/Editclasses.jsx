@@ -13,12 +13,10 @@ function Editclasses() {
   const navigate = useNavigate();
   const class_id = state.class_id;
   const [sections, setsections] = useState();
-  console.log(state)
   const [classname, setclassname] = useState(state.class_name);
   
 
   const edithandler = () => {
-    console.log("hello");
   };
 
   const updateclassname = async () => {
@@ -50,7 +48,6 @@ function Editclasses() {
   const deletesection = async (id) => {
     try {
       await axios.delete(`https://lms-backend-production-587c.up.railway.app/api/sections/${id}`);
-      console.log("the sections is deleted ");
       navigate(`/classes/${state.class_id}`, { state });
       toast.success("Class deleted successfully!");
       getSections();

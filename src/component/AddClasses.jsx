@@ -8,7 +8,6 @@ function AddClasses() {
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
-    console.log(event.target.value);
     setClass_Name(event.target.value);
   };
 
@@ -26,8 +25,6 @@ function AddClasses() {
 
     var response = await axios(config)
       .then(() => {
-        console.log("res ", response);
-        console.log("class is posted");
         navigate("/classes");
       })
       // var response = await axios.get(`https://lms-backend-production-587c.up.railway.app/api/classes`);

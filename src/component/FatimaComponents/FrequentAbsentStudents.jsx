@@ -40,7 +40,6 @@ const FrequentAbsentStudents = () => {
     axios
       .get("https://lms-backend-production-587c.up.railway.app/api/classes")
       .then((res) => {
-        console.log(res.data);
         setClassOptions(
           res.data.map(({ id, Class_Name }) => ({
             value: id,
@@ -68,7 +67,6 @@ const FrequentAbsentStudents = () => {
       )
       .then((res) => {
         setAbsentStudents(res.data);
-        console.log("hello", res.data);
       })
       .catch((err) => console.log(err));
   }, [selectedClass]);

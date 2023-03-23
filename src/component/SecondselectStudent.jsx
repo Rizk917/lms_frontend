@@ -13,7 +13,6 @@ export default function SecondselectStudent() {
       .get(`https://lms-backend-production-587c.up.railway.app/api/students/id/${state.student_id}`)
       .then((response) => {
         setstudentinfo(response.data[0]);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

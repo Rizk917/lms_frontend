@@ -23,7 +23,6 @@ const LoginPage = () => {
           "https://lms-backend-production-587c.up.railway.app/api/login",
           { Email, Password }
         );
-        console.log(response.data, "userRegister");
 
         if (response.status === 200) {
           toast.success("Successfully Logged in!");
@@ -35,7 +34,6 @@ const LoginPage = () => {
           window.location.href = "/home";
         }
       } catch (error) {
-        console.log(error.response.data);
         setError("Incorrect credentials");
       }
     }
