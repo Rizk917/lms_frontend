@@ -19,9 +19,15 @@ const LoginPage = () => {
       setError("Password is required");
     } else {
       try {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         const response = await axios.post(
           "https://lms-backend-production-587c.up.railway.app/api/login",
-          { Email, Password }
+          { Email, Password },
+          {
+            headers: {
+              'X-CSRF-Token': csrfToken
+            }
+          }
         );
 
         if (response.status === 200) {
@@ -38,6 +44,7 @@ const LoginPage = () => {
       }
     }
   };
+
 
   return (<>
     <div className="main-container-login">
